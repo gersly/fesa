@@ -1,0 +1,28 @@
+/* Your app custom styles here */
+.card-tickits{
+  background: blue;
+   color: white;
+  height: 20vh;
+}
+
+
+.col-20 i{
+  
+  font-size: 32px
+}
+
+.theme-dark{
+  background: black;
+  color: white;
+}
+
+.border-1{
+  border-style: solid;
+  border-color: white;
+  border-radius: 8px;
+  border-width: 1px;
+}
+
+.text-center h2{
+  text-align: center
+}

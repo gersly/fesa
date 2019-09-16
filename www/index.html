@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!--
+  Customize this policy to fit your own app's needs. For more guidance, see:
+      https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+  Some notes:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+      * Enable inline JS: add 'unsafe-inline' to default-src
+  -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap: content:">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+
+  <meta name="theme-color" content="#007aff">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <title>Tickits</title>
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="icon" href="assets/icons/favicon.png">
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+
+  <link rel="stylesheet" href="framework7/css/framework7.bundle.min.css">
+  <link rel="stylesheet" href="css/icons.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+</head>
+
+<body>
+  <div id="app" class="">
+    <!-- Status bar overlay for fullscreen mode-->
+    <div class="statusbar "></div>
+
+    <!-- Your main view, should have "view-main" class -->
+    <div class="view view-main view-init safe-areas theme-dark">
+        <div class="page theme-dark" data-name="home">
+            <div class="navbar">
+              <div class="navbar-inner sliding">
+                <div class="left">
+                    <!-- <a href="#" class="link back">
+                      <i class="icon icon-back"></i>
+                      <span class="if-not-md">Back</span>
+                    </a> -->
+                  </div>
+                <div class="title"></div>
+              </div>
+            </div>
+            <div class="toolbar tabbar toolbar-bottom">
+              <div class="toolbar-inner">
+                <a href="#tab-1" class="tab-link tab-link-active"><i class="fas fa-newspaper"></i></a>
+                <a href="#tab-2" class="tab-link"><i class="fas fa-ticket-alt"></i></a>
+                <a href="#tab-3" class="tab-link"><i class="fas fa-location-arrow"></i></a>
+              </div>
+            </div>
+            <div class="tabs">
+              <div id="tab-1" class="page-content tab tab-active">
+                  <div class="block-title block-title-large">Categories</div>
+                  <div class="card card-tickits">
+                      <div class="card-content card-content-padding text-center"><h2>Nightlife</h2></div>
+                    </div>
+                    <div class="card card-tickits">
+                        <div class="card-content card-content-padding text-center"><h2>Leisure</h2></div>
+                      </div>
+                      <div class="card card-tickits">
+                          <div class="card-content card-content-padding text-center"><h2>Sport</h2></div>
+                        </div>
+                        <div class="card card-tickits">
+                            <div class="card-content card-content-padding text-center"><h2>Business & Education</h2></div>
+                          </div>
+              </div>
+              <div id="tab-2" class="page-content tab">
+                  <div class="list media-list">
+                      <ul>
+                        <li>
+                          <a href="#" class="item-link item-content">
+                            <div class="item-media"><img src="https://cdn.framework7.io/placeholder/people-160x160-1.jpg" width="80"/></div>
+                            <div class="item-inner">
+                              <div class="item-title-row">
+                                <div class="item-title">Yellow Submarine</div>
+                                <div class="item-after">$15</div>
+                              </div>
+                              <div class="item-subtitle">Beatles</div>
+                              <div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit amet, pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In vel dui laoreet, commodo augue id, pulvinar lacus.</div>
+                            </div></a></li>
+                        <li>
+                          <a href="#" class="item-link item-content">
+                            <div class="item-media"><img src="https://cdn.framework7.io/placeholder/people-160x160-2.jpg" width="80"/></div>
+                            <div class="item-inner">
+                              <div class="item-title-row">
+                                <div class="item-title">Don't Stop Me Now</div>
+                                <div class="item-after">$22</div>
+                              </div>
+                              <div class="item-subtitle">Queen</div>
+                              <div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit amet, pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In vel dui laoreet, commodo augue id, pulvinar lacus.</div>
+                            </div>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#" class="item-link item-content">
+                            <div class="item-media"><img src="https://cdn.framework7.io/placeholder/people-160x160-3.jpg" width="80"/></div>
+                            <div class="item-inner">
+                              <div class="item-title-row">
+                                <div class="item-title">Billie Jean</div>
+                                <div class="item-after">$16</div>
+                              </div>
+                              <div class="item-subtitle">Michael Jackson</div>
+                              <div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit amet, pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In vel dui laoreet, commodo augue id, pulvinar lacus.</div>
+                            </div>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+              </div>
+              <div id="tab-3" class="page-content tab">
+                <div class="block">
+                  <p>Tab 3 content</p>
+                  ...
+                </div>
+              </div>
+            </div>
+          </div>
+      <!-- Page closed -->
+
+
+    </div>
+    <!-- Main view closed -->
+
+
+
+
+  </div>
+  <!--App div closed-->
+
+  <!-- Framework7 library -->
+  <script src="framework7/js/framework7.bundle.min.js"></script>
+
+  <!-- App routes -->
+  <script src="js/routes.js"></script>
+  <!-- App scripts -->
+  <script src="js/app.js"></script>
+
+</body>
+
+</html>
