@@ -1,28 +1,67 @@
 /* Your app custom styles here */
-.card-tickits{
-  background: blue;
-   color: white;
-  height: 20vh;
-}
-
-
-.col-20 i{
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,900&display=swap');
+/* 
+body{
+  font-family: 'Source Sans Pro';
+  /* font-family: 'Roboto' */
   
-  font-size: 32px
+.statusbar{
+  background: black
 }
 
+
+.item-title{
+  font-family: 'Open Sans';
+  font-size: 1.3rem !important;
+  font-weight: 900 !important;
+  letter-spacing: -1px;
+}
+
+.item-subtitle{
+  font-family: 'Open Sans';
+  font-size: 1rem !important;
+  font-weight: 900 !important;
+  color: #fff !important;
+  padding-top:.25vh;
+  letter-spacing: .5px;
+}
+
+
+.text-center{
+  text-align: center
+}
 .theme-dark{
-  background: black;
+  background-color: black !important;
   color: white;
 }
-
-.border-1{
-  border-style: solid;
-  border-color: white;
-  border-radius: 8px;
-  border-width: 1px;
+.theme-green{
+  background-color: #377E3F !important;
+  color: white
 }
 
-.text-center h2{
-  text-align: center
+.item-media img{
+  border-radius: 4%;
+  width: 25vw;
+  height: 25vw
+}
+
+.item-subtitle i{
+  color: #fff
+}
+
+.block button{
+  height: 6vh;
+  background: #214C26
+}
+
+
+div .single-hero {
+  height: 500px !important;
+  background-position: center left !important;
+  background-repeat: no-repeat;
+  background-size: cover !important
+}
+
+.card-expandable{
+  height: 500px !important;
 }

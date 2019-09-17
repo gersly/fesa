@@ -17,7 +17,10 @@ var routes = [
     path: '/places/',
     url: './pages/places.html',
   },
-
+  {
+    path: '/single/',
+    url: './pages/single.html',
+  },
 
   {
     path: '/dynamic-route/blog/:blogId/post/:postId/',

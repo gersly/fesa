@@ -36,96 +36,141 @@
 
 </head>
 
-<body>
+<body >
   <div id="app" class="">
     <!-- Status bar overlay for fullscreen mode-->
     <div class="statusbar "></div>
 
     <!-- Your main view, should have "view-main" class -->
-    <div class="view view-main view-init safe-areas theme-dark">
+    <div class="view view-main view-init safe-areas ">
+        <!-- Initial Page, "data-name" contains page name -->
         <div class="page theme-dark" data-name="home">
-            <div class="navbar">
-              <div class="navbar-inner sliding">
-                <div class="left">
-                    <!-- <a href="#" class="link back">
-                      <i class="icon icon-back"></i>
-                      <span class="if-not-md">Back</span>
-                    </a> -->
+            <div class="navbar theme-dark">
+              <div class="navbar-inner theme-dark">
+                  <div class="left"></div>
+                  <div class="title ">Feed</div>
+                  <!-- Large title element -->
+                  <div class="title-large theme-dark ">
+                    <div class="title-large-text theme-dark">Feed</div>
                   </div>
-                <div class="title"></div>
-              </div>
-            </div>
-            <div class="toolbar tabbar toolbar-bottom">
-              <div class="toolbar-inner">
-                <a href="#tab-1" class="tab-link tab-link-active"><i class="fas fa-newspaper"></i></a>
-                <a href="#tab-2" class="tab-link"><i class="fas fa-ticket-alt"></i></a>
-                <a href="#tab-3" class="tab-link"><i class="fas fa-location-arrow"></i></a>
-              </div>
-            </div>
-            <div class="tabs">
-              <div id="tab-1" class="page-content tab tab-active">
-                  <div class="block-title block-title-large">Categories</div>
-                  <div class="card card-tickits">
-                      <div class="card-content card-content-padding text-center"><h2>Nightlife</h2></div>
-                    </div>
-                    <div class="card card-tickits">
-                        <div class="card-content card-content-padding text-center"><h2>Leisure</h2></div>
+                  <div class="right"></div>
+                <div class="subnavbar">
+                  <!-- Searchbar with auto init -->
+                  <form class="searchbar theme-dark">
+                    <div class="searchbar-inner">
+                      <div class="searchbar-input-wrap">
+                        <input type="search" placeholder="Search">
+                        <i class="searchbar-icon"></i>
+                        <span class="input-clear-button"></span>
                       </div>
-                      <div class="card card-tickits">
-                          <div class="card-content card-content-padding text-center"><h2>Sport</h2></div>
-                        </div>
-                        <div class="card card-tickits">
-                            <div class="card-content card-content-padding text-center"><h2>Business & Education</h2></div>
-                          </div>
+                      <span class="searchbar-disable-button if-not-aurora">Cancel</span>
+                    </div>
+                  </form>
+                </div>
               </div>
-              <div id="tab-2" class="page-content tab">
-                  <div class="list media-list">
+            </div>
+            <div class="page-content theme-dark">
+              <!-- Searchbar backdrop -->
+              <div class="searchbar-backdrop"></div>
+              <!-- hide-on-search element -->
+              <div class="block searchbar-hide-on-search">
+                  <button class="col button button-fill">Buy Tickets <i class="fas fa-bookmark"></i></button> 
+              </div>
+              <!-- search target list -->
+              <div class="card theme-dark">
+                  <!-- <div class="card-header">Latest Events</div> -->
+                  <div class="card-content">
+                    <div class="list media-list searchbar-found">
                       <ul>
-                        <li>
-                          <a href="#" class="item-link item-content">
-                            <div class="item-media"><img src="https://cdn.framework7.io/placeholder/people-160x160-1.jpg" width="80"/></div>
+                        <li class="item-content popup-open" href="#" data-popup=".popup-about">
+                          <div class="item-media"><img src="https://cdn.framework7.io/placeholder/fashion-88x88-4.jpg" width="44"/></div>
+                          <div class="item-inner">
+                            <div class="item-title-row">
+                              <div class="item-title">Urban Festival Suriname</div>
+                            </div>
+                            <div class="item-subtitle"><i class="far fa-calendar-alt"></i> Dec 23, 2019</div>
+                            <div class="item-subtitle"><i class="far fa-bookmark"></i> $25</div>
+                            <div class="item-subtitle"><i class="fas fa-map-pin"></i> Euphoria Nightclub</div>
+                          </div>
+                          <div class="popup popup-about">
+                            <div class="page-content">
+
+                              <p class="text-center"><a class="link popup-close text-center" href="#"><i class="fas fa-chevron-down fa-2x"></i></a></p>
+                              <div class="card card-expandable">
+                                
+                                  <div class="card-content">
+                                    
+                                    <div class="single-hero" style="background: url('https://d1csarkz8obe9u.cloudfront.net/posterpreviews/glow-disco-party-poster-template-2d310ac36d313dfc6fbc11b714f3859f_screen.jpg')">
+                          
+                                    </div>
+                                
+                                    
+                                  </div>
+                            </div>
+                            <!-- End of image card -->
+                            <div class="block-title block-title-large text-center">Urban Festival Suriname</div>
+                            <div class="block block-strong inset">
+                                <p>Donec et nulla auctor massa pharetra adipiscing ut sit amet sem. Suspendisse molestie velit vitae mattis tincidunt. Ut sit amet quam mollis, vulputate turpis vel, sagittis felis. </p>
+                              </div>
+                              <div class="block block-strong inset">
+                                  <p>Donec et nulla auctor massa pharetra adipiscing ut sit amet sem. Suspendisse molestie velit vitae mattis tincidunt. Ut sit amet quam mollis, vulputate turpis vel, sagittis felis. </p>
+                                </div>
+                              </div>
+                          </div>
+                        </li>
+                        <li class="item-content">
+                          <div class="item-media"><img src="https://cdn.framework7.io/placeholder/fashion-88x88-5.jpg" width="44"/></div>
+                          <div class="item-inner">
+                            <div class="item-title-row">
+                              <div class="item-title">Don't Stop Me Now</div>
+                            </div>
+                            <div class="item-subtitle"><i class="far fa-calendar-alt"></i> Dec 23, 2019</div>
+                            <div class="item-subtitle"><i class="far fa-bookmark"></i> $25</div>
+                            <div class="item-subtitle"><i class="fas fa-map-pin"></i> Euphoria Nightclub</div>
+                          </div>
+                        </li>
+                        <li class="item-content">
+                          <div class="item-media"><img src="https://cdn.framework7.io/placeholder/fashion-88x88-6.jpg" width="44"/></div>
+                          <div class="item-inner">
+                            <div class="item-title-row">
+                              <div class="item-title">Billie Jean</div>
+                            </div>
+                            <div class="item-subtitle"><i class="far fa-calendar-alt"></i> Dec 23, 2019</div>
+                            <div class="item-subtitle"><i class="far fa-bookmark"></i> $25</div>
+                            <div class="item-subtitle"><i class="fas fa-map-pin"></i> Euphoria Nightclub</div>
+                          </div>
+                        </li>
+                        <li class="item-content">
+                            <div class="item-media"><img src="https://cdn.framework7.io/placeholder/fashion-88x88-4.jpg" width="44"/></div>
                             <div class="item-inner">
                               <div class="item-title-row">
-                                <div class="item-title">Yellow Submarine</div>
-                                <div class="item-after">$15</div>
+                                <div class="item-title">Urban Festival Suriname</div>
                               </div>
-                              <div class="item-subtitle">Beatles</div>
-                              <div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit amet, pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In vel dui laoreet, commodo augue id, pulvinar lacus.</div>
-                            </div></a></li>
-                        <li>
-                          <a href="#" class="item-link item-content">
-                            <div class="item-media"><img src="https://cdn.framework7.io/placeholder/people-160x160-2.jpg" width="80"/></div>
+                              <div class="item-subtitle"><i class="far fa-calendar-alt"></i> Dec 23, 2019</div>
+                              <div class="item-subtitle"><i class="far fa-bookmark"></i> $25</div>
+                              <div class="item-subtitle"><i class="fas fa-map-pin"></i> Euphoria Nightclub</div>
+                            </div>
+                          </li>
+                          <li class="item-content">
+                            <div class="item-media"><img src="https://cdn.framework7.io/placeholder/fashion-88x88-5.jpg" width="44"/></div>
                             <div class="item-inner">
                               <div class="item-title-row">
                                 <div class="item-title">Don't Stop Me Now</div>
-                                <div class="item-after">$22</div>
                               </div>
-                              <div class="item-subtitle">Queen</div>
-                              <div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit amet, pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In vel dui laoreet, commodo augue id, pulvinar lacus.</div>
+                              <div class="item-subtitle"><i class="far fa-calendar-alt"></i> Dec 23, 2019</div>
+                              <div class="item-subtitle"><i class="far fa-bookmark"></i> $25</div>
+                              <div class="item-subtitle"><i class="fas fa-map-pin"></i> Euphoria Nightclub</div>
                             </div>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#" class="item-link item-content">
-                            <div class="item-media"><img src="https://cdn.framework7.io/placeholder/people-160x160-3.jpg" width="80"/></div>
-                            <div class="item-inner">
-                              <div class="item-title-row">
-                                <div class="item-title">Billie Jean</div>
-                                <div class="item-after">$16</div>
-                              </div>
-                              <div class="item-subtitle">Michael Jackson</div>
-                              <div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit amet, pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In vel dui laoreet, commodo augue id, pulvinar lacus.</div>
-                            </div>
-                          </a>
-                        </li>
+                          </li>
+                          
                       </ul>
                     </div>
-              </div>
-              <div id="tab-3" class="page-content tab">
-                <div class="block">
-                  <p>Tab 3 content</p>
-                  ...
+                  </div>
+                  <!-- <div class="card-footer"> <span>January 20, 2015</span><span>5 comments</span></div> -->
                 </div>
+              <!-- Nothing found message -->
+              <div class="block searchbar-not-found">
+                <div class="block-inner">Nothing found</div>
               </div>
             </div>
           </div>

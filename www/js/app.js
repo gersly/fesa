@@ -36,3 +36,8 @@ var searchbar = app.searchbar.create({
     }
   }
 });
+
+//Open photo browser on click
+$$('.pb-standalone').on('click', function () {
+  myPhotoBrowserStandalone.open();
+});
