@@ -29,7 +29,7 @@ export default function Tabs() {
           id="tabs"
           name="tabs"
           onChange={(e) => setActiveTab(e.target.value)}
-          className="block w-full rounded-md border-neutral-300 py-2 pl-3 pr-10 text-base focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
+          className="block w-full rounded-md border-neutral-300 py-2 pl-3 pr-10 text-base focus:border-orange-500 focus:outline-none focus:ring-orange-500 sm:text-sm"
           defaultValue={tabs.find((tab) => tab.slug === activeTab).name}
         >
           {tabs.map((tab) => (
@@ -47,8 +47,8 @@ export default function Tabs() {
                 href={tab.href}
                 className={classNames(
                   tab.slug === activeTab
-                    ? 'border-blue-500 text-blue-600'
-                    : 'border-transparent text-neutral-500 hover:text-neutral-700 hover:border-neutral-300',
+                    ? 'border-orange-500 text-orange-500'
+                    : 'border-transparent text-neutral-500 hover:text-orange-500 hover:border-orange-500',
                   'whitespace-nowrap py-4 cursor-pointer px-1 border-b-2 font-medium text-sm'
                 )}
                 aria-current={tab.current ? 'page' : undefined}

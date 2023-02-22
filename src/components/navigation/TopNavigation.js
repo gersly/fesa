@@ -37,7 +37,7 @@ export default function TopNavigation() {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                  <p className='font-logo text-2xl'>Fesa 🎉</p>
+                  <p className='font-logo font-bold text-3xl'>Fesa! 🎉</p>
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
