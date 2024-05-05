@@ -1,6 +1,7 @@
+import HomeHeader from '@/components/headers/HomeHeader'
+import PageLayout from '@/components/layouts/PageLayout'
 import Tabs from '@/components/navigation/Tabs'
 import TopNavigation from '@/components/navigation/TopNavigation'
-import CategoryStack from '@/components/stack/CategoryStack'
 import EventsStack from '@/components/stack/EventsStack'
 import Head from 'next/head'
 
@@ -13,18 +14,12 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <TopNavigation />
-      <div className="mx-auto max-w-6xl px-6 lg:px-8">
-        <div className='flex h-[240px] space-y-4 bg-white flex-col items-start justify-center'>
-          <h1 className='text-4xl max-w-2xl font-heading text-neutral-900 font-bold'>Never miss a beat - Fesa keeps you in the loop!</h1>
-          <p className='font-body max-w-3xl text-neutral-500'>
-            With Fesa, you can easily keep track of all the latest events, add your own events, and create your own venue complete with pictures and information about past parties.</p>
-        </div>
+      <PageLayout>
+        <HomeHeader />
         <Tabs />
-        {/* <CategoryStack /> */}
         <EventsStack />
-      </div>
+      </PageLayout>
     </>
   )
 }
