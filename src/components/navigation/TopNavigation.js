@@ -193,9 +193,10 @@ export default function TopNavigation() {
             {/* The actual dialog panel  */}
             <Dialog.Panel className="mx-auto max-w-sm rounded bg-white w-full min-h-[100px] max-h-[320px] p-2 overflow-y-scroll">
               <Dialog.Title className={'py-2'}>Complete your order</Dialog.Title>
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((loc, index) => {
+              {["Wanica, Suriname", "Amsterdam, Nederland", "Rotterdam, Nederland", "Antwerpen, Belgie", "Brussels, Belgie", 6, 7, 8, 9].map((loc, index) => {
                 return (
                   <div
+                    key={index}
                     onClick={() => handleLocation(loc)}
                     className='h-10'>
                     <p>{loc}</p>
