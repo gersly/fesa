@@ -38,7 +38,7 @@ export default function Tabs() {
         </select>
       </div>
       <div className="hidden sm:block">
-        <div className="border-none border-neutral-200">
+        <div className="border-0 border-neutral-200">
           <nav className="-mb-px flex space-x-8" aria-label="Tabs">
             {tabs.map((tab) => (
               <p

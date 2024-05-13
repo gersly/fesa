@@ -191,18 +191,22 @@ export default function TopNavigation() {
           {/* Container to center the panel */}
           <div className="flex min-h-full items-center justify-center p-4">
             {/* The actual dialog panel  */}
-            <Dialog.Panel className="mx-auto max-w-sm rounded bg-white w-full min-h-[100px] max-h-[320px] p-2 overflow-y-scroll">
-              <Dialog.Title className={'py-2'}>Complete your order</Dialog.Title>
-              {["Wanica, Suriname", "Amsterdam, Nederland", "Rotterdam, Nederland", "Antwerpen, Belgie", "Brussels, Belgie", 6, 7, 8, 9].map((loc, index) => {
-                return (
-                  <div
-                    key={index}
-                    onClick={() => handleLocation(loc)}
-                    className='h-10'>
-                    <p>{loc}</p>
-                  </div>
-                )
-              })}
+            <Dialog.Panel className="mx-auto max-w-sm rounded-md bg-white w-full min-h-[100px] max-h-[320px] overflow-y-scroll">
+              <div className='p-2'>
+                <Dialog.Title className={'font-medium text-lg text-neutral-900'}>Select a city</Dialog.Title>
+              </div>
+              <div className='p-2'>
+                {["Wanica, Suriname", "Amsterdam, Nederland", "Rotterdam, Nederland", "Antwerpen, Belgie", "Brussels, Belgie"].map((loc, index) => {
+                  return (
+                    <div
+                      key={index}
+                      onClick={() => handleLocation(loc)}
+                      className='h-10 text-md text-neutral-600'>
+                      <p>{loc}</p>
+                    </div>
+                  )
+                })}
+              </div>
             </Dialog.Panel>
           </div>
         </div>
