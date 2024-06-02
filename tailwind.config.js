@@ -13,7 +13,7 @@ module.exports = {
     extend:
     {
       fontFamily: {
-        heading: ['Plus Jakarta Sans', 'Inter'],
+        heading: ['Circular', 'CircularFont', 'Inter'],
         body: ['Inter', 'sans-serif'],
         logo: ['Shantell Sans']
       },

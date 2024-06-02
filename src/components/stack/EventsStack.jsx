@@ -48,12 +48,12 @@ export default function EventsStack() {
               </span>}
             </div>
             <div className='px-4 py-5 space-y-3'>
-              <h3 className='font-bold font-heading text-xl'>{category.name}</h3>
+              <h3 className='font-bold  text-xl'>{category.name}</h3>
               <div className='h-auto overflow-hidden w-full'>
-                <p className='text-sm font-body h-20 text-neutral-500'>{category.description}</p>
+                <p className='text-sm  h-20 text-neutral-500'>{category.description}</p>
               </div>
-              {category.price === 0 ? <p className='font-bold text-neutral-900 font-body text-2xl'>Free</p>
-                : <p className='font-bold text-neutral-900 font-body text-2xl'>${category.price} <span className='font-medium text-base text-neutral-500'>
+              {category.price === 0 ? <p className='font-bold text-neutral-900  text-2xl'>Free</p>
+                : <p className='font-bold text-neutral-900  text-2xl'>${category.price} <span className='font-medium text-base text-neutral-500'>
                   per ticket</span></p>}
             </div>
           </div>
