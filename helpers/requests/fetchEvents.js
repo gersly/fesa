@@ -11,7 +11,7 @@ export async function fetchEvents() {
       return {
         success: false,
         message: 'Failed to fetch events',
-        data: data
+        data: data.data
       };
     }
   } catch(error) {
@@ -39,7 +39,7 @@ export async function fetchEvent(id) {
       return {
         success: false,
         message: 'Failed to fetch event',
-        data: data
+        data: data.data
       };
     }
   } catch(error) {
