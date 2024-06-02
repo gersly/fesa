@@ -3,6 +3,7 @@ import React, { useState, useEffect }
 import dayjs from 'dayjs' // ES 2015
 import QueryDropdown from './bites/QueryDropdown'
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
+import TopNavigation from '../navigation/TopNavigation'
 dayjs().format()
 
 function HomeHeader(props) {
@@ -22,12 +23,17 @@ function HomeHeader(props) {
   ]
   return (
     <>
-      <div className='flex min-h-[500px] lg:py-14 py-10 flex-col items-center justify-center'
+
+      <div className='flex min-h-[580px] lg:py-14 py-10 flex-col items-center justify-center'
         style={{
           background: `url("${backgrounds[2]}")`,
           backgroundPosition: 'center center',
           backgroundSize: 'cover'
         }}>
+        <div className='absolute w-full bg-white p-0.5 max-w-6xl text-center rounded-md top-8'>
+          <TopNavigation />
+        </div>
+
         <h1 className='xl:text-6xl lg:text-5xl md:text-4xl text-3xl max-w-4xl text-center text-white'>
           Find fun things to do. Near you.
         </h1>

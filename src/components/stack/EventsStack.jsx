@@ -1,4 +1,6 @@
-import React from 'react'
+import { fetchEvents } from 'helpers/requests/fetchEvents';
+import React, { useEffect, useState } from 'react'
+import dayjs from 'dayjs';
 
 const categories = [
   {
@@ -28,74 +30,117 @@ const categories = [
 ]
 
 export default function EventsStack() {
+  const [events, setEvents] = useState([])
+  const [isLoading, toggleLoading] = useState(true)
+
+  useEffect(() => {
+    fetchEvents()
+      .then(data => {
+        console.log('Response:', data);
+        setEvents(data.data)
+        setTimeout(() => {
+          toggleLoading(false)
+        }, 1000);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        setEvents(error.data.data)
+        toggleLoading(false)
+      });
+  }, [])
+
+
   return (
-    <div className="grid grid-cols-1 md:gap-4 gap-2 sm:grid-cols-3 lg:my-8 my-2">
-      {categories.map((category) => (
-        <div
-          key={category.slug}
-          className=" bg-white flex flex-col rounded-lg border border-neutral-300 text-neutral-900 shadow-sm focus-within:ring-2 focus-within:ring-orange-500 focus-within:ring-offset-2 hover:border-orange-500"
-        >
-          <div className="rounded-lg md:block hidden">
-            <div className={`h-[240px] w-full px-4 py-5 rounded-t-lg bg-neutral-100`}
-              style={{
-                backgroundImage: `url('${category.image}')`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center top'
-              }}
-            >
-              {category.trending && <span className="inline-flex items-center rounded-md bg-neutral-900 px-2.5 py-1 text-sm font-semibold text-white">
-                🔥 Trending
-              </span>}
-            </div>
-            <div className='px-4 py-5 space-y-3'>
-              <h3 className='font-bold  text-xl'>{category.name}</h3>
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-4 sm:grid-cols-3 lg:my-8 my-2">
+      {isLoading ? <>
+
+        {[1, 2, 3, 4, 5, 6, 7, 8].map((event, index) => <div>
+          <div className="rounded-md md:block hidden animate-pulse">
+            <div className={`h-[180px] w-full px-4 py-5 rounded-md bg-neutral-200`} />
+            <div className='py-2 space-y-1'>
+              <div className='bg-neutral-200 rounded-md h-5 w-1/2' />
+              <div className='bg-neutral-200 rounded-md h-7' />
               <div className='h-auto overflow-hidden w-full'>
-                <p className='text-sm  h-20 text-neutral-500'>{category.description}</p>
+                {/*<p>{event.district}</p>*/}
+                <div className='bg-neutral-200 h-5 w-1/3 rounded-md' />
+
+                {/*<p className='text-sm h-20 text-neutral-500'>{event.description}</p>*/}
               </div>
-              {category.price === 0 ? <p className='font-bold text-neutral-900  text-2xl'>Free</p>
-                : <p className='font-bold text-neutral-900  text-2xl'>${category.price} <span className='font-medium text-base text-neutral-500'>
-                  per ticket</span></p>}
+
             </div>
           </div>
-          <div className='flex items-center justify-between gap-2 md:hidden p-2'>
-            <div className={`h-[94px] w-[150px] rounded-lg bg-neutral-100 border border-neutral-200`}
-              style={{
-                backgroundImage: `url('${category.image}')`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center top'
-              }}
+        </div>)}
+      </> :
+
+        <>
+          {events.map((event) => (
+            <div
+              key={event.id}
+              className="bg-white  flex flex-col rounded-md text-neutral-900 cursor-pointer"
             >
-
-            </div>
-            <div className='h-full w-full space-y-2'>
-              <p className='font-medium'>{category.name}</p>
-
-              <div className='flex flex-wrap space-x-1 items-center justify-start text-sm'>
-                {category?.trending &&
-                  <span className="inline-flex items-center rounded-full border border-neutral-200 px-2 py-0.5 font-normal text-black capitalize">
+              <div className="rounded-md md:block hidden">
+                <div className={`h-[180px] w-full px-4 py-5 rounded-md bg-neutral-100`}
+                  style={{
+                    backgroundImage: `url('${event.image_link}')`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center center'
+                  }}
+                >
+                  {event.trending && <span className="inline-flex items-center rounded-md bg-neutral-900 px-2.5 py-1 text-sm font-semibold text-white">
                     🔥 Trending
-                  </span>
-                }
+                  </span>}
+                </div>
+                <div className='py-2 space-y-1'>
+                  <p className='text-neutral-500 text-sm'>{dayjs(event.date).format('dddd, DD MMMM YYYY')}</p>
+                  <h3 className='text-md truncate hover:text-blue-600'>{event.title}</h3>
+                  <div className='h-auto overflow-hidden w-full space-y-1'>
+                    <p className='text-sm text-neutral-500'>{event.district}</p>
+                    <p className='text-sm text-neutral-700 underline underline-offset-2 hover:text-blue-600'>{event.organisator}</p>
 
-                {category?.price === 0 ?
-                  <span className="inline-flex items-center rounded-full border border-neutral-200 px-2 py-0.5 font-normal text-black capitalize">
-                    Free
-                  </span>
-                  :
-                  <span className="inline-flex items-center rounded-full border border-neutral-200 px-2 py-0.5 font-normal text-black capitalize">
-                    Paid
-                  </span>
-                }
+                    {/*<p className='text-sm h-20 text-neutral-500'>{event.description}</p>*/}
+                  </div>
 
-                <span className="inline-flex items-center rounded-full border border-neutral-200 px-2 py-0.5 font-normal text-black capitalize">
-                  {category?.slug}
-                </span>
+                </div>
+              </div>
+              <div className='flex items-center justify-between gap-2 md:hidden p-2'>
+                <div className={`h-[94px] w-[150px] rounded-lg bg-neutral-100 border border-neutral-200`}
+                  style={{
+                    backgroundImage: `url('${event.image_link}')`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center top'
+                  }}
+                >
+                </div>
+                <div className='h-full w-full space-y-2'>
+                  <p className='font-medium'>{event.name}</p>
 
+                  <div className='flex flex-wrap space-x-1 items-center justify-start text-sm'>
+                    {event?.trending &&
+                      <span className="inline-flex items-center rounded-full border border-neutral-200 px-2 py-0.5 font-normal text-black capitalize">
+                        🔥 Trending
+                      </span>
+                    }
+
+                    {event?.price === 0 ?
+                      <span className="inline-flex items-center rounded-full border border-neutral-200 px-2 py-0.5 font-normal text-black capitalize">
+                        Free
+                      </span>
+                      :
+                      <span className="inline-flex items-center rounded-full border border-neutral-200 px-2 py-0.5 font-normal text-black capitalize">
+                        Paid
+                      </span>
+                    }
+
+                    <span className="inline-flex items-center rounded-full border border-neutral-200 px-2 py-0.5 font-normal text-black capitalize">
+                      {event?.slug}
+                    </span>
+
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      ))}
+          ))}
+        </>}
     </div>
   )
 }

@@ -15,8 +15,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <TopNavigation />
+      <DiscoverHeader />
       <PageLayout>
-        <DiscoverHeader />
+
         <Tabs />
         <EventsStack />
       </PageLayout>

@@ -15,7 +15,7 @@ export default function DiscoverHeader() {
 
   return (
     <>
-      <div className='flex lg:py-14 py-10 flex-col items-start justify-center'>
+      <div className='flex lg:py-14 py-10 flex-col items-center justify-center bg-neutral-100'>
         <h1 className='text-4xl max-w-4xl text-center'>
           Discover events near you
         </h1>
@@ -44,7 +44,7 @@ export default function DiscoverHeader() {
               <span className="w-1/3 h-full p-1 flex items-center justify-center rounded-r-full bg-white">
                 <button
                   className='
-              font-medium bg-blue-500 flex items-center  justify-center space-x-2 text-white h-full w-full rounded-full hover:bg-blue-600'>
+              font-medium bg-black flex items-center  justify-center space-x-2 text-white h-full w-full rounded-full hover:bg-neutral-800'>
                   <MagnifyingGlassIcon className='w-5 h-5' /><p>Search</p>
                 </button>
               </span>

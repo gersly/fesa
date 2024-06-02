@@ -5,8 +5,11 @@ import Link from 'next/link'
 
 
 const navigation = [
-  { name: 'Party Agenda', href: '/events', current: false },
-  { name: 'Post your own event', href: '/organisor', current: false }
+  { name: 'Party Agenda', href: '/events' },
+  { name: 'For Businesses', href: '/organisor' },
+  {
+    name: 'Add your event', href: '/organisor'
+  }
 ]
 
 const authNav = [
@@ -46,21 +49,21 @@ export default function TopNavigation() {
                 </div>
                 <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                   <Link href="/" className="flex flex-shrink-0 items-center">
-                    <p className='text-2xl'>Fesa.app</p>
+                    <p className='text-xl'>Fesa</p>
                   </Link>
-                  <div className="hidden sm:ml-6 sm:block">
-                    <div className="flex space-x-4">
-                      <input
+                  <div className="hidden sm:ml-6 sm:block w-full">
+                    <div className="flex space-x-4 items-center justify-end w-full">
+                      {/*<input
                         placeholder='Search events'
-                        className='border border-neutral-300 rounded-md text-neutral-900 lg:w-80 px-4 text-sm'
-                      />
+                        className='border border-neutral-300 rounded-md h-10 text-neutral-900 w-full px-4 text-sm'
+                      />*/}
                       {navigation.map((item) => (
                         <a
                           key={item.name}
                           href={item.href}
                           className={classNames(
                             item.current ? 'bg-neutral-50 text-neutral-900' : 'text-neutral-900 hover:bg-neutral-100 hover:text-black',
-                            'px-3 py-2 rounded-md text-md font-medium'
+                            'px-3 py-2 rounded-md text-md font-medium whitespace-nowrap'
                           )}
                           aria-current={item.current ? 'page' : undefined}
                         >
