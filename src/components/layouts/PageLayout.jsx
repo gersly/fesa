@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function PageLayout({ children }) {
+function PageLayout({ children, backgroundColor }) {
   return (
-    <div className="mx-auto max-w-6xl px-4 md:px-6 lg:px-8">
+    <div className={(`mx-auto max-w-5xl px-4 md:px-6 lg:px-8 ${backgroundColor}`)}>
       {children}
     </div>
   )

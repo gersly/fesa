@@ -1,6 +1,7 @@
 import { fetchEvents } from 'helpers/requests/fetchEvents';
 import React, { useEffect, useState } from 'react'
 import dayjs from 'dayjs';
+import Link from 'next/link';
 
 const categories = [
   {
@@ -74,7 +75,8 @@ export default function EventsStack() {
 
         <>
           {events.map((event) => (
-            <div
+            <Link
+              href={`/events/${event.id}`}
               key={event.id}
               className="bg-white  flex flex-col rounded-md text-neutral-900 cursor-pointer"
             >
@@ -138,7 +140,7 @@ export default function EventsStack() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </>}
     </div>

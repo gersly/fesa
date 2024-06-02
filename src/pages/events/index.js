@@ -5,7 +5,7 @@ import TopNavigation from '@/components/navigation/TopNavigation'
 import EventsStack from '@/components/stack/EventsStack'
 import Head from 'next/head'
 
-export default function Home() {
+export default function EventsPage() {
   return (
     <>
       <Head>
