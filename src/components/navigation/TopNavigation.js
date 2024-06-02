@@ -45,7 +45,7 @@ export default function TopNavigation() {
                 </div>
                 <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                   <div className="flex flex-shrink-0 items-center">
-                    <p className='  text-2xl'>fesa.app</p>
+                    <p className='text-2xl'>Fesa.app</p>
                   </div>
                   <div className="hidden sm:ml-6 sm:block">
                     <div className="flex space-x-4">
@@ -59,7 +59,7 @@ export default function TopNavigation() {
                           href={item.href}
                           className={classNames(
                             item.current ? 'bg-neutral-50 text-neutral-900' : 'text-neutral-900 hover:bg-neutral-100 hover:text-black',
-                            'px-3 py-2 rounded-md text-sm font-medium'
+                            'px-3 py-2 rounded-md text-md font-medium'
                           )}
                           aria-current={item.current ? 'page' : undefined}
                         >
@@ -77,7 +77,7 @@ export default function TopNavigation() {
                         href={item.href}
                         className={classNames(
                           item.current ? 'bg-neutral-100 text-neutral-900' : 'text-neutral-900 hover:bg-neutral-100 hover:text-black',
-                          'px-3 py-2 rounded-md text-sm font-medium'
+                          'px-3 py-2 rounded-md text-md font-medium'
                         )}
                         aria-current={item.current ? 'page' : undefined}
                       >

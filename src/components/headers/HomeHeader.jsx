@@ -16,7 +16,7 @@ function HomeHeader(props) {
   return (
     <>
       <div className='flex lg:py-14 py-10 flex-col items-center justify-center'>
-        <h1 className='xl:text-6xl text-5xl font-medium max-w-4xl text-center'>
+        <h1 className='xl:text-6xl text-5xl max-w-4xl text-center'>
           Unique things to do. Near you.
         </h1>
         <p className='text-2xl mt-8 text-neutral-800'>Fesa is your digital passport to find unique experiences near you.</p>
