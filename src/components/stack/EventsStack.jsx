@@ -41,11 +41,11 @@ export default function EventsStack() {
         setEvents(data.data)
         setTimeout(() => {
           toggleLoading(false)
-        }, 1000);
+        }, 750);
       })
       .catch(error => {
         console.error('Error:', error);
-        setEvents(error.data.data)
+        setEvents([])
         toggleLoading(false)
       });
   }, [])
@@ -71,8 +71,8 @@ export default function EventsStack() {
       </> :
 
         <>
-          {events.length < 1 ? <p>No events found.</p> : <>
-            {events.map((event) => (
+          {events?.length < 1 ? <p>No events found.</p> : <>
+            {events?.map((event) => (
               <Link
                 href={`/events/${event.id}`}
                 key={event.id}

@@ -45,21 +45,21 @@ export default function EventDetailPage() {
         <div className='flex items-center justify-center flex-col w-full p-2 my-4 bg-white shadow-md rounded-md'>
           <div className='h-[420px] bg-neutral-200 w-full rounded-md'
             style={{
-              backgroundImage: `url('${event.image_link}')`,
+              backgroundImage: `url('${event?.image_link}')`,
               backgroundSize: 'cover',
               backgroundPosition: 'center center'
             }}
           />
           <div className='space-y-4 md:p-8 w-full'>
-            <h1 className='text-3xl'>{event.title}</h1>
-            <p className='text-md'>{event.description}</p>
+            <h1 className='text-3xl'>{event?.title}</h1>
+            <p className='text-md'>{event?.description}</p>
             <div className='flex items-center justify-start space-x-2 text-neutral-600 text-md'>
               <ClockIcon className='w-5 h-5' />
               <p>{dayjs(event.date).format('dddd, DD MMMM YYYY')}</p>
             </div>
             <div className='flex items-center justify-start space-x-2 text-neutral-600 text-md'>
               <Pin className='w-5 h-5' />
-              <p>{event.location}, {event.district}</p>
+              <p>{event?.location}, {event?.district}</p>
             </div>
 
             <div className='border rounded-md hover:bg-neutral-100 cursor-pointer min-h-16 p-2 flex items-center justify-start space-x-4'>
@@ -67,8 +67,8 @@ export default function EventDetailPage() {
               </div>
 
               <div>
-                <p>{event.organisator}</p>
-                <p className='text-neutral-500'>{event.phone || '+12 345-789'}</p>
+                <p>{event?.organisator}</p>
+                <p className='text-neutral-500'>{event?.phone || '+12 345-789'}</p>
               </div>
             </div>
           </div>
