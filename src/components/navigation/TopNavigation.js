@@ -5,16 +5,17 @@ import Link from 'next/link'
 
 
 const navigation = [
-  { name: 'Party Agenda', href: '/events' },
-  { name: 'For Businesses', href: '/organisor' },
+  { name: 'Browse events', href: '/events' },
+  //{ name: 'Discover Parties', href: '/events' },
+  { name: 'Sell tickets', href: '/organisor' },
   {
-    name: 'Add your event', href: '/organisor'
+    name: 'Add your event', href: '/organisor', current: true
   }
 ]
 
 const authNav = [
   { name: 'Login', href: '/login', current: true },
-  { name: 'Sign Up', href: '/register', current: false }
+  //{ name: 'Sign Up', href: '/register', current: false }
 ]
 
 function classNames(...classes) {
@@ -31,11 +32,11 @@ export default function TopNavigation() {
   }
   return (
     <>
-      <Disclosure as="nav" className="bg-white border-b border-neutral-200 md:block hidden">
+      <Disclosure as="nav" className="bg-white border-0 border-neutral-200 md:block hidden">
         {({ open }) => (
           <>
             <div className="mx-auto max-w-6xl px-6 lg:px-8">
-              <div className="relative flex h-16 items-center justify-between">
+              <div className="relative flex h-14 items-center justify-between">
                 <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                   {/* Mobile menu button*/}
                   <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-neutral-400 hover:bg-neutral-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
@@ -62,7 +63,7 @@ export default function TopNavigation() {
                           key={item.name}
                           href={item.href}
                           className={classNames(
-                            item.current ? 'bg-neutral-50 text-neutral-900' : 'text-neutral-900 hover:bg-neutral-100 hover:text-black',
+                            item.current ? 'bg-neutral-900 border text-white' : 'text-neutral-900 hover:bg-neutral-100 hover:text-neutral-900',
                             'px-3 py-2 rounded-md text-md font-medium whitespace-nowrap'
                           )}
                           aria-current={item.current ? 'page' : undefined}
@@ -80,7 +81,7 @@ export default function TopNavigation() {
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.current ? 'bg-neutral-100 text-neutral-900' : 'text-neutral-900 hover:bg-neutral-100 hover:text-black',
+                          item.current ? 'bg-white border border-neutral-300 text-neutral-900 hover:bg-neutral-100' : 'text-neutral-900 hover:bg-neutral-100 hover:text-neutral-900',
                           'px-3 py-2 rounded-md text-md font-medium'
                         )}
                         aria-current={item.current ? 'page' : undefined}
@@ -111,7 +112,7 @@ export default function TopNavigation() {
                     leaveFrom="transform opacity-100 scale-100"
                     leaveTo="transform opacity-0 scale-95"
                   >
-                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-neutral-900 ring-opacity-5 focus:outline-none">
                       <Menu.Item>
                         {({ active }) => (
                           <a
@@ -157,7 +158,7 @@ export default function TopNavigation() {
                     as="a"
                     href={item.href}
                     className={classNames(
-                      item.current ? 'bg-neutral-100 text-neutral-900' : 'text-neutral-900 hover:bg-neutral-100 hover:text-black',
+                      item.current ? 'bg-neutral-100 text-neutral-900' : 'text-neutral-900 hover:bg-neutral-100 hover:text-neutral-900',
                       'block px-3 py-2 rounded-md text-base font-medium'
                     )}
                     aria-current={item.current ? 'page' : undefined}
@@ -189,7 +190,7 @@ export default function TopNavigation() {
         className="relative z-50"
       >
         {/* The backdrop, rendered as a fixed sibling to the panel container */}
-        <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
+        <div className="fixed inset-0 bg-neutral-900/30" aria-hidden="true" />
         {/* Full-screen scrollable container */}
         <div className="fixed inset-0 w-screen overflow-y-auto">
           {/* Container to center the panel */}

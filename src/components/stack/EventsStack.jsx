@@ -52,9 +52,8 @@ export default function EventsStack() {
 
 
   return (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-4 sm:grid-cols-3 lg:my-8 my-2">
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-3 sm:grid-cols-2 lg:my-8 my-2">
       {isLoading ? <>
-
         {[1, 2, 3, 4, 5, 6, 7, 8].map((event, index) => <div key={index}>
           <div className="rounded-md md:block hidden animate-pulse">
             <div className={`h-[180px] w-full px-4 py-5 rounded-md bg-neutral-200`} />
@@ -92,7 +91,7 @@ export default function EventsStack() {
                   </div>
                   <div className='py-2 space-y-1'>
                     <p className='text-neutral-500 text-sm'>{dayjs(event.date).format('dddd, DD MMMM YYYY')}</p>
-                    <h3 className='text-md truncate hover:text-blue-600'>{event.title}</h3>
+                    <h3 className='text-md hover:text-blue-600'>{event.title}</h3>
                     <div className='h-auto overflow-hidden w-full space-y-1'>
                       <p className='text-sm text-neutral-500'>{event.district}</p>
                       <p className='text-sm text-neutral-700 underline underline-offset-2 hover:text-blue-600'>{event.organisator}</p>
@@ -116,22 +115,22 @@ export default function EventsStack() {
 
                     <div className='flex flex-wrap space-x-1 items-center justify-start text-sm'>
                       {event?.trending &&
-                        <span className="inline-flex items-center rounded-full border border-neutral-200 px-2 py-0.5 font-normal text-black capitalize">
+                        <span className="inline-flex items-center rounded-full border border-neutral-200 px-2 py-0.5 font-normal text-neutral-900 capitalize">
                           🔥 Trending
                         </span>
                       }
 
                       {event?.price === 0 ?
-                        <span className="inline-flex items-center rounded-full border border-neutral-200 px-2 py-0.5 font-normal text-black capitalize">
+                        <span className="inline-flex items-center rounded-full border border-neutral-200 px-2 py-0.5 font-normal text-neutral-900 capitalize">
                           Free
                         </span>
                         :
-                        <span className="inline-flex items-center rounded-full border border-neutral-200 px-2 py-0.5 font-normal text-black capitalize">
+                        <span className="inline-flex items-center rounded-full border border-neutral-200 px-2 py-0.5 font-normal text-neutral-900 capitalize">
                           Paid
                         </span>
                       }
 
-                      <span className="inline-flex items-center rounded-full border border-neutral-200 px-2 py-0.5 font-normal text-black capitalize">
+                      <span className="inline-flex items-center rounded-full border border-neutral-200 px-2 py-0.5 font-normal text-neutral-900 capitalize">
                         {event?.slug}
                       </span>
 

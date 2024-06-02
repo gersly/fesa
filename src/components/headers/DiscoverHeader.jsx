@@ -44,7 +44,7 @@ export default function DiscoverHeader() {
               <span className="w-1/3 h-full p-1 flex items-center justify-center rounded-r-full bg-white">
                 <button
                   className='
-              font-medium bg-black flex items-center  justify-center space-x-2 text-white h-full w-full rounded-full hover:bg-neutral-800'>
+              font-medium bg-neutral-900 flex items-center  justify-center space-x-2 text-white h-full w-full rounded-full hover:bg-neutral-800'>
                   <MagnifyingGlassIcon className='w-5 h-5' /><p>Search</p>
                 </button>
               </span>
