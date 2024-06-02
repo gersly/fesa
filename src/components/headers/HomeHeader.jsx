@@ -15,11 +15,12 @@ function HomeHeader(props) {
 
   return (
     <>
-      <div className='flex lg:min-h-[360px] md:min-h-[280px] flex-col items-center justify-center space-y-10'>
-        <h1 className='xl:text-6xl text-5xl  font-medium max-w-2xl text-center'>
-          Unique things to do. <br />Curated for you.
+      <div className='flex lg:py-14 py-10 flex-col items-center justify-center'>
+        <h1 className='xl:text-6xl text-5xl font-medium max-w-4xl text-center'>
+          Unique things to do. Near you.
         </h1>
-        <div className='max-w-3xl w-full md:block hidden'>
+        <p className='text-2xl mt-8 text-neutral-800'>Fesa is your digital passport to find unique experiences near you.</p>
+        <div className='max-w-3xl w-full md:block hidden mt-8'>
           <div className='bg-white border border-neutral-300 h-12 rounded-full w-6/6 flex'>
             <QueryDropdown
               query={query}

@@ -45,7 +45,7 @@ export default function QueryDropdown({ query, setQuery }) {
               ))}
             </> : <>
               <Combobox.Option className="p-4">
-                <b>No results found for:</b> <br />"{query}"
+                <b>No results found for:</b> <br />{`"${query}"`}
               </Combobox.Option>
             </>}
         </Combobox.Options>
