@@ -55,19 +55,16 @@ export default function EventsStack() {
     <div className="grid grid-cols-1 gap-4 md:grid-cols-4 sm:grid-cols-3 lg:my-8 my-2">
       {isLoading ? <>
 
-        {[1, 2, 3, 4, 5, 6, 7, 8].map((event, index) => <div>
+        {[1, 2, 3, 4, 5, 6, 7, 8].map((event, index) => <div key={index}>
           <div className="rounded-md md:block hidden animate-pulse">
             <div className={`h-[180px] w-full px-4 py-5 rounded-md bg-neutral-200`} />
             <div className='py-2 space-y-1'>
               <div className='bg-neutral-200 rounded-md h-5 w-1/2' />
               <div className='bg-neutral-200 rounded-md h-7' />
               <div className='h-auto overflow-hidden w-full'>
-                {/*<p>{event.district}</p>*/}
+                <div className='bg-neutral-200 h-5 w-1/3' />
                 <div className='bg-neutral-200 h-5 w-1/3 rounded-md' />
-
-                {/*<p className='text-sm h-20 text-neutral-500'>{event.description}</p>*/}
               </div>
-
             </div>
           </div>
         </div>)}
