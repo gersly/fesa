@@ -33,7 +33,7 @@ export default function EventsStack() {
       {categories.map((category) => (
         <div
           key={category.slug}
-          className="relative bg-white flex flex-col rounded-lg border border-neutral-300 text-neutral-900 shadow-sm focus-within:ring-2 focus-within:ring-orange-500 focus-within:ring-offset-2 hover:border-orange-500"
+          className=" bg-white flex flex-col rounded-lg border border-neutral-300 text-neutral-900 shadow-sm focus-within:ring-2 focus-within:ring-orange-500 focus-within:ring-offset-2 hover:border-orange-500"
         >
           <div className="rounded-lg md:block hidden">
             <div className={`h-[240px] w-full px-4 py-5 rounded-t-lg bg-neutral-100`}

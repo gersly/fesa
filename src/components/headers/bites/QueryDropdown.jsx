@@ -5,10 +5,19 @@ const people = [
   'Rotterdam',
   'The Hague',
   'Groningen',
-  'Eindhoven'
+  'Eindhoven',
+  'Paris',
+  'Lyon',
+  'London',
+  'Manchester',
+  'Birmingham',
+  'Antwerp',
+  'Brugge',
+  'Ghent',
+  'Brussels'
 ]
 
-export default function QueryDropdown({ query, setQuery }) {
+export default function QueryDropdown({ query, setQuery, placeholderValue }) {
 
   const [selectedPerson, setSelectedPerson] = useState({})
 
@@ -27,12 +36,12 @@ export default function QueryDropdown({ query, setQuery }) {
         onChange={setSelectedPerson}>
         <Combobox.Input
           onChange={(event) => setQuery(event.target.value)}
-          placeholder='Search events, venues or countries'
-          className="placeholder:font-thin h-full w-full rounded-l-full px-4"
+          placeholder={placeholderValue || 'Search cities, venues or countries'}
+          className="placeholder:font-thin h-full w-full rounded-l-full px-4 capitalize"
 
         />
         <Combobox.Options
-          className={'bg-white border border-neutral-300 mt-4 rounded-lg shadow-md'}
+          className={'bg-white border border-neutral-300 mt-4 rounded-lg shadow-md max-h-[250px] overflow-y-scroll'}
         >
           {filteredPeople.length > 0 ?
             <>

@@ -1,16 +1,17 @@
 import React, { Fragment, useState } from 'react'
 import { Disclosure, Menu, Transition, Dialog } from '@headlessui/react'
 import { Bars3Icon, BellIcon, ChevronDownIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import Link from 'next/link'
 
 
 const navigation = [
-  { name: 'Party Agenda', href: '#', current: false },
-  { name: 'Post your own event', href: '#', current: false }
+  { name: 'Party Agenda', href: '/events', current: false },
+  { name: 'Post your own event', href: '/organisor', current: false }
 ]
 
 const authNav = [
-  { name: 'Login', href: '#', current: true },
-  { name: 'Sign Up', href: '#', current: false }
+  { name: 'Login', href: '/login', current: true },
+  { name: 'Sign Up', href: '/register', current: false }
 ]
 
 function classNames(...classes) {
@@ -44,9 +45,9 @@ export default function TopNavigation() {
                   </Disclosure.Button>
                 </div>
                 <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                  <div className="flex flex-shrink-0 items-center">
+                  <Link href="/" className="flex flex-shrink-0 items-center">
                     <p className='text-2xl'>Fesa.app</p>
-                  </div>
+                  </Link>
                   <div className="hidden sm:ml-6 sm:block">
                     <div className="flex space-x-4">
                       <input
