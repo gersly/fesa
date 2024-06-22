@@ -52,7 +52,7 @@ export default function EventsStack() {
 
 
   return (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-3 sm:grid-cols-2 lg:my-8 my-2">
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-3 sm:grid-cols-2 lg:my-4 my-2">
       {isLoading ? <>
         {[1, 2, 3, 4, 5, 6, 7, 8].map((event, index) => <div key={index}>
           <div className="rounded-md md:block hidden animate-pulse">
@@ -101,7 +101,8 @@ export default function EventsStack() {
 
                   </div>
                 </div>
-                <div className='flex items-center justify-between gap-2 md:hidden p-2'>
+                {/* Show on mobile */}
+                <div className='flex items-center justify-between gap-2 md:hidden'>
                   <div className={`h-[94px] w-[150px] rounded-lg bg-neutral-100 border border-neutral-200`}
                     style={{
                       backgroundImage: `url('${event.image_link}')`,
@@ -110,11 +111,13 @@ export default function EventsStack() {
                     }}
                   >
                   </div>
-                  <div className='h-full w-full space-y-2'>
-                    <p className='font-medium'>{event.name}</p>
+                  <div className='h-full w-full'>
+                    <p className='font-medium'>{event.title}</p>
+                    <p className='text-neutral-500 text-sm'>{dayjs(event.date).format('dddd, DD MMMM YYYY')}</p>
+                    <p className='text-sm text-neutral-700'>{event.district}, {event.organisator}</p>
 
-                    <div className='flex flex-wrap space-x-1 items-center justify-start text-sm'>
-                      {event?.trending &&
+                    <div className='flex flex-wrap space-x-1 py-1 items-center justify-start text-xs'>
+                      {!event?.trending &&
                         <span className="inline-flex items-center rounded-full border border-neutral-200 px-2 py-0.5 font-normal text-neutral-900 capitalize">
                           🔥 Trending
                         </span>
@@ -129,10 +132,6 @@ export default function EventsStack() {
                           Paid
                         </span>
                       }
-
-                      <span className="inline-flex items-center rounded-full border border-neutral-200 px-2 py-0.5 font-normal text-neutral-900 capitalize">
-                        {event?.slug}
-                      </span>
 
                     </div>
                   </div>

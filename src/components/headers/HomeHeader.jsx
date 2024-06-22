@@ -24,7 +24,7 @@ function HomeHeader(props) {
   return (
     <>
 
-      <div className='flex md:min-h-[580px] h-full min-h-full lg:py-14 py-10 flex-col items-center md:justify-center'
+      <div className='flex md:min-h-[420px] h-full min-h-full lg:py-14 py-10 flex-col items-center md:justify-center'
         style={{
           background: `url("${backgrounds[2]}")`,
           backgroundPosition: 'center center',
@@ -34,7 +34,7 @@ function HomeHeader(props) {
         <h1 className='xl:text-6xl lg:text-5xl md:text-4xl text-3xl max-w-4xl text-center text-white font-semibold'>
           Find fun things to do. Near you.
         </h1>
-        <p className='text-2xl mt-8 text-white text-center'>Fesa is your digital passport to find unique experiences near you.</p>
+        <p className='md:text-2xl text-lg md:max-w-3xl max-w-sm mt-8 text-white text-center'>Fesa is your digital passport to find unique experiences near you.</p>
         <div className='max-w-3xl w-full md:block hidden mt-8'>
           <div className='bg-white border border-neutral-300 h-14 rounded-full w-6/6 flex'>
             <QueryDropdown
