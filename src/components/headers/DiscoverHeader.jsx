@@ -59,7 +59,7 @@ export default function DiscoverHeader() {
                 setQuery={setQuery}
               />
             </div>
-            <div className='col-span-1 flex items-center justify-center h-14'>
+            <div className='col-span-1 flex items-center justify-center h-14 w-full'>
               <input
                 className='w-full h-full px-2  outline-none'
                 type='date'
@@ -68,7 +68,7 @@ export default function DiscoverHeader() {
                 defaultValue={dayjs().format('YYYY-MM-DD')}
               />
             </div>
-            <div className='col-span-1 flex items-center justify-center h-14'>
+            <div className='col-span-1 flex items-center justify-center h-14 w-full'>
               <input
                 className='w-full h-full px-2 outline-none '
                 type='date'
@@ -77,7 +77,7 @@ export default function DiscoverHeader() {
                 defaultValue={dayjs().format('YYYY-MM-DD')}
               />
             </div>
-            <div className='col-span-1 flex items-center justify-center h-14'>
+            <div className='col-span-1 flex items-center justify-center h-14 w-full'>
               <span className="w-full h-full p-1 flex items-center justify-center  bg-white">
                 <button
                   className='
