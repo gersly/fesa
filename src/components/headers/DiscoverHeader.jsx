@@ -22,7 +22,6 @@ export default function DiscoverHeader() {
         <div className='max-w-3xl w-full md:block hidden mt-8'>
           <div className='bg-white border border-neutral-300 h-14 rounded-full w-6/6 flex'>
             <QueryDropdown
-              //placeholderValue={'Search location'}
               query={query}
               setQuery={setQuery}
             />
@@ -42,6 +41,44 @@ export default function DiscoverHeader() {
                 defaultValue={dayjs().format('YYYY-MM-DD')}
               />
               <span className="w-1/3 h-full p-1 flex items-center justify-center rounded-r-full bg-white">
+                <button
+                  className='
+              font-medium bg-neutral-900 flex items-center  justify-center space-x-2 text-white h-full w-full rounded-full hover:bg-neutral-800'>
+                  <MagnifyingGlassIcon className='w-5 h-5' /><p>Search</p>
+                </button>
+              </span>
+            </div>
+          </div>
+        </div>
+        {/* Show on mobile */}
+        <div className='max-w-3xl w-full md:hidden block mt-8 h-full p-4'>
+          <div className='bg-white border border-neutral-300 rounded-lg p-1 h-full w-6/6 grid grid-col-1'>
+            <div className='col-span-1 flex items-center justify-center h-14'>
+              <QueryDropdown
+                query={query}
+                setQuery={setQuery}
+              />
+            </div>
+            <div className='col-span-1 flex items-center justify-center h-14'>
+              <input
+                className='w-full h-full px-2  outline-none'
+                type='date'
+                value={startingDate}
+                onChange={(e) => setStartingDate(e.target.value)}
+                defaultValue={dayjs().format('YYYY-MM-DD')}
+              />
+            </div>
+            <div className='col-span-1 flex items-center justify-center h-14'>
+              <input
+                className='w-full h-full px-2 outline-none '
+                type='date'
+                value={endingDate}
+                onChange={(e) => setEndingDate(e.target.value)}
+                defaultValue={dayjs().format('YYYY-MM-DD')}
+              />
+            </div>
+            <div className='col-span-1 flex items-center justify-center h-14'>
+              <span className="w-full h-full p-1 flex items-center justify-center  bg-white">
                 <button
                   className='
               font-medium bg-neutral-900 flex items-center  justify-center space-x-2 text-white h-full w-full rounded-full hover:bg-neutral-800'>

@@ -31,7 +31,7 @@ function HomeHeader(props) {
           backgroundSize: 'cover'
         }}>
 
-        <h1 className='xl:text-6xl lg:text-5xl md:text-4xl text-3xl max-w-4xl text-center text-white font-semibold'>
+        <h1 className='xl:text-6xl lg:text-5xl md:text-4xl text-3xl max-w-3xl text-center text-white font-semibold'>
           Find fun things to do. Near you.
         </h1>
         <p className='md:text-2xl text-lg md:max-w-3xl max-w-sm mt-8 text-white text-center'>Fesa is your digital passport to find unique experiences near you.</p>
@@ -75,7 +75,7 @@ function HomeHeader(props) {
                 setQuery={setQuery}
               />
             </div>
-            <div className='col-span-1 flex items-center justify-center h-14'>
+            <div className='col-span-1 flex items-center justify-center h-14 w-full'>
               <input
                 className='w-full h-full px-2  outline-none'
                 type='date'
@@ -84,7 +84,7 @@ function HomeHeader(props) {
                 defaultValue={dayjs().format('YYYY-MM-DD')}
               />
             </div>
-            <div className='col-span-1 flex items-center justify-center h-14'>
+            <div className='col-span-1 flex items-center justify-center h-14 w-full'>
               <input
                 className='w-full h-full px-2 outline-none '
                 type='date'
