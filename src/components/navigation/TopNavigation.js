@@ -171,51 +171,15 @@ export default function TopNavigation() {
           </>
         )}
       </Disclosure>
+      {/* Mobile navigation */}
       <div className='md:hidden h-16 flex items-center justify-between px-4 border-b shadow-sm py-3 space-x-1'>
-        <button
-          onClick={() => setIsOpen(true)}
-          className='px-3 py-1.5 hover:bg-neutral-100 flex items-center justify-center h-full border border-neutral-300 rounded-md font-medium cursor-pointer space-x-2'>
-          <p>{location}</p>
-          <ChevronDownIcon className='text-neutral-900 block w-5 h-5' />
-        </button>
+
         <button
           className='px-3 py-1.5 hover:bg-neutral-100 flex items-center justify-center h-full border border-neutral-300 rounded-md font-medium cursor-pointer space-x-2'>
           <p>Log In</p>
         </button>
 
       </div>
-      <Dialog
-        open={isOpen}
-        onClose={() => setIsOpen(false)}
-        className="relative z-50"
-      >
-        {/* The backdrop, rendered as a fixed sibling to the panel container */}
-        <div className="fixed inset-0 bg-neutral-900/30" aria-hidden="true" />
-        {/* Full-screen scrollable container */}
-        <div className="fixed inset-0 w-screen overflow-y-auto">
-          {/* Container to center the panel */}
-          <div className="flex min-h-full items-center justify-center p-4">
-            {/* The actual dialog panel  */}
-            <Dialog.Panel className="mx-auto max-w-sm rounded-md bg-white w-full min-h-[100px] max-h-[320px] overflow-y-scroll">
-              <div className='p-2'>
-                <Dialog.Title className={'font-medium text-lg text-neutral-900'}>Select a city</Dialog.Title>
-              </div>
-              <div className='p-2'>
-                {["Wanica, Suriname", "Amsterdam, Nederland", "Rotterdam, Nederland", "Antwerpen, Belgie", "Brussels, Belgie"].map((loc, index) => {
-                  return (
-                    <div
-                      key={index}
-                      onClick={() => handleLocation(loc)}
-                      className='h-10 text-md text-neutral-600'>
-                      <p>{loc}</p>
-                    </div>
-                  )
-                })}
-              </div>
-            </Dialog.Panel>
-          </div>
-        </div>
-      </Dialog>
     </>
   )
 }
