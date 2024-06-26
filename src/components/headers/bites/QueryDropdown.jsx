@@ -38,11 +38,11 @@ export default function QueryDropdown({ query, setQuery, placeholderValue }) {
           <Combobox.Input
             onChange={(event) => setQuery(event.target.value)}
             placeholder={placeholderValue || 'Search cities, venues or countries'}
-            className="placeholder:font-thin h-full w-full rounded-l-full px-4 capitalize"
+            className="h-full w-full rounded-l-full px-4 capitalize"
 
           />
           <Combobox.Options
-            className={'bg-white border border-neutral-300 mt-4 rounded-lg shadow-md max-h-[250px] overflow-y-scroll'}
+            className={'bg-white border border-neutral-300 mt-4 rounded-lg shadow-lg max-h-[250px] overflow-y-scroll'}
           >
             {filteredPeople.length > 0 ?
               <>
@@ -69,10 +69,10 @@ export default function QueryDropdown({ query, setQuery, placeholderValue }) {
           <Combobox.Input
             onChange={(event) => setQuery(event.target.value)}
             placeholder={'Search cities, venues or countries'}
-            className="placeholder:font-thin placeholder:text-neutral-500 h-14 w-full px-4 capitalize outline-none"
+            className=" placeholder:text-neutral-500 h-14 w-full px-4 capitalize outline-none"
           />
           <Combobox.Options
-            className={'bg-white border border-neutral-300 mt-4 rounded-lg shadow-md max-h-[250px] overflow-y-scroll'}
+            className={'bg-white border absolute w-full border-neutral-300 mt-4 rounded-lg shadow-lg max-h-[250px] overflow-y-scroll'}
           >
             {filteredPeople.length > 0 ?
               <>
