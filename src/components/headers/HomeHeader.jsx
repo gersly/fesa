@@ -83,9 +83,9 @@ function HomeHeader(props) {
         </div>
         {/* Show on mobile */}
         <div className='max-w-3xl w-full md:hidden block mt-8 h-full p-4 space-y-4'>
-          <h1 className='lg:text-5xl md:text-4xl text-3xl max-w-3xl text-center text-white font-semibold font-heading'>
+          <h2 className='lg:text-5xl md:text-4xl text-3xl max-w-3xl text-center text-white font-semibold font-heading'>
             Find fun things to do. Near you.
-          </h1>
+          </h2>
           {/*<p className='md:text-2xl text-lg md:max-w-3xl max-w-sm mt-8 text-white text-center font-heading'>Fesa is your digital passport to find unique experiences near you.</p>*/}
 
           <div className='bg-white border border-neutral-300 rounded-lg p-1 h-full w-6/6 grid grid-col-2'>
