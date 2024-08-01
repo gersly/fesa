@@ -1,6 +1,10 @@
-export async function fetchEvents() {
+export async function fetchEventsFromApi({
+  city,
+  startingDate,
+  endingDate
+}) {
   try {
-    const response = await fetch('/api/events');
+    const response = await fetch('/api/events?city=' + city + '&startingDate=' + startingDate + '&endingDate=' + endingDate);
     const data = await response.json();
 
     if(response.ok) {
@@ -25,7 +29,7 @@ export async function fetchEvents() {
 }
 
 
-export async function fetchEvent(id) {
+export async function fetchEventFromApi(id) {
   try {
     const response = await fetch(`/api/events?id=${id}`);
 

@@ -3,14 +3,29 @@ import React, { useState, useEffect }
 import dayjs from 'dayjs' // ES 2015
 import QueryDropdown from './bites/QueryDropdown'
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
+import { useEventsStore } from '@/store/eventsStore'
 dayjs().format()
 
 export default function DiscoverHeader() {
   const [startingDate, setStartingDate] = useState(dayjs().format('YYYY-MM-DD'))
   const [endingDate, setEndingDate] = useState(dayjs().add(1, 'day').format('YYYY-MM-DD'))
-  const [query, setQuery] = useState("")
+  const [city, setCity] = useState("")
+  const { fetchEvents } = useEventsStore()
+
+
+  const handleSearch = async () => {
+    console.log('searching...',
+      city, startingDate, endingDate
+    )
+    await fetchEvents({
+      city: city,
+      startingDate: dayjs(startingDate).toISOString(),
+      endingDate: dayjs(endingDate).toISOString()
+    })
+  }
 
   useEffect(() => {
+    handleSearch()
   }, [])
 
   return (
@@ -23,8 +38,8 @@ export default function DiscoverHeader() {
         <div className='max-w-3xl w-full md:block hidden mt-8'>
           <div className='bg-white border border-neutral-300 h-14 rounded-full w-6/6 flex'>
             <QueryDropdown
-              query={query}
-              setQuery={setQuery}
+              city={city}
+              setCity={setCity}
             />
             <div className='lg:w-4/6 w-4/6 flex items-center justify-center'>
               <input
@@ -60,8 +75,8 @@ export default function DiscoverHeader() {
           rounded-lg p-1 h-full w-6/6 grid grid-col-1'>
             <div className='col-span-1 flex items-center justify-center h-14'>
               <QueryDropdown
-                query={query}
-                setQuery={setQuery}
+                city={city}
+                setCity={setCity}
               />
             </div>
             <div className='col-span-1 flex items-center justify-center h-14 w-full'>

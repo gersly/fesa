@@ -17,7 +17,6 @@ export default function EventsPage() {
       <TopNavigation />
       <DiscoverHeader />
       <PageLayout>
-
         <Tabs />
         <EventsStack />
       </PageLayout>

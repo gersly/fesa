@@ -17,16 +17,20 @@ const people = [
   'Brussels'
 ]
 
-export default function QueryDropdown({ query, setQuery, placeholderValue }) {
+export default function QueryDropdown({ city, setCity, placeholderValue }) {
 
-  const [selectedPerson, setSelectedPerson] = useState({})
+  const [selectedPerson, setSelectedPerson] = useState("")
 
   const filteredPeople =
-    query === ''
+    city === ''
       ? people
       : people.filter((person) => {
-        return person.toLowerCase().includes(query.toLowerCase())
+        return person.toLowerCase().includes(city?.toLowerCase())
       })
+
+  useEffect(() => {
+    setCity(selectedPerson)
+  }, [selectedPerson])
 
 
   return (
@@ -36,7 +40,7 @@ export default function QueryDropdown({ query, setQuery, placeholderValue }) {
           value={selectedPerson}
           onChange={setSelectedPerson}>
           <Combobox.Input
-            onChange={(event) => setQuery(event.target.value)}
+            onChange={(event) => setCity(event.target.value)}
             placeholder={placeholderValue || 'Search cities, venues or countries'}
             className="h-full w-full rounded-l-full px-4 capitalize"
 
@@ -55,7 +59,7 @@ export default function QueryDropdown({ query, setQuery, placeholderValue }) {
                 ))}
               </> : <>
                 <Combobox.Option className="p-4">
-                  <b>No results found for:</b> <br />{`"${query}"`}
+                  <b>No results found for:</b> <br />{`"${city}"`}
                 </Combobox.Option>
               </>}
           </Combobox.Options>
@@ -67,7 +71,7 @@ export default function QueryDropdown({ query, setQuery, placeholderValue }) {
           value={selectedPerson}
           onChange={setSelectedPerson}>
           <Combobox.Input
-            onChange={(event) => setQuery(event.target.value)}
+            onChange={(event) => setCity(event.target.value)}
             placeholder={'Search cities, venues or countries'}
             className=" placeholder:text-neutral-500 h-14 w-full px-4 capitalize outline-none"
           />
@@ -85,7 +89,7 @@ export default function QueryDropdown({ query, setQuery, placeholderValue }) {
                 ))}
               </> : <>
                 <Combobox.Option className="p-4">
-                  <b>No results found for:</b> <br />{`"${query}"`}
+                  <b>No results found for:</b> <br />{`"${city}"`}
                 </Combobox.Option>
               </>}
           </Combobox.Options>

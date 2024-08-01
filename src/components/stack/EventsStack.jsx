@@ -1,55 +1,13 @@
-import { fetchEvents } from 'helpers/requests/fetchEvents';
 import React, { useEffect, useState } from 'react'
 import dayjs from 'dayjs';
 import Link from 'next/link';
-
-const categories = [
-  {
-    name: 'Sagrada Familia: Drink for free at the door',
-    slug: 'festivals',
-    description: 'Ex consequat reprehenderit aliquip eiusmod qui occaecat deserunt consectetur cillum ipsum. Adipisicing dolore aliquip labore in pariatur. Enim ullamco proident tempor aliqua duis irure qui. Ut ad ullamco commodo occaecat occaecat velit anim esse eu enim proident. Ad officia culpa et excepteur.',
-    image: 'https://lh3.googleusercontent.com/p/AF1QipNFvOMtZkamaH9dc9Zi7GKb7eWyQORMdSvIlUlZ=s680-w680-h510',
-    trending: true,
-    price: 49.99
-  },
-  {
-    name: 'Sagrada Familia: Drink for free at the door',
-    slug: 'festivals',
-    description: 'Ex consequat reprehenderit aliquip eiusmod qui occaecat deserunt consectetur cillum ipsum. Adipisicing dolore aliquip labore in pariatur. Enim ullamco proident tempor aliqua duis irure qui. Ut ad ullamco commodo occaecat occaecat velit anim esse eu enim proident. Ad officia culpa et excepteur.',
-    image: 'https://lh3.googleusercontent.com/p/AF1QipNFvOMtZkamaH9dc9Zi7GKb7eWyQORMdSvIlUlZ=s680-w680-h510',
-    trending: false,
-    price: 0
-  },
-  {
-    name: 'Sagrada Familia: Drink for free at the door',
-    slug: 'festivals',
-    description: 'Ex consequat reprehenderit aliquip eiusmod qui occaecat deserunt consectetur cillum ipsum. Adipisicing dolore aliquip labore in pariatur. Enim ullamco proident tempor aliqua duis irure qui. Ut ad ullamco commodo occaecat occaecat velit anim esse eu enim proident. Ad officia culpa et excepteur.',
-    image: 'https://lh3.googleusercontent.com/p/AF1QipNFvOMtZkamaH9dc9Zi7GKb7eWyQORMdSvIlUlZ=s680-w680-h510',
-    trending: false,
-    price: 200
-  }
-]
+import { useEventsStore } from '@/store/eventsStore';
 
 export default function EventsStack() {
-  const [events, setEvents] = useState([])
-  const [isLoading, toggleLoading] = useState(true)
+  const { events, isLoading } = useEventsStore()
 
   useEffect(() => {
-    fetchEvents()
-      .then(data => {
-        console.log('Response:', data);
-        setEvents(data.data)
-        setTimeout(() => {
-          toggleLoading(false)
-        }, 750);
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        setEvents([])
-        toggleLoading(false)
-      });
-  }, [])
-
+  }, [events])
 
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-3 sm:grid-cols-2 lg:my-4 my-2">
@@ -78,7 +36,7 @@ export default function EventsStack() {
                 className="bg-white  flex flex-col rounded-md text-neutral-900 cursor-pointer"
               >
                 <div className="rounded-md md:block hidden">
-                  <div className={`h-[180px] w-full px-4 py-5 rounded-md bg-neutral-100`}
+                  {/*<div className={`h-[180px] w-full px-4 py-5 rounded-md bg-neutral-100`}
                     style={{
                       backgroundImage: `url('${event.image_link || event.image || 'https://placekitten.com/500/500'}')`,
                       backgroundSize: 'cover',
@@ -88,7 +46,7 @@ export default function EventsStack() {
                     {event.trending && <span className="inline-flex items-center rounded-md bg-neutral-900 px-2.5 py-1 text-sm font-semibold text-white">
                       🔥 Trending
                     </span>}
-                  </div>
+                  </div>*/}
                   <div className='py-2 space-y-1'>
                     <p className='text-neutral-500 text-sm'>{dayjs(event.date || event.start_date).format('dddd, DD MMMM YYYY')}</p>
                     <h3 className='text-md hover:text-orange-500 font-medium'>{event.title || event.name}</h3>
@@ -96,7 +54,7 @@ export default function EventsStack() {
                       <Link href={`/events/${event.district || event.city || 'https://placekitten.com/500/500'}`}>
                         <p className='text-sm text-neutral-700'>{event.district || event.city}</p>
                       </Link>
-                      <Link href={`/organiser/${event.id}`}>
+                      <Link href={`/organiser/${event.venues.internal_id}`}>
                         <p className='text-sm text-neutral-700 hover:text-orange-500'>{event.organisator || event.venue}</p>
                       </Link>
 
@@ -107,21 +65,21 @@ export default function EventsStack() {
                 </div>
                 {/* Show on mobile */}
                 <div className='grid grid-cols-5 gap-2 md:hidden'>
-                  <div className={`h-[140px] rounded-lg bg-neutral-100 border border-neutral-200 col-span-2`}
+                  {/*<div className={`h-[140px] rounded-lg bg-neutral-100 border border-neutral-200 col-span-2`}
                     style={{
                       backgroundImage: `url('${event.image_link || event.image}')`,
                       backgroundSize: 'cover',
                       backgroundPosition: 'center top'
                     }}
                   >
-                  </div>
+                  </div>*/}
                   <div className='h-full w-full flex items-start justify-start flex-col col-span-3'>
                     <p className='font-medium hover:text-orange-500'>{event.title || event.name}</p>
                     <p className='text-neutral-500 text-sm'>{dayjs(event.date || event.start_date).format('dddd, DD MMMM YYYY')}</p>
                     <Link href={`/events/${event.district || event.city}`}>
                       <p className='text-sm text-neutral-700'>{event.district || event.city}</p>
                     </Link>
-                    <Link href={`/organisers/${event.id}`}>
+                    <Link href={`/organisers/${event.venues.internal_id}`}>
                       <p className='text-sm text-neutral-700 hover:text-orange-500'>{event.organisator || event.venue}</p>
                     </Link>
 
