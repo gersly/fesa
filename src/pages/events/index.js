@@ -1,5 +1,6 @@
 import DiscoverHeader from '@/components/headers/DiscoverHeader'
 import PageLayout from '@/components/layouts/PageLayout'
+import Footer from '@/components/navigation/Footer'
 import Tabs from '@/components/navigation/Tabs'
 import TopNavigation from '@/components/navigation/TopNavigation'
 import EventsStack from '@/components/stack/EventsStack'
@@ -20,6 +21,7 @@ export default function EventsPage() {
         <Tabs />
         <EventsStack />
       </PageLayout>
+      <Footer />
     </>
   )
 }

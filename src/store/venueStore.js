@@ -6,7 +6,25 @@ export const useVenuesStore = create((set) => ({
   venues: [],
   query: {},
   activeVenue: {},
+  isLoading: true,
   setActiveVenue: (venue) => set({ activeVenue: venue }),
   setVenues: (venues) => set({ venues }),
-  setQuery: (query) => set({ query })
+  setQuery: (query) => set({ query }),
+  fetchVenue: async (id) => {
+    const { data, error } = await fetchVenueFromApi(id)
+    if(error) return { error: error }
+    set({ activeVenue: data })
+    return { data: data }
+  },
+  fetchVenues: async (body) => {
+    const { data, error } = await fetchVenuesFromApi(body)
+    console.log('Data from fetch:', data)
+    if(error) {
+      console.error('Error:', error)
+      set({ venues: [] })
+    } else {
+      set({ venues: data })
+    }
+  },
+
 }))

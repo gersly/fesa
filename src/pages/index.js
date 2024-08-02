@@ -1,5 +1,6 @@
 import HomeHeader from '@/components/headers/HomeHeader'
 import PageLayout from '@/components/layouts/PageLayout'
+import Footer from '@/components/navigation/Footer'
 import Tabs from '@/components/navigation/Tabs'
 import TopNavigation from '@/components/navigation/TopNavigation'
 import EventsStack from '@/components/stack/EventsStack'
@@ -20,6 +21,7 @@ export default function Home() {
         <Tabs />
         <EventsStack />
       </PageLayout>
+      <Footer />
     </>
   )
 }
