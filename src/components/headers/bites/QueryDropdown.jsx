@@ -26,7 +26,7 @@ export default function QueryDropdown({ city, setCity, placeholderValue }) {
     query === ''
       ? people
       : people.filter((person) => {
-        return person.toLowerCase().includes(city?.toLowerCase())
+        return person.toLowerCase().includes(query?.toLowerCase())
       })
 
   useEffect(() => {
