@@ -24,9 +24,17 @@ export default function EventsStack() {
               </div>
             </div>
           </div>
+          {/* Show on mobile */}
+          <div className='grid grid-cols-7 gap-2 md:hidden animate-pulse'>
+            <div className={`h-[94px] px-1 rounded-md bg-neutral-200 col-span-3`} />
+            <div className='h-full w-full flex items-start justify-start flex-col col-span-4  space-y-1'>
+              <div className='bg-neutral-200 h-5 w-full rounded' />
+              <div className='bg-neutral-200 h-5 w-2/3 rounded' />
+              <div className='bg-neutral-200 h-5 w-1/3 rounded' />
+            </div>
+          </div>
         </div>)}
       </> :
-
         <>
           {events?.length < 1 ? <p>No events found.</p> : <>
             {events?.map((event) => (
@@ -54,7 +62,7 @@ export default function EventsStack() {
                       <Link href={`/events/${event.district || event.city}`}>
                         <p className='text-sm text-neutral-700'>{event.district || event.city}</p>
                       </Link>
-                      <Link href={`/organiser/${event.venues.internal_id}`}>
+                      <Link href={`/organiser/${event?.venues?.internal_id}`}>
                         <p className='text-xs text-neutral-500 hover:text-orange-500'>{event.organisator || event.venue}</p>
                       </Link>
                       <p className='text-xs font-semibold'>{event.min_price ? event.min_price : "Free"}</p>
@@ -79,8 +87,8 @@ export default function EventsStack() {
                     <Link href={`/events/${event.district || event.city}`}>
                       <p className='text-xs text-neutral-700'>{event.district || event.city}</p>
                     </Link>
-                    <Link href={`/venues/${event.venues.internal_id}`}>
-                      <p className='text-xs text-neutral-500 hover:text-orange-500'>{event.organisator || event.venue}</p>
+                    <Link href={`/venues/${event?.venues?.internal_id}`}>
+                      <p className='text-xs text-neutral-500 hover:text-orange-500'>{event.organisator || event?.venue}</p>
                     </Link>
 
                   </div>

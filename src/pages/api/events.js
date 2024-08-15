@@ -35,12 +35,12 @@ export default async function handler(req, res) {
         image,
         venue,
         min_price, 
-        venues(name, city, country, street, internal_id)
+        venues!inner(name, city, country, street, internal_id)
         `)
 
       if(city) {
         eventQuery = eventQuery
-          .eq('city', city)
+          .ilike('venues.city', `%${city}%`)
           .neq('image', 'no_image')
           .gte('start_date', startingDate)
           .lte('end_date', endingDate)

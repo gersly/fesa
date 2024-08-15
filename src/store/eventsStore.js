@@ -30,15 +30,20 @@ export const useEventsStore = create((set) => ({
     return { data: data }
   },
   fetchEvents: async (body) => {
+    set({ isLoading: true })
     const { data, error } = await fetchEventsFromApi(body)
     console.log('Data from fetch:', data)
     if(error) {
       console.error('Error:', error)
       set({ events: [] })
-      set({ isLoading: false })
+      setTimeout(() => {
+        set({ isLoading: false })
+      }, 1000);
     } else {
       set({ events: data })
-      set({ isLoading: false })
+      setTimeout(() => {
+        set({ isLoading: false })
+      }, 1000)
     }
   }
 }))

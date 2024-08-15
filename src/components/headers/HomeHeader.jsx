@@ -53,7 +53,7 @@ function HomeHeader(props) {
           backgroundSize: 'cover'
         }}>
         <div className='max-w-3xl w-full md:block hidden mt-8 space-y-4'>
-          <h1 className='lg:text-5xl md:text-4xl text-3xl max-w-3xl text-center text-white font-semibold font-heading'>
+          <h1 className='lg:text-5xl md:text-4xl text-3xl max-w-3xl text-center text-white font-bold font-heading'>
             Find fun things to do. Near you.
           </h1>
           <div className='bg-white border border-neutral-300 h-14 rounded-full w-6/6 flex'>
@@ -89,10 +89,10 @@ function HomeHeader(props) {
         </div>
         {/* Show on mobile */}
         <div className='max-w-3xl w-full md:hidden block h-full p-4 space-y-4'>
-          <h2 className='lg:text-5xl md:text-3xl text-2xl max-w-3xl text-center text-white font-semibold font-heading'>
+          <h2 className='lg:text-5xl md:text-3xl text-2xl max-w-3xl text-center text-white font-bold font-heading'>
             Find fun things to do. Near you.
           </h2>
-          <div className='bg-white border border-neutral-300 rounded-lg p-1 h-full w-6/6 grid grid-col-2'>
+          <div className='bg-white border border-neutral-300 rounded-md p-0.5 h-full w-6/6 grid grid-col-2'>
             <div className='col-span-2 flex items-center justify-center h-14'>
               <QueryDropdown
                 city={city}
