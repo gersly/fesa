@@ -37,29 +37,29 @@ export default function EventDetailPage() {
             }}
           />
           <div className='space-y-4 w-full bg-white shadow-md md:p-4 p-2 my-2 rounded-md'>
-            <h1 className='text-3xl font-semibold'>{activeEvent?.name}</h1>
-            <p className='text-md'>{activeEvent?.description}</p>
+            <h1 className='md:text-3xl text-xl font-semibold'>{activeEvent?.name}</h1>
+            <p className='md:text-md text-sm'>{activeEvent?.description}</p>
             <div className='flex items-center justify-start space-x-2 text-neutral-600 text-md'>
               <ClockIcon className='w-5 h-5' />
-              <p>{dayjs(activeEvent?.start_date).format('dddd, DD MMMM YYYY')}</p>
+              <p className='md:text-md text-sm'>{dayjs(activeEvent?.start_date).format('dddd, DD MMMM YYYY')}</p>
             </div>
             <div className='flex items-center justify-start space-x-2 text-neutral-600 text-md'>
               <Pin className='w-5 h-5' />
-              <p className='capitalize'>{activeEvent?.venues?.name}, {activeEvent?.venues?.city}, {activeEvent?.venues?.country}</p>
+              <p className='capitalize md:text-md text-sm'>{activeEvent?.venues?.name}, {activeEvent?.venues?.city}, {activeEvent?.venues?.country}</p>
             </div>
             <div className='border rounded-md hover:bg-neutral-100 cursor-pointer 
             min-h-16 p-2 flex items-center justify-start space-x-4'>
               <div className='flex items-center justify-center 
               w-14 h-14 bg-neutral-100 rounded-full'>
               </div>
-              <div>
+              <div className='md:text-md text-sm'>
                 <p>{activeEvent?.organisator || activeEvent?.venue}</p>
                 <p className='text-neutral-500'>{activeEvent?.phone || '+12 345-789'}</p>
               </div>
             </div>
           </div>
         </div>
-      </PageLayout>
-    </div>
+      </PageLayout >
+    </div >
   )
 }
