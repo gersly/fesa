@@ -32,13 +32,13 @@ export default function EventsStack() {
             {events?.map((event) => (
               <Link
                 href={`/events/${event.internal_id}`}
-                key={event.id}
+                key={event.internal_id}
                 className="bg-white flex flex-col rounded-md text-neutral-900 cursor-pointer"
               >
                 <div className="rounded-md md:block hidden">
                   <div className={`h-[160px] w-full px-4 py-5 rounded-md bg-neutral-100 border border-neutral-200`}
                     style={{
-                      backgroundImage: `url('${event.image_link || event.image || 'https://placekitten.com/500/500'}')`,
+                      backgroundImage: `url('${event.image_link || event.image}')`,
                       backgroundSize: 'cover',
                       backgroundPosition: 'center center'
                     }}
@@ -51,29 +51,29 @@ export default function EventsStack() {
                     <p className='text-neutral-500 text-xs'>{dayjs(event.date || event.start_date).format('dddd, DD MMMM YYYY')}</p>
                     <h3 className='text-sm hover:text-orange-500 font-semibold'>{event.title || event.name}</h3>
                     <div className='h-auto overflow-hidden w-full space-y-1'>
-                      <Link href={`/events/${event.district || event.city || 'https://placekitten.com/500/500'}`}>
+                      <Link href={`/events/${event.district || event.city}`}>
                         <p className='text-sm text-neutral-700'>{event.district || event.city}</p>
                       </Link>
                       <Link href={`/organiser/${event.venues.internal_id}`}>
                         <p className='text-xs text-neutral-500 hover:text-orange-500'>{event.organisator || event.venue}</p>
                       </Link>
                       <p className='text-xs font-semibold'>{event.min_price ? event.min_price : "Free"}</p>
-                      {/*<p className='text-sm h-20 text-neutral-500'>{event.description}</p>*/}
                     </div>
 
                   </div>
                 </div>
                 {/* Show on mobile */}
                 <div className='grid grid-cols-7 gap-2 md:hidden'>
-                  <div className={`h-[94px] rounded-md bg-neutral-100 border border-neutral-200 col-span-3`}
+                  <div className={`h-[94px] px-1 rounded-md bg-neutral-100 border border-neutral-200 col-span-3`}
                     style={{
                       backgroundImage: `url('${event.image_link || event.image}')`,
                       backgroundSize: 'cover',
                       backgroundPosition: 'center top'
                     }}
                   >
+                    <span className="inline-flex items-center rounded bg-black py-0.5 px-1 text-xs font-normal text-white">{event.min_price ? `${event.min_price}` : "Free"}</span>
                   </div>
-                  <div className='h-full w-full flex items-start justify-start flex-col col-span-4 truncate space-y-1'>
+                  <div className='h-full w-full flex items-start justify-start flex-col col-span-4  space-y-1'>
                     <p className='font-semibold hover:text-orange-500 text-sm'>{event.title || event.name}</p>
                     <p className='text-neutral-500 text-xs'>{dayjs(event.date || event.start_date).format('dddd, DD MMMM YYYY')}</p>
                     <Link href={`/events/${event.district || event.city}`}>
@@ -82,7 +82,7 @@ export default function EventsStack() {
                     <Link href={`/venues/${event.venues.internal_id}`}>
                       <p className='text-xs text-neutral-500 hover:text-orange-500'>{event.organisator || event.venue}</p>
                     </Link>
-                    <p className='text-xs font-semibold'>{event.min_price ? event.min_price : "Free"}</p>
+
                   </div>
                 </div>
               </Link>

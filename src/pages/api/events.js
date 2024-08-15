@@ -1,5 +1,5 @@
 import { createApiClient } from "helpers/apiClient"
-
+import { posthogClient } from "helpers/posthogClient";
 const client = createApiClient()
 
 export default async function handler(req, res) {
@@ -18,9 +18,11 @@ export default async function handler(req, res) {
         min_price, 
         venues(name, city, country, street, internal_id)
         `)
-        .eq('internal_id', id).maybeSingle()
+        .eq('internal_id', id)
+        .maybeSingle()
       if(error) return res.status(400).json({ message: 'Error getting event', data: {} })
       if(!data) return res.status(404).json({ message: 'Event not found', data: {} })
+      posthogClient.capture({ distinct_id: 'event_odp_api', event: 'Event viewed', properties: { event: data, name: data.name, env: 'api', query: data.internal_id } })
       return res.status(200).json({
         data: data,
         message: 'Event found'
@@ -56,6 +58,7 @@ export default async function handler(req, res) {
       const { data, error } = await eventQuery
 
       if(error) return res.status(400).json({ message: 'Error getting events', data: [], error: error })
+      posthogClient.capture({ distinct_id: 'event_serp_api', event: 'Events found', properties: { count: data.length, query: query, env: 'api' } })
       return res.status(200).json({
         data: data,
         message: 'Events found'
