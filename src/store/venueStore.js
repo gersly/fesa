@@ -1,3 +1,4 @@
+import { fetchVenueFromApi, fetchVenuesFromApi } from 'helpers/requests/venues'
 import { create } from 'zustand'
 
 // Create a store for venues and also store the query used to fetch the venue.
@@ -22,8 +23,10 @@ export const useVenuesStore = create((set) => ({
     if(error) {
       console.error('Error:', error)
       set({ venues: [] })
+      set({ isLoading: false })
     } else {
       set({ venues: data })
+      set({ isLoading: false })
     }
   },
 

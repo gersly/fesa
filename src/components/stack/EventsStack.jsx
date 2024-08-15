@@ -36,7 +36,7 @@ export default function EventsStack() {
                 className="bg-white  flex flex-col rounded-md text-neutral-900 cursor-pointer"
               >
                 <div className="rounded-md md:block hidden">
-                  <div className={`h-[180px] w-full px-4 py-5 rounded-md bg-neutral-100`}
+                  <div className={`h-[160px] w-full px-4 py-5 rounded-md bg-neutral-100 border border-neutral-200`}
                     style={{
                       backgroundImage: `url('${event.image_link || event.image || 'https://placekitten.com/500/500'}')`,
                       backgroundSize: 'cover',
@@ -49,7 +49,7 @@ export default function EventsStack() {
                   </div>
                   <div className='py-2 space-y-1'>
                     <p className='text-neutral-500 text-sm'>{dayjs(event.date || event.start_date).format('dddd, DD MMMM YYYY')}</p>
-                    <h3 className='text-md hover:text-orange-500 font-bold'>{event.title || event.name}</h3>
+                    <h3 className='text-md hover:text-orange-500 font-semibold'>{event.title || event.name}</h3>
                     <div className='h-auto overflow-hidden w-full space-y-2'>
                       <Link href={`/events/${event.district || event.city || 'https://placekitten.com/500/500'}`}>
                         <p className='text-sm text-neutral-700'>{event.district || event.city}</p>
@@ -74,12 +74,12 @@ export default function EventsStack() {
                   >
                   </div>
                   <div className='h-full w-full flex items-start justify-start flex-col col-span-3'>
-                    <p className='font-bold hover:text-orange-500 text-md'>{event.title || event.name}</p>
+                    <p className='font-semibold hover:text-orange-500 text-md'>{event.title || event.name}</p>
                     <p className='text-neutral-500 text-sm'>{dayjs(event.date || event.start_date).format('dddd, DD MMMM YYYY')}</p>
                     <Link href={`/events/${event.district || event.city}`}>
                       <p className='text-sm text-neutral-700'>{event.district || event.city}</p>
                     </Link>
-                    <Link href={`/organisers/${event.venues.internal_id}`}>
+                    <Link href={`/venues/${event.venues.internal_id}`}>
                       <p className='text-sm text-neutral-700 hover:text-orange-500'>{event.organisator || event.venue}</p>
                     </Link>
 

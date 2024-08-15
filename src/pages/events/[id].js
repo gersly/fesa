@@ -27,9 +27,8 @@ export default function EventDetailPage() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <TopNavigation />
-      {/*{JSON.stringify(event, null, 2)}*/}
       <PageLayout>
-        <div className='flex items-center justify-center flex-col w-full md:p-4 p-2 my-4 bg-white shadow-md rounded-md'>
+        <div className='flex items-center justify-center flex-col w-full rounded-md'>
           <div className='h-[420px] bg-neutral-200 w-full rounded-md'
             style={{
               backgroundImage: `url('${activeEvent?.image || 'https://placekitten.com/500/500'}')`,
@@ -37,8 +36,8 @@ export default function EventDetailPage() {
               backgroundPosition: 'center center'
             }}
           />
-          <div className='space-y-4 md:py-8 py-4 w-full'>
-            <h1 className='text-3xl'>{activeEvent?.name}</h1>
+          <div className='space-y-4 w-full bg-white shadow-md md:p-4 p-2 my-2 rounded-md'>
+            <h1 className='text-3xl font-semibold'>{activeEvent?.name}</h1>
             <p className='text-md'>{activeEvent?.description}</p>
             <div className='flex items-center justify-start space-x-2 text-neutral-600 text-md'>
               <ClockIcon className='w-5 h-5' />

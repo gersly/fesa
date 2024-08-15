@@ -8,6 +8,7 @@ export default function VenuesStack() {
   const { venues, isLoading } = useVenuesStore();
 
   useEffect(() => {
+    console.log('Venues:', venues.length)
   }, [venues])
 
   return (
@@ -48,15 +49,13 @@ export default function VenuesStack() {
                     </span>}
                   </div>
                   <div className='py-2 space-y-1'>
-                    <p className='text-neutral-500 text-sm'>{dayjs(venue.date || venue.start_date).format('dddd, DD MMMM YYYY')}</p>
-                    <h3 className='text-md hover:text-orange-500 font-bold'>{venue.title || venue.name}</h3>
+                    <h3 className='text-md hover:text-orange-500 font-bold'>{venue.name}</h3>
                     <div className='h-auto overflow-hidden w-full space-y-2'>
-                      <Link href={`/venues/${venue.district || venue.city || 'https://placekitten.com/500/500'}`}>
-                        <p className='text-sm text-neutral-700'>{venue.district || venue.city}</p>
-                      </Link>
-                      <Link href={`/organiser/${venue.venues.internal_id}`}>
-                        <p className='text-sm text-neutral-700 hover:text-orange-500'>{venue.organisator || venue.venue}</p>
-                      </Link>
+                      <p className='text-sm text-neutral-700 capitalize'>{venue.city}</p>
+                      <p className='text-sm text-neutral-700 capitalize'>{venue.country}</p>
+                      {/*<Link href={`/organiser/${venue.internal_id}`}>
+                        <p className='text-sm text-neutral-700 hover:text-orange-500'>See events</p>
+                      </Link>*/}
                     </div>
                   </div>
                 </div>

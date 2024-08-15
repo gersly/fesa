@@ -1,13 +1,24 @@
+import { useVenuesStore } from '@/store/venueStore'
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 import React, { useEffect, useState } from 'react'
 
 export default function OrganisersHeader() {
 
-  const [query, setQuery] = useState("")
+  const [city, setCity] = useState("")
+  const { fetchVenues } = useVenuesStore()
+
+  const handleSearch = async () => {
+    console.log('searching...',
+      city
+    )
+    await fetchVenues({
+      city: city,
+    })
+  }
 
   useEffect(() => {
+    handleSearch()
   }, [])
-
 
   return (
     <>

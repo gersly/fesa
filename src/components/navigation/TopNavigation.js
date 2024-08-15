@@ -7,7 +7,7 @@ import Link from 'next/link'
 const navigation = [
   { name: 'Events', href: '/events' },
   //{ name: 'Discover Parties', href: '/events' },
-  { name: 'Organisers', href: '/organisers' },
+  { name: 'Venues', href: '/venues' },
   { name: 'Sell tickets', href: '/sell-tickets' },
   {
     name: 'Add your event', href: '/post-event', current: true
@@ -24,13 +24,7 @@ function classNames(...classes) {
 }
 
 export default function TopNavigation() {
-  let [isOpen, setIsOpen] = useState(false)
-  let [location, setLocation] = useState('Paramaribo, Suriname, SR')
 
-  const handleLocation = (newLocation) => {
-    setIsOpen(false)
-    setLocation(newLocation)
-  }
   return (
     <>
       <Disclosure as="nav" className="bg-white border-0 border-neutral-200 ">
@@ -41,7 +35,7 @@ export default function TopNavigation() {
 
                 <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                   <Link href="/" className="flex flex-shrink-0 items-center">
-                    <p className='text-xl'>Fesa</p>
+                    <p className='text-2xl uppercase font-black'>Fesa</p>
                   </Link>
                   <div className="hidden sm:ml-6 sm:block w-full">
                     <div className="flex space-x-4 items-center justify-end w-full">
