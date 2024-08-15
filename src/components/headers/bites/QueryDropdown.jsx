@@ -20,9 +20,10 @@ const people = [
 export default function QueryDropdown({ city, setCity, placeholderValue }) {
 
   const [selectedPerson, setSelectedPerson] = useState("")
+  const [query, setQuery] = useState('')
 
   const filteredPeople =
-    city === ''
+    query === ''
       ? people
       : people.filter((person) => {
         return person.toLowerCase().includes(city?.toLowerCase())
@@ -40,10 +41,9 @@ export default function QueryDropdown({ city, setCity, placeholderValue }) {
           value={selectedPerson}
           onChange={setSelectedPerson}>
           <Combobox.Input
-            onChange={(event) => setCity(event.target.value)}
-            placeholder={placeholderValue || 'Search cities, venues or countries'}
-            className="h-full w-full rounded-l-full px-4 capitalize"
-
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder={placeholderValue || 'Search cities'}
+            className="h-full w-full rounded-l-full px-2 capitalize"
           />
           <Combobox.Options
             className={'bg-white border border-neutral-300 mt-4 rounded-lg shadow-lg max-h-[250px] overflow-y-scroll'}
@@ -71,9 +71,9 @@ export default function QueryDropdown({ city, setCity, placeholderValue }) {
           value={selectedPerson}
           onChange={setSelectedPerson}>
           <Combobox.Input
-            onChange={(event) => setCity(event.target.value)}
-            placeholder={'Search cities, venues or countries'}
-            className=" placeholder:text-neutral-500 h-14 w-full px-4 capitalize outline-none"
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder={'Search cities'}
+            className=" placeholder:text-neutral-500 h-14 w-full px-2 capitalize outline-none"
           />
           <Combobox.Options
             className={'bg-white border absolute w-full border-neutral-300 mt-4 rounded-lg shadow-lg max-h-[250px] overflow-y-scroll'}
