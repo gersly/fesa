@@ -65,7 +65,7 @@ export default function EventsStack() {
                       <Link href={`/organiser/${event?.venues?.internal_id}`}>
                         <p className='text-xs text-neutral-500 hover:text-orange-500'>{event.organisator || event.venue}</p>
                       </Link>
-                      <p className='text-xs font-semibold'>{event.min_price ? event.min_price : "Free"}</p>
+                      <p className='text-xs font-semibold'>{event.min_price && event.min_price}</p>
                     </div>
 
                   </div>
@@ -79,7 +79,7 @@ export default function EventsStack() {
                       backgroundPosition: 'center top'
                     }}
                   >
-                    <span className="inline-flex items-center rounded bg-black py-0.5 px-1 text-xs font-normal text-white">{event.min_price ? `${event.min_price}` : "Free"}</span>
+                    <span className="inline-flex items-center rounded bg-black py-0.5 px-1 text-xs font-normal text-white">{event.min_price && `${event.min_price}`}</span>
                   </div>
                   <div className='h-full w-full flex items-start justify-start flex-col col-span-4  space-y-1'>
                     <p className='font-semibold hover:text-orange-500 text-sm'>{event.title || event.name}</p>

@@ -46,13 +46,13 @@ function HomeHeader(props) {
 
   return (
     <>
-      <div className='flex md:min-h-[340px] h-full lg:py-14 md:py-10 flex-col items-center md:justify-center'
+      <div className='flex h-full lg:py-14 md:py-10 flex-col items-center md:justify-center'
         style={{
           background: `url("${backgrounds[2]}")`,
           backgroundPosition: 'center center',
           backgroundSize: 'cover'
         }}>
-        <div className='max-w-3xl w-full md:block hidden mt-8 space-y-4'>
+        <div className='max-w-3xl w-full md:block hidden mt-4 space-y-4'>
           <h1 className='lg:text-5xl md:text-4xl text-3xl max-w-3xl text-center text-white font-bold font-heading'>
             Find fun things to do. Near you.
           </h1>
