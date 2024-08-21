@@ -41,14 +41,14 @@ export default async function handler(req, res) {
       if(city) {
         eventQuery = eventQuery
           .ilike('venues.city', `%${city}%`)
-          .neq('image', 'no_image')
+          //.neq('image', 'no_image')
           .gte('start_date', startingDate)
           .lte('end_date', endingDate)
           .order('start_date', { ascending: true })
           .limit(30)
       } else {
         eventQuery = eventQuery
-          .neq('image', 'no_image')
+          //.neq('image', 'no_image')
           .gte('start_date', startingDate)
           .lte('end_date', endingDate)
           .order('start_date', { ascending: true })

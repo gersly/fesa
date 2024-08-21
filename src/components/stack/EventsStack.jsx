@@ -51,9 +51,10 @@ export default function EventsStack() {
                       backgroundPosition: 'center center'
                     }}
                   >
-                    {event.trending && <span className="inline-flex items-center rounded-md bg-neutral-900 px-2.5 py-1 text-sm font-semibold text-white">
-                      🔥 Trending
-                    </span>}
+                    <div className='w-full h-full flex items-center justify-center'>
+                      {event.image_link === "no_image" || event.image === "no_image" &&
+                        <p className='text-neutral-400 font-bold text-sm uppercase'>Fesa</p>}
+                    </div>
                   </div>
                   <div className='py-2 space-y-1'>
                     <p className='text-neutral-500 text-xs'>{dayjs(event.date || event.start_date).format('dddd, DD MMMM YYYY')}</p>

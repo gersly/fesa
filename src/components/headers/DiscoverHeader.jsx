@@ -30,7 +30,7 @@ export default function DiscoverHeader() {
 
   return (
     <>
-      <div className='flex lg:py-14 md:py-10 py-4 flex-col 
+      <div className='flex lg:py-8 md:py-10 py-4 flex-col 
       items-center justify-center bg-neutral-100'>
         <h1 className='lg:text-4xl text-2xl max-w-4xl text-center tracking-tight font-bold'>
           Discover events near you
