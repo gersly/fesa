@@ -8,7 +8,7 @@ const navigation = [
   { name: 'Events', href: '/events' },
   //{ name: 'Discover Parties', href: '/events' },
   { name: 'Venues', href: '/venues' },
-  { name: 'Sell tickets', href: '/sell-tickets' },
+  { name: 'Advertise with us', href: '/sell-tickets' },
   {
     name: 'Add your event', href: '/post-event', current: true
   }
@@ -30,7 +30,7 @@ export default function TopNavigation() {
       <Disclosure as="nav" className="bg-white border-0 border-neutral-200 ">
         {({ open }) => (
           <>
-            <div className="mx-auto max-w-6xl px-6 lg:px-8">
+            <div className="mx-auto max-w-5xl px-6 lg:px-8">
               <div className="relative flex h-14 items-center justify-between">
 
                 <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">

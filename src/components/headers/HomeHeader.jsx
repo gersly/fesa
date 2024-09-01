@@ -46,36 +46,36 @@ function HomeHeader(props) {
 
   return (
     <>
-      <div className='flex h-full lg:py-14 md:py-10 flex-col items-center md:justify-center'
+      <div className='flex h-full lg:py-10 md:py-8 flex-col items-center md:justify-center'
         style={{
           background: `url("${backgrounds[2]}")`,
           backgroundPosition: 'center center',
           backgroundSize: 'cover'
         }}>
-        <div className='max-w-3xl w-full md:block hidden mt-4 space-y-4'>
-          <h1 className='lg:text-5xl md:text-4xl text-3xl max-w-3xl text-center text-white font-bold font-heading'>
+        <div className='max-w-5xl md:px-8 w-full md:block hidden mt-4 space-y-4'>
+          <h1 className='lg:text-4xl md:text-3xl text-2xl max-w-3xl text-left text-white font-bold font-heading'>
             Find fun things to do. Near you.
           </h1>
-          <div className='bg-white border border-neutral-300 h-14 rounded-full w-6/6 flex'>
+          <div className='bg-white border border-neutral-300 h-12 rounded-md w-6/6 max-w-xl flex'>
             <QueryDropdown
               city={city}
               setCity={setCity}
             />
-            <div className='lg:w-4/6 w-4/6 flex items-center justify-center rounded-r-full'>
+            <div className='lg:w-3/6 w-3/6 flex items-center justify-center rounded-md'>
               <input
-                className='w-1/2 h-full px-2 border-x outline-none'
+                className='w-full h-full px-2 border-l rounded-r-md p-0.5 outline-none'
                 type='date'
                 value={startingDate}
                 onChange={(e) => setStartingDate(e.target.value)}
                 defaultValue={dayjs().format('YYYY-MM-DD')}
               />
-              <input
-                className='w-1/2 h-full px-2 border-r outline-none rounded-r-full'
+              {/*<input
+                className='w-1/2 h-full px-2 border-r outline-none rounded-r-md'
                 type='date'
                 value={endingDate}
                 onChange={(e) => setEndingDate(e.target.value)}
                 defaultValue={dayjs().format('YYYY-MM-DD')}
-              />
+              />*/}
               {/*<span className="w-1/3 h-full p-1 flex items-center justify-center rounded-r-full bg-white">
                 <button
                   onClick={() => handleSearch()}
@@ -92,23 +92,21 @@ function HomeHeader(props) {
           <h2 className='lg:text-5xl md:text-3xl text-2xl max-w-3xl text-center text-white font-bold font-heading'>
             Find fun things to do. Near you.
           </h2>
-          <div className='bg-white border border-neutral-300 rounded-md p-0.5 h-full w-6/6 grid grid-col-2'>
-            <div className='col-span-2 flex items-center justify-center h-14'>
+          <div className='bg-white border border-neutral-300 rounded-md p-0.5 h-full w-6/6 flex'>
+            <div className='col-span-2 flex items-center justify-center h-10'>
               <QueryDropdown
                 city={city}
                 setCity={setCity}
               />
-            </div>
-            <div className='col-span-1 flex items-center justify-center h-14 w-full'>
               <input
-                className='w-full h-full px-2  outline-none'
+                className='w-1/2 h-full px-2 border-l outline-none'
                 type='date'
                 value={startingDate}
                 onChange={(e) => setStartingDate(e.target.value)}
                 defaultValue={dayjs().format('YYYY-MM-DD')}
               />
             </div>
-            <div className='col-span-1 flex items-center justify-center h-14 w-full'>
+            {/*<div className='col-span-1 flex items-center justify-center h-14 w-full'>
               <input
                 className='w-full h-full px-2 outline-none '
                 type='date'
@@ -116,7 +114,7 @@ function HomeHeader(props) {
                 onChange={(e) => setEndingDate(e.target.value)}
                 defaultValue={dayjs().format('YYYY-MM-DD')}
               />
-            </div>
+            </div>*/}
             {/*<div className='col-span-2 flex items-center justify-center h-14'>
               <span className="w-full h-full p-1 flex items-center justify-center  bg-white">
                 <button

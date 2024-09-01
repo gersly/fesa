@@ -10,7 +10,7 @@ export default function EventsStack() {
   }, [events])
 
   return (
-    <div className="grid grid-cols-1 gap-2 md:grid-cols-3 sm:grid-cols-2 lg:my-4 my-2 min-h-[500px]">
+    <div className="grid grid-cols-1 gap-2 md:grid-cols-4 sm:grid-cols-2 lg:my-4 my-2 min-h-[500px]">
       {isLoading ? <>
         {[1, 2, 3, 4, 5, 6, 7, 8].map((event, index) => <div key={index}>
           <div className="rounded-md md:block hidden animate-pulse">

@@ -12,7 +12,7 @@ export default function VenuesStack() {
   }, [venues])
 
   return (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-3 sm:grid-cols-2 lg:my-4 my-2">
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-4 sm:grid-cols-2 lg:my-4 my-2">
       {isLoading ? <>
         {[1, 2, 3, 4, 5, 6, 7, 8].map((event, index) => <div key={index}>
           <div className="rounded-md md:block hidden animate-pulse">
@@ -34,7 +34,8 @@ export default function VenuesStack() {
               <Link
                 href={`/venues/${venue.internal_id}`}
                 key={venue.id}
-                className="bg-white  flex flex-col rounded-md text-neutral-900 cursor-pointer"
+                className="bg-white  flex flex-col rounded-md text-neutral-900 cursor-pointer
+                 hover:border-neutral-200 border border-white p-1"
               >
                 <div className="rounded-md md:block hidden">
                   <div className={`h-[180px] w-full px-4 py-5 rounded-md bg-neutral-100`}
@@ -50,7 +51,7 @@ export default function VenuesStack() {
                   </div>
                   <div className='py-2 space-y-1'>
                     <h3 className='text-md hover:text-orange-500 font-bold'>{venue.name}</h3>
-                    <div className='h-auto overflow-hidden w-full space-y-2'>
+                    <div className='h-auto overflow-hidden w-full space-y-1'>
                       <p className='text-sm text-neutral-700 capitalize'>{venue.city}</p>
                       <p className='text-sm text-neutral-700 capitalize'>{venue.country}</p>
                       {/*<Link href={`/organiser/${venue.internal_id}`}>

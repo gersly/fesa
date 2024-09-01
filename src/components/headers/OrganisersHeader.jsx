@@ -1,6 +1,7 @@
 import { useVenuesStore } from '@/store/venueStore'
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 import React, { useEffect, useState } from 'react'
+import QueryDropdown from './bites/QueryDropdown'
 
 export default function OrganisersHeader() {
 
@@ -18,38 +19,42 @@ export default function OrganisersHeader() {
 
   useEffect(() => {
     handleSearch()
-  }, [])
+  }, [city])
 
   return (
     <>
-
-      <div className='flex lg:py-14 py-10 flex-col 
+      <div className='flex lg:py-6 md:py-4 py-2 flex-col 
       items-center justify-center bg-neutral-100'>
-        <h1 className='lg:text-4xl text-2xl max-w-4xl text-center tracking-tight'>
-          Discover venues and organisers near you
-        </h1>
-        <div className='max-w-3xl w-full md:block hidden mt-8'>
-          <div className='bg-white border border-neutral-300 h-14 rounded-full w-6/6 flex'>
-
-
+        <div className='max-w-5xl md:px-8 w-full md:block hidden mt-4 space-y-4'>
+          <h1 className='lg:text-3xl text-xl max-w-3xl text-left tracking-tight font-bold'>
+            Discover venues near you
+          </h1>
+          <div className='max-w-3xl w-full md:block hidden mt-2'>
+            <div className='bg-white border border-neutral-300 h-12 rounded-md w-6/6 flex max-w-xl p-0.5'>
+              <QueryDropdown
+                city={city}
+                setCity={setCity}
+              />
+            </div>
           </div>
         </div>
         {/* Show on mobile */}
-        <div className='max-w-3xl w-full md:hidden block mt-8 h-full p-4'>
-          <div className='bg-white border border-neutral-300 rounded-lg p-1 h-full w-6/6 grid grid-col-1'>
+        <div className='max-w-3xl w-full md:hidden block h-full p-2'>
+          <h1 className='lg:text-4xl text-2xl max-w-3xl text-center tracking-tight font-bold my-1'>
+            Discover events near you
+          </h1>
+          <div className='bg-white border border-neutral-300 rounded-md p-0.5 h-full w-6/6 grid grid-col-2'>
 
-            <div className='col-span-1 flex items-center justify-center h-14'>
-              <span className="w-full h-full p-1 flex items-center justify-center  bg-white">
-                <button
-                  className='
-            font-medium bg-neutral-900 flex items-center  justify-center space-x-2 text-white h-full w-full rounded-full hover:bg-neutral-800'>
-                  <MagnifyingGlassIcon className='w-5 h-5' /><p>Search</p>
-                </button>
-              </span>
+            <div className='col-span-2 flex items-center justify-center h-10'>
+              <QueryDropdown
+                city={city}
+                setCity={setCity}
+              />
             </div>
           </div>
         </div>
       </div>
+
     </>
   )
 }

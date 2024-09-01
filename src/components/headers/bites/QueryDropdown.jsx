@@ -36,17 +36,18 @@ export default function QueryDropdown({ city, setCity, placeholderValue }) {
 
   return (
     <>
-      <div className='lg:w-2/6 w-2/6 md:block hidden relative'>
+      <div className='lg:w-3/6 w-3/6 md:block hidden relative'>
         <Combobox
           value={selectedPerson}
           onChange={setSelectedPerson}>
           <Combobox.Input
             onChange={(event) => setQuery(event.target.value)}
             placeholder={placeholderValue || 'Search cities'}
-            className="h-full w-full rounded-l-full px-2 capitalize"
+            className="h-full w-full rounded-l-md px-2 capitalize focus:bg-white hover:bg-white outline-none"
           />
           <Combobox.Options
-            className={'bg-white border border-neutral-300 mt-4 rounded-lg shadow-lg max-h-[250px] overflow-y-scroll'}
+            className={`bg-white border border-neutral-300 mt-4 rounded-md
+               shadow-md max-h-[250px] overflow-y-scroll`}
           >
             {filteredPeople.length > 0 ?
               <>
@@ -73,10 +74,11 @@ export default function QueryDropdown({ city, setCity, placeholderValue }) {
           <Combobox.Input
             onChange={(event) => setQuery(event.target.value)}
             placeholder={'Search cities'}
-            className=" placeholder:text-neutral-500 h-14 w-full px-2 capitalize outline-none"
+            className=" placeholder:text-neutral-500 h-auto w-full px-2 capitalize outline-none"
           />
           <Combobox.Options
-            className={'bg-white border absolute w-full border-neutral-300 mt-4 rounded-lg shadow-lg max-h-[250px] overflow-y-scroll'}
+            className={`bg-white border absolute w-full border-neutral-300 mt-4 
+              rounded-md shadow-md max-h-[250px] overflow-y-scroll`}
           >
             {filteredPeople.length > 0 ?
               <>
