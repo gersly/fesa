@@ -46,7 +46,7 @@ export default function QueryDropdown({ city, setCity, placeholderValue }) {
             className="h-full w-full rounded-l-md px-2 capitalize focus:bg-white hover:bg-white outline-none"
           />
           <Combobox.Options
-            className={`bg-white border border-neutral-300 mt-4 rounded-md
+            className={`bg-white border border-neutral-300 mt-4 rounded
                shadow-md max-h-[250px] overflow-y-scroll`}
           >
             {filteredPeople.length > 0 ?
@@ -78,7 +78,7 @@ export default function QueryDropdown({ city, setCity, placeholderValue }) {
           />
           <Combobox.Options
             className={`bg-white border absolute w-full border-neutral-300 mt-4 
-              rounded-md shadow-md max-h-[250px] overflow-y-scroll`}
+              rounded shadow-md max-h-[250px] overflow-y-scroll`}
           >
             {filteredPeople.length > 0 ?
               <>

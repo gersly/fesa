@@ -1,10 +1,9 @@
 export async function fetchEventsFromApi({
   city,
-  startingDate,
-  endingDate
+  startingDate
 }) {
   try {
-    const response = await fetch('/api/events?city=' + city + '&startingDate=' + startingDate + '&endingDate=' + endingDate);
+    const response = await fetch('/api/events?city=' + city + '&startingDate=' + startingDate);
     const data = await response.json();
 
     if(response.ok) {

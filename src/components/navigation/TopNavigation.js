@@ -41,7 +41,7 @@ export default function TopNavigation() {
                     <div className="flex space-x-4 items-center justify-end w-full">
                       {/*<input
                         placeholder='Search events'
-                        className='border border-neutral-300 rounded-md h-10 text-neutral-900 w-full px-4 text-sm'
+                        className='border border-neutral-300 rounded h-10 text-neutral-900 w-full px-4 text-sm'
                       />*/}
                       {navigation.map((item) => (
                         <a
@@ -49,7 +49,7 @@ export default function TopNavigation() {
                           href={item.href}
                           className={classNames(
                             item.current ? 'bg-neutral-900 border text-white' : 'text-neutral-900 hover:bg-neutral-100 hover:text-neutral-900',
-                            'px-3 py-2 rounded-md text-sm font-medium whitespace-nowrap'
+                            'px-3 py-2 rounded text-sm font-medium whitespace-nowrap'
                           )}
                           aria-current={item.current ? 'page' : undefined}
                         >
@@ -61,7 +61,7 @@ export default function TopNavigation() {
                 </div>
                 <div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
                   {/* Mobile menu button*/}
-                  <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-neutral-900 
+                  <Disclosure.Button className="inline-flex items-center justify-center rounded p-2 text-neutral-900 
                   hover:bg-neutral-100 hover:text-neutral-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                     <span className="sr-only">Open main menu</span>
                     {open ? (
@@ -84,7 +84,7 @@ export default function TopNavigation() {
                     href={item.href}
                     className={classNames(
                       item.current ? 'bg-neutral-100 text-neutral-900' : 'text-neutral-900 hover:bg-neutral-100 hover:text-neutral-900',
-                      'block px-3 py-2 rounded-md text-base font-medium'
+                      'block px-3 py-2 rounded text-base font-medium'
                     )}
                     aria-current={item.current ? 'page' : undefined}
                   >
@@ -102,7 +102,7 @@ export default function TopNavigation() {
           <p className='text-xl font-medium'>Fesa</p>
         </Link>
         <button
-          className='px-3 py-1.5 hover:bg-neutral-100 flex items-center justify-center h-full border border-neutral-300 rounded-md font-medium cursor-pointer space-x-2'>
+          className='px-3 py-1.5 hover:bg-neutral-100 flex items-center justify-center h-full border border-neutral-300 rounded font-medium cursor-pointer space-x-2'>
           <p>Log In</p>
         </button>
 

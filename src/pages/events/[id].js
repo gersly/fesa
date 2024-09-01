@@ -28,15 +28,15 @@ export default function EventDetailPage() {
       </Head>
       <TopNavigation />
       <PageLayout>
-        <div className='flex items-center justify-center flex-col w-full rounded-md'>
-          <div className='h-[420px] bg-neutral-200 w-full rounded-md'
+        <div className='flex items-center justify-center flex-col w-full rounded'>
+          <div className='md:h-[420px] md:bg-contain bg-cover md:bg-no-repeat h-[220px] bg-neutral-200 w-full rounded'
             style={{
               backgroundImage: `url('${activeEvent?.image || 'https://placekitten.com/500/500'}')`,
-              backgroundSize: 'cover',
+              //backgroundSize: 'cover',
               backgroundPosition: 'center center'
             }}
           />
-          <div className='space-y-4 w-full bg-white shadow-md md:p-4 p-2 my-2 rounded-md'>
+          <div className='space-y-4 w-full bg-white shadow-md md:p-4 p-2 my-2 rounded'>
             <h1 className='md:text-3xl text-xl font-semibold'>{activeEvent?.name}</h1>
             <p className='md:text-md text-sm'>{activeEvent?.description}</p>
             <div className='flex items-center justify-start space-x-2 text-neutral-600 text-md'>
@@ -47,7 +47,7 @@ export default function EventDetailPage() {
               <Pin className='w-5 h-5' />
               <p className='capitalize md:text-md text-sm'>{activeEvent?.venues?.name}, {activeEvent?.venues?.city}, {activeEvent?.venues?.country}</p>
             </div>
-            <div className='border rounded-md hover:bg-neutral-100 cursor-pointer 
+            <div className='border rounded hover:bg-neutral-100 cursor-pointer 
             min-h-16 p-2 flex items-center justify-start space-x-4'>
               <div className='flex items-center justify-center 
               w-14 h-14 bg-neutral-100 rounded-full'>

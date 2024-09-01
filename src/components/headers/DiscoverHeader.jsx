@@ -37,7 +37,7 @@ export default function DiscoverHeader() {
             Discover events near you
           </h1>
           <div className='max-w-3xl w-full md:block hidden mt-2'>
-            <div className='bg-white border border-neutral-300 h-12 rounded-md w-6/6 flex max-w-xl p-0.5'>
+            <div className='bg-white border border-neutral-300 h-12 rounded w-6/6 flex max-w-xl p-0.5'>
               <QueryDropdown
                 city={city}
                 setCity={setCity}
@@ -74,7 +74,7 @@ export default function DiscoverHeader() {
           <h1 className='lg:text-4xl text-2xl max-w-3xl text-center tracking-tight font-bold my-1'>
             Discover events near you
           </h1>
-          <div className='bg-white border border-neutral-300 rounded-md p-0.5 h-full w-6/6 grid grid-col-2'>
+          <div className='bg-white border border-neutral-300 rounded p-0.5 h-full w-6/6 grid grid-col-2'>
 
             <div className='col-span-2 flex items-center justify-center h-10'>
               <QueryDropdown

@@ -5,7 +5,11 @@ const client = createApiClient()
 export default async function handler(req, res) {
   const { method, query, params } = req
   console.log('Query:', query);
-  const { id, startingDate, endingDate, city } = req.query
+  const {
+    id,
+    startingDate,
+    //endingDate, 
+    city } = req.query
 
   if(method === 'GET') {
     if(id) {
@@ -43,16 +47,16 @@ export default async function handler(req, res) {
           .ilike('venues.city', `%${city}%`)
           //.neq('image', 'no_image')
           .gte('start_date', startingDate)
-          .lte('end_date', endingDate)
+          //.lte('end_date', endingDate)
           .order('start_date', { ascending: true })
-          .limit(30)
+          .limit(100)
       } else {
         eventQuery = eventQuery
           //.neq('image', 'no_image')
           .gte('start_date', startingDate)
-          .lte('end_date', endingDate)
+          //.lte('end_date', endingDate)
           .order('start_date', { ascending: true })
-          .limit(30)
+          .limit(100)
       }
 
       const { data, error } = await eventQuery
