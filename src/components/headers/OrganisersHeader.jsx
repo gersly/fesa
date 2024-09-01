@@ -41,7 +41,7 @@ export default function OrganisersHeader() {
         {/* Show on mobile */}
         <div className='max-w-3xl w-full md:hidden block h-full p-2'>
           <h1 className='lg:text-4xl text-2xl max-w-3xl text-center tracking-tight font-bold my-1'>
-            Discover events near you
+            Discover venues near you
           </h1>
           <div className='bg-white border border-neutral-300 rounded p-0.5 h-full w-6/6 grid grid-col-2'>
 
