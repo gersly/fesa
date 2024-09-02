@@ -1,4 +1,5 @@
 import '@/styles/globals.css'
+import Head from 'next/head'
 import posthog from "posthog-js"
 import { PostHogProvider } from 'posthog-js/react'
 
