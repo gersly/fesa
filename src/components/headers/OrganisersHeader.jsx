@@ -26,7 +26,7 @@ export default function OrganisersHeader() {
       <div className='flex lg:py-6 md:py-4 py-2 flex-col 
       items-center justify-center bg-neutral-100'>
         <div className='max-w-5xl md:px-8 w-full md:block hidden mt-4 space-y-4'>
-          <h1 className='lg:text-3xl text-xl max-w-3xl text-left tracking-tight font-bold'>
+          <h1 className='lg:text-3xl text-2xl max-w-3xl text-left tracking-tight font-bold'>
             Discover venues near you
           </h1>
           <div className='max-w-3xl w-full md:block hidden mt-2'>
@@ -40,7 +40,7 @@ export default function OrganisersHeader() {
         </div>
         {/* Show on mobile */}
         <div className='max-w-3xl w-full md:hidden block h-full p-2'>
-          <h1 className='lg:text-4xl text-2xl max-w-3xl text-center tracking-tight font-bold my-1'>
+          <h1 className='md:text-3xl text-2xl max-w-3xl text-center tracking-tight font-semibold my-1'>
             Discover venues near you
           </h1>
           <div className='bg-white border border-neutral-300 rounded p-0.5 h-full w-6/6 grid grid-col-2'>

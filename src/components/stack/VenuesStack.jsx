@@ -60,6 +60,29 @@ export default function VenuesStack() {
                     </div>
                   </div>
                 </div>
+                <div className="rounded md:hidden block">
+                  <div className={`h-[180px] w-full px-4 py-5 rounded bg-neutral-100`}
+                    style={{
+                      backgroundImage: `url('${venue.image_link || venue.image || 'https://placekitten.com/500/500'}')`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center center'
+                    }}
+                  >
+                    {venue.trending && <span className="inline-flex items-center rounded bg-neutral-900 px-2.5 py-1 text-sm font-semibold text-white">
+                      🔥 Trending
+                    </span>}
+                  </div>
+                  <div className='py-2 space-y-1'>
+                    <h3 className='text-md hover:text-orange-500 font-bold'>{venue.name}</h3>
+                    <div className='h-auto overflow-hidden w-full space-y-1'>
+                      <p className='text-sm text-neutral-700 capitalize'>{venue.city}</p>
+                      <p className='text-sm text-neutral-700 capitalize'>{venue.country}</p>
+                      {/*<Link href={`/organiser/${venue.internal_id}`}>
+                        <p className='text-sm text-neutral-700 hover:text-orange-500'>See events</p>
+                      </Link>*/}
+                    </div>
+                  </div>
+                </div>
               </Link>
             ))}
           </>}
