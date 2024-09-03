@@ -126,7 +126,7 @@ export default function EventsStack() {
           className="bg-white flex flex-col rounded text-neutral-900 cursor-pointer"
         >
           <div className="rounded md:block hidden">
-            <div className={`h-[160px] w-full px-4 py-5 rounded bg-neutral-100 border border-neutral-200`}
+            <div className={`h-[160px] w-full px-4 py-5 rounded bg-pink-50 border border-pink-200`}
               style={{
                 backgroundImage: `url('${event.image_link || event.image}')`,
                 backgroundSize: 'cover',
@@ -135,7 +135,7 @@ export default function EventsStack() {
             >
               <div className='w-full h-full flex items-center justify-center'>
                 {event.image_link === "no_image" || event.image === "no_image" &&
-                  <p className='text-neutral-400 font-bold text-sm uppercase'>Fesa</p>}
+                  <p className='text-pink-200 font-bold font-heading text-sm uppercase'>Fesa</p>}
               </div>
             </div>
             <div className='py-2 space-y-1'>
@@ -154,15 +154,16 @@ export default function EventsStack() {
           </div>
           {/* Show on mobile */}
           <div className='grid grid-cols-7 gap-2 md:hidden'>
-            <div className={`h-[94px] px-1 rounded bg-neutral-100 border border-neutral-200 col-span-3`}
+            <div className={`h-[94px] px-1 rounded bg-pink-50 border border-pink-200 col-span-3 flex items-center justify-center`}
               style={{
                 backgroundImage: `url('${event.image_link || event.image}')`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center top'
               }}
             >
+              {event.image_link === 'no_image' || event.image === 'no_image' && <p className='font-heading text-pink-200 text-sm uppercase'>Fesa</p>}
             </div>
-            <div className='h-full w-full block  col-span-4'>
+            <div className='h-full w-full block col-span-4'>
               <p className='font-semibold hover:text-pink-500 text-sm truncate pb-1'>{event.title || event.name}</p>
               <p className='text-neutral-500 text-xs pb-1'>{dayjs(event.date || event.start_date).format('dddd, DD MMMM YYYY')}</p>
               <Link href={`/events/${event.district || event.city}`}>
@@ -180,11 +181,15 @@ export default function EventsStack() {
       // Add sponsored post after every 'postsBeforeAd' posts
       if((index + 1) % postsBeforeAd === 0) {
         eventComponents.push(
-          <div key={`sponsored-${index}`} className="bg-yellow-100 border border-yellow-300 p-2 sm:h-auto h-[120px] rounded text-neutral-900">
-            <p className="text-sm font-normal">Advertise with us</p>
-            <p className="text-xs">
-              <Link href="/contact" className="text-neutral-500 hover:text-neutral-600">Contact us</Link>
-            </p>
+          <div key={`sponsored-${index}`} className="h-auto rounded text-neutral-900 sm:my-0 my-1">
+            <div className='bg-pink-50 border border-pink-200
+             sm:h-[160px] h-[84px] rounded flex items-center justify-center'>
+              <p className='font-heading text-pink-200 text-sm uppercase'>Fesa</p>
+            </div>
+            <div className='py-1 space-y-0.5'>
+              <span className='text-xs text-neutral-500'>Sponsored</span>
+              <p className="text-sm font-semibold">Advertise with us</p>
+            </div>
           </div>
         );
       }
