@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { getEventsByCity } from '@/services/events';
+//import { getEventsByCity } from '@/services/events';
 import { EventsStack } from '@/components/stack/EventsStack';
 
 export default function EventsCityPage() {
@@ -12,7 +12,16 @@ export default function EventsCityPage() {
 
   useEffect(() => {
     if(city) {
-      getEventsByCity(city).then(setEvents);
+      //getEventsByCity(city).then(setEvents);
+      console.log(city);
+      setEvents([
+        {
+          title: 'Event 1',
+          description: 'Description 1',
+          date: '2021-01-01',
+          image: 'https://via.placeholder.com/150',
+        },
+      ]);
     }
   }, [city]);
 
