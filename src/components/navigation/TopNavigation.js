@@ -35,8 +35,14 @@ export default function TopNavigation() {
 
                 <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                   <Link href="/" className="flex w-full items-left">
-                    <p className='text-2xl uppercase font-black  text-yellow-400'>Fesa</p>
+                    <p className='text-3xl uppercase font-black -space-x-4 font-heading'>
+                      <span className='text-pink-300 z-30'>F</span>
+                      <span className='text-pink-400 z-20'>F</span>
+                      <span className='text-pink-500 z-10'>F</span>
+                      <span className='text-pink-600 z-0'>F</span>
+                    </p>
                   </Link>
+
                   <div className="hidden sm:ml-6 sm:block w-full">
                     <div className="flex space-x-4 items-center justify-end w-full">
                       {/*<input
@@ -48,7 +54,7 @@ export default function TopNavigation() {
                           key={item.name}
                           href={item.href}
                           className={classNames(
-                            item.current ? 'bg-yellow-500 border-0 text-white' :
+                            item.current ? 'bg-pink-500 border-0 text-white' :
                               'text-white hover:bg-neutral-900 hover:text-neutral-100',
                             'px-3 py-2 rounded text-sm font-medium whitespace-nowrap'
                           )}

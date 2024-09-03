@@ -13,9 +13,12 @@ module.exports = {
     extend:
     {
       fontFamily: {
-        heading: ['Inter', 'sans-serif'],
+        heading: ['Dela Gothic One', 'sans-serif'],
         body: ['Inter', 'sans-serif']
       },
+      colors: {
+        black: '#111111'
+      }
     },
   },
   plugins: [],

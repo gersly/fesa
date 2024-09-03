@@ -52,17 +52,17 @@ function HomeHeader(props) {
   return (
     <>
 
-      <div className='flex h-[180px] lg:pb-10 md:pb-8 flex-col grayscale-0 justify-start items-end'
-        style={{
-          background: `url("${backgrounds[3]}")`,
-          backgroundPosition: 'center center',
-          backgroundSize: 'cover',
-
-        }}>
+      <div className='flex lg:pb-10 bg-black md:pb-8 flex-col grayscale-0 items-center justify-center '
+      //style={{
+      //  background: `url("${backgrounds[3]}")`,
+      //  backgroundPosition: 'center center',
+      //  backgroundSize: 'cover',
+      //}}
+      >
         <TopNavigation />
         <div className='max-w-5xl md:px-8 w-full md:block hidden mt-4 space-y-4'>
-          <h1 className='lg:text-4xl md:text-3xl text-2xl max-w-3xl text-left text-white font-bold font-heading'>
-            Find fun things to do. Near you.
+          <h1 className='lg:text-4xl md:text-3xl text-2xl text-left text-white font-bold font-heading'>
+            Find fun things to do near you
           </h1>
           <div className='bg-white border border-neutral-300 h-10 rounded w-6/6 max-w-xl flex'>
             <QueryDropdown
