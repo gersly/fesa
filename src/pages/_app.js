@@ -34,8 +34,8 @@ export default function App(
         <title>Fesa</title>
         <meta name="description" content="Discover events near you" />
         <link rel="shortcut icon" href="/favicon.ico" />
-        <link rel="mask-icon" href="/icons/mask-icon.svg" color="#FFFFFF" />
-        <meta name="theme-color" content="#ffffff" />
+        <link rel="mask-icon" href="/icons/mask-icon.svg" color="#111111" />
+        <meta name="theme-color" content="#111111" />
         <link rel="apple-touch-icon" href="/icons/touch-icon-iphone.png" />
         <link
           rel="apple-touch-icon"
