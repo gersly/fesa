@@ -2,6 +2,7 @@ import { useVenuesStore } from '@/store/venueStore'
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 import React, { useEffect, useState } from 'react'
 import QueryDropdown from './bites/QueryDropdown'
+import TopNavigation from '../navigation/TopNavigation'
 
 export default function OrganisersHeader() {
 
@@ -23,29 +24,32 @@ export default function OrganisersHeader() {
 
   return (
     <>
-      <div className='flex lg:py-6 md:py-4 py-2 flex-col 
-      items-center justify-center bg-neutral-100'>
+      <div className='flex lg:pb-10 bg-black md:pb-8 flex-col grayscale-0 items-center justify-center '
+      //style={{
+      //  background: `url("${backgrounds[3]}")`,
+      //  backgroundPosition: 'center center',
+      //  backgroundSize: 'cover',
+      //}}
+      >
+        <TopNavigation />
         <div className='max-w-5xl md:px-8 w-full md:block hidden mt-4 space-y-4'>
-          <h1 className='lg:text-3xl text-2xl max-w-3xl text-left tracking-tight font-bold'>
-            Discover venues near you
+          <h1 className='lg:text-4xl md:text-3xl text-2xl text-left text-white font-bold font-heading'>
+            Discover venues
           </h1>
-          <div className='max-w-3xl w-full md:block hidden mt-2'>
-            <div className='bg-white border border-neutral-300 h-12 rounded w-6/6 flex max-w-xl p-0.5'>
-              <QueryDropdown
-                city={city}
-                setCity={setCity}
-              />
-            </div>
+          <div className='bg-white border border-neutral-300 h-10 rounded w-6/6 md:max-w-lg w-full flex'>
+            <QueryDropdown
+              city={city}
+              setCity={setCity}
+            />
           </div>
         </div>
         {/* Show on mobile */}
-        <div className='max-w-3xl w-full md:hidden block h-full p-2'>
-          <h1 className='md:text-3xl text-2xl max-w-3xl text-center tracking-tight font-semibold my-1'>
-            Discover venues near you
-          </h1>
-          <div className='bg-white border border-neutral-300 rounded p-0.5 h-full w-6/6 grid grid-col-2'>
-
-            <div className='col-span-2 flex items-center justify-center h-10'>
+        <div className='max-w-3xl w-full md:hidden h-full px-2 py-4 space-y-2 flex flex-col items-start justify-end'>
+          <h2 className='lg:text-5xl md:text-3xl text-2xl text-left text-white font-bold font-heading'>
+            Discover venues
+          </h2>
+          <div className='bg-white border border-neutral-300 rounded p-0.5 h-10 w-6/6 w-full flex'>
+            <div className='w-full flex items-center justify-start max-h-10'>
               <QueryDropdown
                 city={city}
                 setCity={setCity}

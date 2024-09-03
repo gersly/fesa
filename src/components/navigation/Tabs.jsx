@@ -8,6 +8,10 @@ const tabs = [
   { name: 'Concert', slug: 'concert', href: '#', current: false },
   { name: 'Festival', slug: 'festival', href: '#', current: false },
   { name: 'Nightlife', slug: 'nightlife', href: '#', current: false },
+  { name: 'Food', slug: 'food', href: '#', current: false },
+  { name: 'Sports', slug: 'sports', href: '#', current: false },
+  { name: 'Family', slug: 'family', href: '#', current: false },
+  { name: 'Other', slug: 'other', href: '#', current: false },
 ]
 
 function classNames(...classes) {
@@ -19,7 +23,7 @@ export default function Tabs() {
   return (
     <div className="max-w-screen overflow-hidden sm:py-4 py-2">
       <div className="border-0 border-neutral-200">
-        <nav className="flex space-x-2 overflow-y-scroll w-full" aria-label="Tabs">
+        <nav className="flex space-x-2 overflow-y-scroll w-full pb-2 no-scrollbar" aria-label="Tabs">
           {tabs.map((tab) => (
             <p
               onClick={() => setActiveTab(tab.slug)}

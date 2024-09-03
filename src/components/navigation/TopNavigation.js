@@ -27,7 +27,7 @@ export default function TopNavigation() {
 
   return (
     <>
-      <Disclosure as="nav" className="bg-transparent w-full">
+      <Disclosure as="nav" className="bg-black w-full">
         {({ open }) => (
           <>
             <div className="mx-auto max-w-5xl md:px-6 px-2 lg:px-8">

@@ -62,7 +62,7 @@ function HomeHeader(props) {
         <TopNavigation />
         <div className='max-w-5xl md:px-8 w-full md:block hidden mt-4 space-y-4'>
           <h1 className='lg:text-4xl md:text-3xl text-2xl text-left text-white font-bold font-heading'>
-            Find fun things to do near you
+            Find fun events
           </h1>
           <div className='bg-white border border-neutral-300 h-10 rounded w-6/6 md:max-w-lg w-full flex'>
             <QueryDropdown
@@ -98,7 +98,7 @@ function HomeHeader(props) {
         {/* Show on mobile */}
         <div className='max-w-3xl w-full md:hidden h-full px-2 py-4 space-y-2 flex flex-col items-start justify-end'>
           <h2 className='lg:text-5xl md:text-3xl text-2xl text-left text-white font-bold font-heading'>
-            Find events near you
+            Find fun events
           </h2>
           <div className='bg-white border border-neutral-300 rounded p-0.5 h-10 w-6/6 w-full flex'>
             <div className='w-full flex items-center justify-center max-h-10'>
