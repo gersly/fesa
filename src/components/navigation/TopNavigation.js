@@ -33,13 +33,16 @@ export default function TopNavigation() {
             <div className="mx-auto max-w-5xl md:px-6 px-2 lg:px-8">
               <div className="relative flex h-14 items-center justify-between">
 
-                <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                <div className="flex flex-1 items-center justify-center sm:items-center sm:justify-start">
                   <Link href="/" className="flex w-full items-left">
-                    <p className='text-3xl uppercase font-black -space-x-4 font-heading'>
+                    {/*<p className='text-2xl uppercase font-black -space-x-1 font-heading'>
                       <span className='text-pink-300 z-30'>F</span>
-                      <span className='text-pink-400 z-20'>F</span>
-                      <span className='text-pink-500 z-10'>F</span>
-                      <span className='text-pink-600 z-0'>F</span>
+                      <span className='text-pink-400 z-20'>E</span>
+                      <span className='text-pink-500 z-10'>S</span>
+                      <span className='text-pink-600 z-0'>A</span>
+                    </p>*/}
+                    <p className='text-xl uppercase font-bold text-pink-400 -space-x-1 font-heading'>
+                      Fesa
                     </p>
                   </Link>
 
