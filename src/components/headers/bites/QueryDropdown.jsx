@@ -67,7 +67,7 @@ export default function QueryDropdown({ city, setCity, placeholderValue }) {
         </Combobox>
       </div>
       {/* Show on mobile */}
-      <div className='w-full md:hidden block relative'>
+      <div className='w-3/6 md:hidden block relative'>
         <Combobox
           value={selectedPerson}
           onChange={setSelectedPerson}>

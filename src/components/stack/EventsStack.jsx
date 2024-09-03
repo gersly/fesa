@@ -59,13 +59,13 @@
 //                  </div>
 //                  <div className='py-2 space-y-1'>
 //                    <p className='text-neutral-500 text-xs'>{dayjs(event.date || event.start_date).format('dddd, DD MMMM YYYY')}</p>
-//                    <h3 className='text-sm hover:text-orange-500 font-semibold'>{event.title || event.name}</h3>
+//                    <h3 className='text-sm hover:text-pink-500 font-semibold'>{event.title || event.name}</h3>
 //                    <div className='h-auto overflow-hidden w-full space-y-1'>
 //                      <Link href={`/events/${event.district || event.city}`}>
 //                        <p className='text-sm text-neutral-700'>{event.district || event.city}</p>
 //                      </Link>
 //                      <Link href={`/organiser/${event?.venues?.internal_id}`}>
-//                        <p className='text-xs text-neutral-500 hover:text-orange-500'>{event.organisator || event.venue}</p>
+//                        <p className='text-xs text-neutral-500 hover:text-pink-500'>{event.organisator || event.venue}</p>
 //                      </Link>
 //                      <p className='text-xs font-semibold'>{event.min_price && event.min_price}</p>
 //                    </div>
@@ -83,13 +83,13 @@
 //                  >
 //                  </div>
 //                  <div className='h-full w-full block  col-span-4'>
-//                    <p className='font-semibold hover:text-orange-500 text-sm truncate pb-1'>{event.title || event.name}</p>
+//                    <p className='font-semibold hover:text-pink-500 text-sm truncate pb-1'>{event.title || event.name}</p>
 //                    <p className='text-neutral-500 text-xs pb-1'>{dayjs(event.date || event.start_date).format('dddd, DD MMMM YYYY')}</p>
 //                    <Link href={`/events/${event.district || event.city}`}>
 //                      <p className='text-xs text-neutral-700'>{event.district || event.city}</p>
 //                    </Link>
 //                    <Link href={`/venues/${event?.venues?.internal_id}`}>
-//                      <p className='text-xs text-neutral-500 hover:text-orange-500'>{event.organisator || event?.venue}</p>
+//                      <p className='text-xs text-neutral-500 hover:text-pink-500'>{event.organisator || event?.venue}</p>
 //                    </Link>
 //                    <p className='text-xs font-semibold pt-2'>{event.min_price && event.min_price}</p>
 //                  </div>
@@ -140,13 +140,13 @@ export default function EventsStack() {
             </div>
             <div className='py-2 space-y-1'>
               <p className='text-neutral-500 text-xs'>{dayjs(event.date || event.start_date).format('dddd, DD MMMM YYYY')}</p>
-              <h3 className='text-sm hover:text-orange-500 font-semibold'>{event.title || event.name}</h3>
+              <h3 className='text-sm hover:text-pink-500 font-semibold'>{event.title || event.name}</h3>
               <div className='h-auto overflow-hidden w-full space-y-1'>
-                <Link href={`/events/${event.district || event.city}`}>
+                {/*<Link href={`/events/city/${event.district || event.city}`}>
                   <p className='text-sm text-neutral-700'>{event.district || event.city}</p>
-                </Link>
-                <Link href={`/organiser/${event?.venues?.internal_id}`}>
-                  <p className='text-xs text-neutral-500 hover:text-orange-500'>{event.organisator || event.venue}</p>
+                </Link>*/}
+                <Link href={`/venues/${event?.venues?.internal_id}`}>
+                  <p className='text-xs text-neutral-500 hover:text-pink-500'>{event.organisator || event.venue}</p>
                 </Link>
                 <p className='text-xs font-semibold'>{event.min_price && event.min_price}</p>
               </div>
@@ -154,7 +154,7 @@ export default function EventsStack() {
           </div>
           {/* Show on mobile */}
           <div className='grid grid-cols-7 gap-2 md:hidden'>
-            <div className={`h-[84px] px-1 rounded bg-neutral-100 border border-neutral-200 col-span-3`}
+            <div className={`h-[94px] px-1 rounded bg-neutral-100 border border-neutral-200 col-span-3`}
               style={{
                 backgroundImage: `url('${event.image_link || event.image}')`,
                 backgroundSize: 'cover',
@@ -163,13 +163,13 @@ export default function EventsStack() {
             >
             </div>
             <div className='h-full w-full block  col-span-4'>
-              <p className='font-semibold hover:text-orange-500 text-sm truncate pb-1'>{event.title || event.name}</p>
+              <p className='font-semibold hover:text-pink-500 text-sm truncate pb-1'>{event.title || event.name}</p>
               <p className='text-neutral-500 text-xs pb-1'>{dayjs(event.date || event.start_date).format('dddd, DD MMMM YYYY')}</p>
               <Link href={`/events/${event.district || event.city}`}>
                 <p className='text-xs text-neutral-700'>{event.district || event.city}</p>
               </Link>
               <Link href={`/venues/${event?.venues?.internal_id}`}>
-                <p className='text-xs text-neutral-500 hover:text-orange-500'>{event.organisator || event?.venue}</p>
+                <p className='text-xs text-neutral-500 hover:text-pink-500'>{event.organisator || event?.venue}</p>
               </Link>
               <p className='text-xs font-semibold pt-2'>{event.min_price && event.min_price}</p>
             </div>
@@ -193,7 +193,7 @@ export default function EventsStack() {
   }
 
   return (
-    <div className="grid grid-cols-1 gap-1 md:grid-cols-4 sm:grid-cols-2 
+    <div className="grid grid-cols-1 gap-1 md:grid-cols-3 sm:grid-cols-2 
     lg:my-4 my-2 min-h-[500px]">
       {isLoading ? <>
         {[1, 2, 3, 4, 5, 6, 7, 8].map((event, index) => <div key={index}>

@@ -64,7 +64,7 @@ function HomeHeader(props) {
           <h1 className='lg:text-4xl md:text-3xl text-2xl text-left text-white font-bold font-heading'>
             Find fun things to do near you
           </h1>
-          <div className='bg-white border border-neutral-300 h-10 rounded w-6/6 max-w-xl flex'>
+          <div className='bg-white border border-neutral-300 h-10 rounded w-6/6 md:max-w-lg w-full flex'>
             <QueryDropdown
               city={city}
               setCity={setCity}
@@ -100,39 +100,20 @@ function HomeHeader(props) {
           <h2 className='lg:text-5xl md:text-3xl text-2xl text-left text-white font-bold font-heading'>
             Find events near you
           </h2>
-          <div className='bg-white border border-neutral-300 rounded p-0.5 h-10 w-6/6 flex'>
-            <div className='col-span-2 flex items-center justify-center max-h-10'>
+          <div className='bg-white border border-neutral-300 rounded p-0.5 h-10 w-6/6 w-full flex'>
+            <div className='w-full flex items-center justify-center max-h-10'>
               <QueryDropdown
                 city={city}
                 setCity={setCity}
               />
               <input
-                className='w-1/2 h-full px-2 border-l outline-none'
+                className='w-3/6 h-full px-2 border-l border-neutral-300 outline-none'
                 type='date'
                 value={startingDate}
                 onChange={(e) => setStartingDate(e.target.value)}
                 defaultValue={dayjs().format('YYYY-MM-DD')}
               />
             </div>
-            {/*<div className='col-span-1 flex items-center justify-center h-14 w-full'>
-              <input
-                className='w-full h-full px-2 outline-none '
-                type='date'
-                value={endingDate}
-                onChange={(e) => setEndingDate(e.target.value)}
-                defaultValue={dayjs().format('YYYY-MM-DD')}
-              />
-            </div>*/}
-            {/*<div className='col-span-2 flex items-center justify-center h-14'>
-              <span className="w-full h-full p-1 flex items-center justify-center  bg-white">
-                <button
-                  onClick={() => handleSearch()}
-                  className='
-              font-medium bg-neutral-900 flex items-center  justify-center space-x-2 text-white h-full w-full rounded-full hover:bg-neutral-800'>
-                  <MagnifyingGlassIcon className='w-5 h-5' /><p>Search</p>
-                </button>
-              </span>
-            </div>*/}
           </div>
         </div>
       </div>
