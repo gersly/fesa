@@ -27,10 +27,10 @@ export default async function handler(req, res) {
       if(city) {
         eventQuery = eventQuery
           .eq('city', city)
-          .limit(30)
+          .limit(100)
       } else {
         eventQuery = eventQuery
-          .limit(30)
+          .limit(100)
       }
 
       const { data, error } = await eventQuery
