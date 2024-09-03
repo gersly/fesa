@@ -27,10 +27,10 @@ export default function TopNavigation() {
 
   return (
     <>
-      <Disclosure as="nav" className="bg-black">
+      <Disclosure as="nav" className="bg-transparent w-full">
         {({ open }) => (
           <>
-            <div className="mx-auto max-w-5xl px-6 lg:px-8">
+            <div className="mx-auto max-w-5xl md:px-6 px-2 lg:px-8">
               <div className="relative flex h-14 items-center justify-between">
 
                 <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
@@ -76,7 +76,7 @@ export default function TopNavigation() {
               </div>
             </div>
 
-            <Disclosure.Panel className="sm:hidden">
+            <Disclosure.Panel className="sm:hidden bg-black">
               <div className="space-y-1 px-2 pt-2 pb-3">
                 {navigation.map((item) => (
                   <Disclosure.Button

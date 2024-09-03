@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 const tabs = [
-  { name: 'All', slug: 'all', href: '#', current: true },
+  { name: 'All events', slug: 'all', href: '#', current: true },
   { name: 'Today', slug: 'today', href: '#', current: false },
   { name: 'This weekend', slug: 'this-weekend', href: '#', current: false },
   { name: 'Free', slug: 'free', href: '#', current: false },
@@ -27,8 +27,8 @@ export default function Tabs() {
               href={tab.href}
               className={classNames(
                 tab.slug === activeTab
-                  ? 'border-pink-500 text-pink-500 font-semibold text-xs md:text-sm'
-                  : 'border-transparent text-neutral-500 hover:text-pink-500 hover:border-pink-500 text-xs md:text-sm font-base',
+                  ? 'border-pink-500 text-pink-500 font-semibold text-sm'
+                  : 'border-transparent text-neutral-500 hover:text-pink-500 hover:border-pink-500 text-sm font-base',
                 'whitespace-nowrap cursor-pointer bg-white rounded-full min-w-20 py-0.5 px-2 border-2'
               )}
               aria-current={tab.current ? 'page' : undefined}>

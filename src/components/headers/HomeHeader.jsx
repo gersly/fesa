@@ -4,6 +4,7 @@ import dayjs from 'dayjs' // ES 2015
 import QueryDropdown from './bites/QueryDropdown'
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 import { useEventsStore } from '@/store/eventsStore'
+import TopNavigation from '../navigation/TopNavigation'
 dayjs().format()
 
 
@@ -50,13 +51,15 @@ function HomeHeader(props) {
 
   return (
     <>
-      <div className='flex h-full lg:py-10 md:py-8 py-4 flex-col grayscale-0 items-center md:justify-center'
+
+      <div className='flex h-[180px] lg:pb-10 md:pb-8 flex-col grayscale-0 justify-start items-end'
         style={{
-          background: `url("${backgrounds[0]}")`,
+          background: `url("${backgrounds[3]}")`,
           backgroundPosition: 'center center',
           backgroundSize: 'cover',
 
         }}>
+        <TopNavigation />
         <div className='max-w-5xl md:px-8 w-full md:block hidden mt-4 space-y-4'>
           <h1 className='lg:text-4xl md:text-3xl text-2xl max-w-3xl text-left text-white font-bold font-heading'>
             Find fun things to do. Near you.
@@ -93,12 +96,12 @@ function HomeHeader(props) {
           </div>
         </div>
         {/* Show on mobile */}
-        <div className='max-w-3xl w-full md:hidden block h-full px-2 py-4 space-y-2'>
+        <div className='max-w-3xl w-full md:hidden h-full px-2 py-4 space-y-2 flex flex-col items-start justify-end'>
           <h2 className='lg:text-5xl md:text-3xl text-2xl text-left text-white font-bold font-heading'>
             Find events near you
           </h2>
-          <div className='bg-white border border-neutral-300 rounded p-0.5 h-full w-6/6 flex'>
-            <div className='col-span-2 flex items-center justify-center h-10'>
+          <div className='bg-white border border-neutral-300 rounded p-0.5 h-10 w-6/6 flex'>
+            <div className='col-span-2 flex items-center justify-center max-h-10'>
               <QueryDropdown
                 city={city}
                 setCity={setCity}
