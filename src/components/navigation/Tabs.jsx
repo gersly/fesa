@@ -19,7 +19,7 @@ export default function Tabs() {
   return (
     <div className="max-w-screen overflow-hidden sm:py-4 py-2">
       <div className="border-0 border-neutral-200">
-        <nav className="flex space-x-8 overflow-y-scroll w-full" aria-label="Tabs">
+        <nav className="flex space-x-2 overflow-y-scroll w-full" aria-label="Tabs">
           {tabs.map((tab) => (
             <p
               onClick={() => setActiveTab(tab.slug)}
@@ -27,9 +27,9 @@ export default function Tabs() {
               href={tab.href}
               className={classNames(
                 tab.slug === activeTab
-                  ? 'border-orange-500 text-orange-500'
-                  : 'border-transparent text-neutral-500 hover:text-orange-500 hover:border-orange-500',
-                'whitespace-nowrap py-4 cursor-pointer px-1 border-b-2 font-medium text-sm'
+                  ? 'border-pink-500 text-pink-500 font-semibold text-xs md:text-sm'
+                  : 'border-transparent text-neutral-500 hover:text-pink-500 hover:border-pink-500 text-xs md:text-sm font-base',
+                'whitespace-nowrap cursor-pointer bg-white rounded-full min-w-20 py-0.5 px-2 border-2'
               )}
               aria-current={tab.current ? 'page' : undefined}>
               {tab.name}

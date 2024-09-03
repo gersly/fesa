@@ -43,7 +43,7 @@ export default function QueryDropdown({ city, setCity, placeholderValue }) {
           <Combobox.Input
             onChange={(event) => setQuery(event.target.value)}
             placeholder={placeholderValue || 'Search cities'}
-            className="h-full w-full rounded-l-md px-2 capitalize focus:bg-white hover:bg-white outline-none"
+            className="h-full w-full rounded-l px-2 capitalize text-sm focus:bg-white hover:bg-white outline-none"
           />
           <Combobox.Options
             className={`bg-white border border-neutral-300 mt-4 rounded
@@ -74,7 +74,7 @@ export default function QueryDropdown({ city, setCity, placeholderValue }) {
           <Combobox.Input
             onChange={(event) => setQuery(event.target.value)}
             placeholder={'Search cities'}
-            className=" placeholder:text-neutral-500 h-auto w-full px-2 capitalize outline-none"
+            className=" placeholder:text-neutral-500 text-sm h-auto w-full px-2 capitalize outline-none"
           />
           <Combobox.Options
             className={`bg-white border absolute w-full border-neutral-300 mt-4 

@@ -6,6 +6,7 @@ import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 import { useEventsStore } from '@/store/eventsStore'
 dayjs().format()
 
+
 function HomeHeader(props) {
   const [startingDate, setStartingDate] = useState(dayjs().format('YYYY-MM-DD'));
   const [endingDate, setEndingDate] = useState(dayjs().add(1, 'day').format('YYYY-MM-DD'));
@@ -19,6 +20,8 @@ function HomeHeader(props) {
     }
   };
 
+
+
   const handleSearch = async () => {
     // Validate dates before making the search
     validateDates();
@@ -30,6 +33,7 @@ function HomeHeader(props) {
       endingDate: dayjs(endingDate).toISOString()
     });
   };
+
 
   useEffect(() => {
     handleSearch();
@@ -46,24 +50,25 @@ function HomeHeader(props) {
 
   return (
     <>
-      <div className='flex h-full lg:py-10 md:py-8 flex-col items-center md:justify-center'
+      <div className='flex h-full lg:py-10 md:py-8 py-4 flex-col grayscale-0 items-center md:justify-center'
         style={{
-          background: `url("${backgrounds[2]}")`,
+          background: `url("${backgrounds[0]}")`,
           backgroundPosition: 'center center',
-          backgroundSize: 'cover'
+          backgroundSize: 'cover',
+
         }}>
         <div className='max-w-5xl md:px-8 w-full md:block hidden mt-4 space-y-4'>
           <h1 className='lg:text-4xl md:text-3xl text-2xl max-w-3xl text-left text-white font-bold font-heading'>
             Find fun things to do. Near you.
           </h1>
-          <div className='bg-white border border-neutral-300 h-12 rounded w-6/6 max-w-xl flex'>
+          <div className='bg-white border border-neutral-300 h-10 rounded w-6/6 max-w-xl flex'>
             <QueryDropdown
               city={city}
               setCity={setCity}
             />
             <div className='lg:w-3/6 w-3/6 flex items-center justify-center rounded'>
               <input
-                className='w-full h-full px-2 border-l rounded-r-md p-0.5 outline-none'
+                className='w-full h-full px-2 border-l rounded-r p-0.5 outline-none'
                 type='date'
                 value={startingDate}
                 onChange={(e) => setStartingDate(e.target.value)}
@@ -88,9 +93,9 @@ function HomeHeader(props) {
           </div>
         </div>
         {/* Show on mobile */}
-        <div className='max-w-3xl w-full md:hidden block h-full p-4 space-y-4'>
-          <h2 className='lg:text-5xl md:text-3xl text-2xl max-w-3xl text-center text-white font-bold font-heading'>
-            Find fun things to do. Near you.
+        <div className='max-w-3xl w-full md:hidden block h-full px-2 py-4 space-y-2'>
+          <h2 className='lg:text-5xl md:text-3xl text-2xl text-left text-white font-bold font-heading'>
+            Find events near you
           </h2>
           <div className='bg-white border border-neutral-300 rounded p-0.5 h-full w-6/6 flex'>
             <div className='col-span-2 flex items-center justify-center h-10'>

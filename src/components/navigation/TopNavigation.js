@@ -27,15 +27,15 @@ export default function TopNavigation() {
 
   return (
     <>
-      <Disclosure as="nav" className="bg-white border-0 border-neutral-200 ">
+      <Disclosure as="nav" className="bg-black">
         {({ open }) => (
           <>
             <div className="mx-auto max-w-5xl px-6 lg:px-8">
               <div className="relative flex h-14 items-center justify-between">
 
                 <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                  <Link href="/" className="flex flex-shrink-0 items-center">
-                    <p className='text-2xl uppercase font-black'>Fesa</p>
+                  <Link href="/" className="flex w-full items-left">
+                    <p className='text-2xl uppercase font-black  text-yellow-400'>Fesa</p>
                   </Link>
                   <div className="hidden sm:ml-6 sm:block w-full">
                     <div className="flex space-x-4 items-center justify-end w-full">
@@ -48,7 +48,8 @@ export default function TopNavigation() {
                           key={item.name}
                           href={item.href}
                           className={classNames(
-                            item.current ? 'bg-neutral-900 border text-white' : 'text-neutral-900 hover:bg-neutral-100 hover:text-neutral-900',
+                            item.current ? 'bg-yellow-500 border-0 text-white' :
+                              'text-white hover:bg-neutral-900 hover:text-neutral-100',
                             'px-3 py-2 rounded text-sm font-medium whitespace-nowrap'
                           )}
                           aria-current={item.current ? 'page' : undefined}
@@ -61,8 +62,8 @@ export default function TopNavigation() {
                 </div>
                 <div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
                   {/* Mobile menu button*/}
-                  <Disclosure.Button className="inline-flex items-center justify-center rounded p-2 text-neutral-900 
-                  hover:bg-neutral-100 hover:text-neutral-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                  <Disclosure.Button className="inline-flex items-center justify-center rounded p-2 text-white 
+                   focus:outline-none focus:ring-0">
                     <span className="sr-only">Open main menu</span>
                     {open ? (
                       <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
@@ -83,7 +84,7 @@ export default function TopNavigation() {
                     as="a"
                     href={item.href}
                     className={classNames(
-                      item.current ? 'bg-neutral-100 text-neutral-900' : 'text-neutral-900 hover:bg-neutral-100 hover:text-neutral-900',
+                      item.current ? 'text-white' : 'text-white',
                       'block px-3 py-2 rounded text-base font-medium'
                     )}
                     aria-current={item.current ? 'page' : undefined}

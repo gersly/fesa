@@ -180,10 +180,11 @@ export default function EventsStack() {
       // Add sponsored post after every 'postsBeforeAd' posts
       if((index + 1) % postsBeforeAd === 0) {
         eventComponents.push(
-          <div key={`sponsored-${index}`} className="bg-yellow-100 p-4 rounded text-neutral-900">
-            <p className="text-sm font-semibold">Sponsored Post</p>
-            <p className="text-xs">This is a sponsored post.</p>
-            {/* You can customize this section further to include an ad image or link */}
+          <div key={`sponsored-${index}`} className="bg-yellow-100 border border-yellow-300 p-2 sm:h-auto h-[120px] rounded text-neutral-900">
+            <p className="text-sm font-normal">Advertise with us</p>
+            <p className="text-xs">
+              <Link href="/contact" className="text-neutral-500 hover:text-neutral-600">Contact us</Link>
+            </p>
           </div>
         );
       }
@@ -210,7 +211,7 @@ export default function EventsStack() {
           {/* Show on mobile */}
           <div className='grid grid-cols-7 gap-2 md:hidden animate-pulse'>
             <div className={`h-[94px] px-1 rounded bg-neutral-200 col-span-3`} />
-            <div className='h-full w-full flex items-start justify-start flex-col col-span-4  space-y-1'>
+            <div className='h-full w-full flex items-start justify-start flex-col col-span-4 space-y-1'>
               <div className='bg-neutral-200 h-5 w-full rounded' />
               <div className='bg-neutral-200 h-5 w-2/3 rounded' />
               <div className='bg-neutral-200 h-5 w-1/3 rounded' />
