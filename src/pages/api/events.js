@@ -14,6 +14,7 @@ export default async function handler(req, res) {
   if(method === 'GET') {
     if(id) {
       const { data, error } = await client.from('events').select(`
+        id,
         internal_id,
         name,
         start_date,
@@ -33,6 +34,7 @@ export default async function handler(req, res) {
       })
     } else {
       let eventQuery = client.from('events').select(`
+        id,
         internal_id,
         name,
         start_date,
