@@ -51,14 +51,14 @@ export default async function handler(req, res) {
           .gte('start_date', startingDate)
           //.lte('end_date', endingDate)
           .order('start_date', { ascending: true })
-          .limit(100)
+          .limit(50)
       } else {
         eventQuery = eventQuery
           //.neq('image', 'no_image')
           .gte('start_date', startingDate)
           //.lte('end_date', endingDate)
           .order('start_date', { ascending: true })
-          .limit(100)
+          .limit(50)
       }
 
       const { data, error } = await eventQuery
