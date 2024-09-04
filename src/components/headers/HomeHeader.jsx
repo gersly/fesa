@@ -42,6 +42,7 @@ function HomeHeader(props) {
 
 
   const backgrounds = [
+    '/banner.png',
     'https://images.unsplash.com/photo-1583681716866-c0d24d132420?q=80&w=2727&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     'https://images.unsplash.com/photo-1610900603480-c0a85ac8e315?q=80&w=2563&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     'https://images.unsplash.com/photo-1531336542000-a8259492b550?q=80&w=2669&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
@@ -53,11 +54,11 @@ function HomeHeader(props) {
     <>
 
       <div className='flex lg:pb-10 bg-black md:pb-8 flex-col grayscale-0 items-center justify-center '
-      //style={{
-      //  background: `url("${backgrounds[3]}")`,
-      //  backgroundPosition: 'center center',
-      //  backgroundSize: 'cover',
-      //}}
+        style={{
+          background: `url("${backgrounds[0]}")`,
+          backgroundPosition: 'center bottom',
+          backgroundSize: 'cover',
+        }}
       >
         <TopNavigation />
         <div className='max-w-5xl md:px-8 w-full md:block hidden mt-4 space-y-4'>

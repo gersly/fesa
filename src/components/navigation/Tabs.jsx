@@ -21,9 +21,9 @@ function classNames(...classes) {
 export default function Tabs() {
   const [activeTab, setActiveTab] = useState('all')
   return (
-    <div className="max-w-screen overflow-hidden sm:py-4 py-2">
+    <div className="max-w-screen overflow-hidden sm:py-4 py-2 sticky top-0 z-50 bg-white">
       <div className="border-0 border-neutral-200">
-        <nav className="flex space-x-2 overflow-y-scroll w-full pb-2 no-scrollbar" aria-label="Tabs">
+        <nav className="flex space-x-2 overflow-y-scroll w-full px-2 no-scrollbar" aria-label="Tabs">
           {tabs.map((tab) => (
             <p
               onClick={() => setActiveTab(tab.slug)}

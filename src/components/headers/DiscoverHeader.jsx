@@ -32,11 +32,11 @@ export default function DiscoverHeader() {
   return (
     <>
       <div className='flex lg:pb-10 bg-black md:pb-8 flex-col grayscale-0 items-center justify-center '
-      //style={{
-      //  background: `url("${backgrounds[3]}")`,
-      //  backgroundPosition: 'center center',
-      //  backgroundSize: 'cover',
-      //}}
+        style={{
+          background: `url("/banner.png")`,
+          backgroundPosition: 'center center',
+          backgroundSize: 'cover',
+        }}
       >
         <TopNavigation />
         <div className='max-w-5xl md:px-8 w-full md:block hidden mt-4 space-y-4'>
