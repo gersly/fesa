@@ -47,7 +47,7 @@ export default function QueryDropdown({ city, setCity, placeholderValue }) {
           />
           <Combobox.Options
             className={`bg-white border border-neutral-300 mt-4 rounded
-               shadow-md max-h-[250px] overflow-y-scroll`}
+               shadow-md max-h-[250px] overflow-y-scroll z-50`}
           >
             {filteredPeople.length > 0 ?
               <>

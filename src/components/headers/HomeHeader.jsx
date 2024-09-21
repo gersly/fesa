@@ -5,6 +5,8 @@ import QueryDropdown from './bites/QueryDropdown'
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 import { useEventsStore } from '@/store/eventsStore'
 import TopNavigation from '../navigation/TopNavigation'
+import Tabs from '../navigation/Tabs'
+import PageLayout from '../layouts/PageLayout'
 dayjs().format()
 
 
@@ -96,6 +98,7 @@ function HomeHeader(props) {
             </div>
           </div>
         </div>
+
         {/* Show on mobile */}
         <div className='max-w-3xl w-full md:hidden h-full px-2 py-4 space-y-2 flex flex-col items-start justify-end'>
           <h2 className='lg:text-5xl md:text-3xl text-2xl text-left text-white font-bold font-heading'>
@@ -118,6 +121,12 @@ function HomeHeader(props) {
           </div>
         </div>
       </div>
+      <PageLayout>
+        <Tabs
+          startingDate={startingDate}
+          setStartingDate={setStartingDate}
+        />
+      </PageLayout>
     </>
   )
 }

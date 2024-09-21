@@ -5,23 +5,38 @@ const client = createApiClient()
 export default async function handler(req, res) {
   const { method, query, params } = req
   console.log('Query:', query);
-  const { id, city } = req.query
+  const { id, city, start_date } = req.query
 
   if(method === 'GET') {
     if(id) {
+      console.log('Getting venue with id:', id)
       const { data, error } = await client.from('venues').select(`
-       name, city, country, street, internal_id, latitute, longitude
+       name, city, country, street, tags, internal_id, id
         `)
-        .eq('internal_id', id).maybeSingle()
+        .eq('internal_id', id)
+        .maybeSingle()
+
+      console.log(error)
       if(error) return res.status(400).json({ message: 'Error getting venue', data: {} })
+
       if(!data) return res.status(404).json({ message: 'venue not found', data: {} })
+
+      const { data: eventsData, error: eventsError } = await client.from('events').select(`
+            name, internal_id, start_date
+            `)
+        .eq('venue_id', data.id)
+        .gte('start_date', start_date)
+        .order('start_date', { ascending: true })
+        .limit(25)
+
       return res.status(200).json({
         data: data,
+        events: eventsData,
         message: 'venue found'
       })
     } else {
       let eventQuery = client.from('venues').select(`
-        name, city, country, street, internal_id, latitude, longitude
+        name, city, country, street, internal_id
         `)
 
       if(city) {

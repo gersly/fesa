@@ -10,7 +10,7 @@ export default function OrganisersHeader() {
   const { fetchVenues } = useVenuesStore()
 
   const handleSearch = async () => {
-    console.log('searching...',
+    console.log('searching venues...',
       city
     )
     await fetchVenues({

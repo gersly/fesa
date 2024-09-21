@@ -27,9 +27,9 @@ export async function fetchVenuesFromApi({
 }
 
 
-export async function fetchVenueFromApi(id) {
+export async function fetchVenueFromApi(id, start_date) {
   try {
-    const response = await fetch(`/api/venues?id=${id}`);
+    const response = await fetch(`/api/venues?id=${id}&start_date=${start_date}`);
 
     const data = await response.json();
 

@@ -18,7 +18,6 @@ export default function Home() {
       {/*<TopNavigation />*/}
       <HomeHeader />
       <PageLayout>
-        <Tabs />
         <EventsStack />
       </PageLayout>
       <Footer />

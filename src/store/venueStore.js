@@ -11,10 +11,10 @@ export const useVenuesStore = create((set) => ({
   setActiveVenue: (venue) => set({ activeVenue: venue }),
   setVenues: (venues) => set({ venues }),
   setQuery: (query) => set({ query }),
-  fetchVenue: async (id) => {
-    const { data, error } = await fetchVenueFromApi(id)
+  fetchVenue: async (id, start_date) => {
+    const { data, events, error } = await fetchVenueFromApi(id, start_date)
     if(error) return { error: error }
-    set({ activeVenue: data })
+    set({ activeVenue: { ...data, events } })
     return { data: data }
   },
   fetchVenues: async (body) => {

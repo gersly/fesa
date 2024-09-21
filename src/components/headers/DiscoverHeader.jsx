@@ -5,6 +5,8 @@ import QueryDropdown from './bites/QueryDropdown'
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 import { useEventsStore } from '@/store/eventsStore'
 import TopNavigation from '../navigation/TopNavigation'
+import PageLayout from '../layouts/PageLayout'
+import Tabs from '../navigation/Tabs'
 dayjs().format()
 
 export default function DiscoverHeader() {
@@ -96,6 +98,12 @@ export default function DiscoverHeader() {
           </div>
         </div>
       </div>
+      <PageLayout>
+        <Tabs
+          startingDate={startingDate}
+          setStartingDate={setStartingDate}
+        />
+      </PageLayout>
     </>
   )
 }
