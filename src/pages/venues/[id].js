@@ -9,6 +9,8 @@ import { Pin } from '@icon-park/react'
 import { useVenuesStore } from '@/store/venueStore'
 import utc from 'dayjs/plugin/utc'
 import timezone from 'dayjs/plugin/timezone'
+import EventsStack from '@/components/stack/EventsStack'
+import Link from 'next/link'
 
 dayjs.extend(utc)
 dayjs.extend(timezone)
@@ -54,28 +56,74 @@ export default function EventDetailPage() {
 
           <div className='w-full bg-white shadow-md my-2 rounded'>
             <h2 className='text-xl font-semibold p-4 px-2'>Events at {activeVenue?.name}</h2>
-            {activeVenue?.events?.length === 0 ? (
-              <div className='p-4 px-2'>
-                <p>No events found at {activeVenue?.name}</p>
-              </div>
-            ) : <>
-              {activeVenue?.events?.map((event, index) => (
-                <div
-                  onClick={() => router.push(`/events/${event.internal_id}`)}
-                  className='grid md:grid-cols-2 grid-cols-1 border-t gap-2 sm:h-16 py-2 px-2 hover:bg-pink-50 cursor-pointer'
-                  key={index}
-                >
-                  <div className='flex items-center justify-start gap-2 border-neutral-200  col-span-1' >
-                    <ClockIcon className='w-5 h-5' />
-                    <p className='text-md'>{dayjs(event.date || event.start_date).format('dddd, DD MMMM YYYY')}</p>
-                  </div>
-                  <div className='col-span-1 flex items-center justify-start'>
-                    <p className='font-semibold'>{event.title || event.name}</p>
-                  </div>
+            <div className="grid grid-cols-1 gap-1 md:grid-cols-3 sm:grid-cols-2 
+    lg:my-4 my-2 h-auto p-2">
+              {activeVenue?.events?.length === 0 ? (
+                <div className='p-4 px-2'>
+                  <p>No events found at {activeVenue?.name}</p>
                 </div>
-              ))}
-            </>
-            }
+              ) : <>
+
+                {activeVenue?.events?.map((event, index) => <Link
+                  href={`/events/${event.internal_id}`}
+                  key={event.internal_id}
+                  className="bg-white flex flex-col rounded text-neutral-900 cursor-pointer"
+                >
+                  <div className="rounded md:block hidden">
+                    <div className={`h-[160px] w-full px-4 py-5 rounded bg-pink-50 border border-pink-200`}
+                      style={{
+                        backgroundImage: event.image !== 'no_image' && `url('${event.image_link || event.image}')`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center center'
+                      }}
+                    >
+                      <div className='w-full h-full flex items-center justify-center'>
+                        {event.image_link === "no_image" || event.image === "no_image" &&
+                          <p className='text-pink-200 font-bold font-heading text-sm uppercase'>Fesa</p>}
+                      </div>
+                    </div>
+                    <div className='py-2 space-y-1'>
+                      <p className='text-neutral-500 text-xs'>{dayjs(event.date || event.start_date).format('dddd, DD MMMM YYYY')}</p>
+                      <h3 className='text-sm hover:text-pink-500 font-semibold'>{event.title || event.name}</h3>
+                      <div className='h-auto overflow-hidden w-full space-y-1'>
+                        {/*<Link href={`/events/city/${event.district || event.city}`}>
+                  <p className='text-sm text-neutral-700'>{event.district || event.city}</p>
+                </Link>*/}
+                        <Link href={`/venues/${event?.venues?.internal_id}`}>
+                          <p className='text-xs text-neutral-500 hover:text-pink-500'>{event.organisator || event.venue}</p>
+                        </Link>
+                        <p className='text-xs font-semibold'>{event.min_price && event.min_price}</p>
+                      </div>
+                    </div>
+                  </div>
+                  {/* Show on mobile */}
+                  <div className='grid grid-cols-7 gap-2 md:hidden'>
+                    <div className={`h-[94px] px-1 rounded bg-pink-50 border border-pink-200 col-span-3 flex items-center justify-center`}
+                      style={{
+                        backgroundImage: event.image !== 'no_image' && `url('${event.image_link || event.image}')`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center top'
+                      }}
+                    >
+                      {event.image_link === 'no_image' || event.image === 'no_image' && <p className='font-heading text-pink-200 text-sm uppercase'>Fesa</p>}
+                    </div>
+                    <div className='h-full w-full block col-span-4'>
+                      <p className='font-semibold hover:text-pink-500 text-sm truncate pb-1'>{event.title || event.name}</p>
+                      <p className='text-neutral-500 text-xs pb-1'>{dayjs(event.date || event.start_date).format('dddd, DD MMMM YYYY')}</p>
+                      <Link href={`/events/${event.district || event.city}`}>
+                        <p className='text-xs text-neutral-700'>{event.district || event.city}</p>
+                      </Link>
+                      <Link href={`/venues/${event?.venues?.internal_id}`}>
+                        <p className='text-xs text-neutral-500 hover:text-pink-500'>{event.organisator || event?.venue}</p>
+                      </Link>
+                      <p className='text-xs font-semibold pt-2'>{event.min_price && event.min_price}</p>
+                    </div>
+                  </div>
+                </Link>
+                )}
+              </>
+              }
+            </div>
           </div>
         </div>
       </PageLayout >

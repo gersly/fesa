@@ -22,7 +22,7 @@ export default async function handler(req, res) {
       if(!data) return res.status(404).json({ message: 'venue not found', data: {} })
 
       const { data: eventsData, error: eventsError } = await client.from('events').select(`
-            name, internal_id, start_date
+            name, internal_id, start_date, image, min_price
             `)
         .eq('venue_id', data.id)
         .gte('start_date', start_date)

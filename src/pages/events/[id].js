@@ -54,14 +54,17 @@ export default function EventDetailPage() {
               <Pin className='w-5 h-5' />
               <p className='capitalize md:text-md text-sm'>{activeEvent?.venues?.name}, {activeEvent?.venues?.city}, {activeEvent?.venues?.country}</p>
             </div>
-            <div className='border rounded hover:bg-neutral-100 cursor-pointer 
+            <div
+              onClick={() => router.push(`/venues/${activeEvent?.venues?.internal_id}`)}
+              className='border rounded hover:bg-neutral-100 cursor-pointer 
             min-h-16 p-2 flex items-center justify-start space-x-4'>
-              <div className='flex items-center justify-center 
+              {/*<div className='flex items-center justify-center 
               w-14 h-14 bg-neutral-100 rounded-full'>
-              </div>
-              <div className='md:text-md text-sm'>
-                <p>{activeEvent?.organisator || activeEvent?.venue}</p>
-                <p className='text-neutral-500'>{activeEvent?.phone || '+12 345-789'}</p>
+              </div>*/}
+              <div className='md:text-md text-sm capitalize'>
+                <p>Name: {activeEvent?.venue}</p>
+                <p>Street: {activeEvent?.venues?.street}</p>
+                <p>City: {activeEvent?.venues?.city}</p>
               </div>
             </div>
           </div>

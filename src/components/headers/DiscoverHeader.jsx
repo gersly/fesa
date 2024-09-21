@@ -15,7 +15,6 @@ export default function DiscoverHeader() {
   const [city, setCity] = useState("")
   const { fetchEvents } = useEventsStore()
 
-
   const handleSearch = async () => {
     console.log('searching...',
       city, startingDate, endingDate
