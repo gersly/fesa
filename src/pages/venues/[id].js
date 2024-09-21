@@ -62,7 +62,7 @@ export default function EventDetailPage() {
           </div>
 
           <div className='w-full bg-white shadow-md my-2 rounded'>
-            <h2 className='text-xl font-semibold p-4 px-2'>Events at {activeVenue?.name}</h2>
+            <h2 className='text-lg font-semibold p-4 px-2'>Events at {activeVenue?.name}</h2>
             <div className="grid grid-cols-1 gap-1 md:grid-cols-3 sm:grid-cols-2 
     lg:my-4 my-2 h-auto p-2">
               {activeVenue?.events?.length === 0 ? (
