@@ -59,16 +59,16 @@ export default function EventsStack() {
             >
               {event.image_link === 'no_image' || event.image === 'no_image' && <p className='font-heading text-pink-200 text-sm uppercase'>Fesa</p>}
             </div>
-            <div className='h-full w-full block col-span-4'>
-              <p className='font-semibold hover:text-pink-500 text-sm truncate pb-1'>{event.title || event.name}</p>
-              <p className='text-neutral-500 text-xs pb-1'>{dayjs(event.date || event.start_date).format('dddd, DD MMMM YYYY')}</p>
-              <Link href={`/events/${event.district || event.city}`}>
-                <p className='text-xs text-neutral-700'>{event.district || event.city}</p>
-              </Link>
+            <div className='h-full w-full flex flex-col justify-between gap-4 col-span-4'>
+              <div>
+                <p className='font-semibold hover:text-pink-500 text-sm truncate pb-1'>{event.title || event.name}</p>
+                <p className='text-neutral-500 text-xs pb-1'>{dayjs(event.date || event.start_date).format('dddd, DD MMMM YYYY')}</p>
+
+                <p className='text-xs font-semibold'>{event.min_price && event.min_price}</p>
+              </div>
               <Link href={`/venues/${event?.venues?.internal_id}`}>
                 <p className='text-xs text-neutral-500 hover:text-pink-500'>{event.organisator || event?.venue}</p>
               </Link>
-              <p className='text-xs font-semibold pt-2'>{event.min_price && event.min_price}</p>
             </div>
           </div>
         </Link>

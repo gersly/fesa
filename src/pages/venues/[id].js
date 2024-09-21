@@ -1,6 +1,6 @@
 import PageLayout from '@/components/layouts/PageLayout'
 import TopNavigation from '@/components/navigation/TopNavigation'
-import { ClockIcon } from '@heroicons/react/24/outline'
+import { ArrowLeftIcon, ClockIcon } from '@heroicons/react/24/outline'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
@@ -35,6 +35,13 @@ export default function EventDetailPage() {
       </Head>
       <TopNavigation />
       <PageLayout>
+        <div className='flex items-center justify-start w-full pb-2'>
+          <button
+            onClick={() => router.back()}
+            className='text-neutral-600 text-md rounded-full p-2 bg-neutral-100'>
+            <ArrowLeftIcon className='w-5 h-5' />
+          </button>
+        </div>
         <div className='flex items-center justify-center flex-col w-full rounded'>
           {/*<div className='md:h-[420px] md:bg-contain bg-cover md:bg-no-repeat h-[220px] bg-neutral-200 w-full rounded'
             style={{
