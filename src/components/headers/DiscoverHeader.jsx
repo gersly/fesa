@@ -9,26 +9,12 @@ import PageLayout from '../layouts/PageLayout'
 import Tabs from '../navigation/Tabs'
 dayjs().format()
 
-export default function DiscoverHeader() {
-  const [startingDate, setStartingDate] = useState(dayjs().format('YYYY-MM-DD'))
-  const [endingDate, setEndingDate] = useState(dayjs().add(1, 'day').format('YYYY-MM-DD'))
-  const [city, setCity] = useState("")
-  const { fetchEvents } = useEventsStore()
-
-  const handleSearch = async () => {
-    console.log('searching...',
-      city, startingDate, endingDate
-    )
-    await fetchEvents({
-      city: city,
-      startingDate: dayjs(startingDate).toISOString(),
-      endingDate: dayjs(endingDate).toISOString()
-    })
-  }
-
-  useEffect(() => {
-    handleSearch()
-  }, [city, startingDate])
+export default function DiscoverHeader({
+  startingDate,
+  setStartingDate,
+  city,
+  setCity,
+}) {
 
   return (
     <>

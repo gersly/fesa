@@ -93,16 +93,18 @@ export default function EventsStack() {
   return (
     <div className="grid grid-cols-1 gap-1 md:grid-cols-3 sm:grid-cols-2 
     lg:my-4 my-2 min-h-[500px]">
+      {events?.length < 1 ? <>
+        {isLoading ? null : <p>No events found.</p>}
+      </> : renderEvents()}
       {isLoading ? <>
         {[1, 2, 3, 4, 5, 6, 7, 8].map((event, index) => <div key={index}>
           <div className="rounded md:block hidden animate-pulse">
-            <div className={`h-[180px] w-full px-4 py-5 rounded bg-neutral-200`} />
+            <div className={`h-[160px] w-full px-4 py-5 rounded bg-neutral-200`} />
             <div className='py-2 space-y-1'>
               <div className='bg-neutral-200 rounded h-5 w-1/2' />
               <div className='bg-neutral-200 rounded h-7' />
               <div className='h-auto overflow-hidden w-full'>
                 <div className='bg-neutral-200 h-5 w-1/3' />
-                <div className='bg-neutral-200 h-5 w-1/3 rounded' />
               </div>
             </div>
           </div>
@@ -115,11 +117,8 @@ export default function EventsStack() {
               <div className='bg-neutral-200 h-5 w-1/3 rounded' />
             </div>
           </div>
-        </div>)}
-      </> :
-        <>
-          {events?.length < 1 ? <p>No events found.</p> : renderEvents()}
-        </>}
+        </div>)} </>
+        : null}
     </div>
   )
 }

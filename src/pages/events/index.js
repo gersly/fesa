@@ -5,8 +5,34 @@ import Tabs from '@/components/navigation/Tabs'
 import TopNavigation from '@/components/navigation/TopNavigation'
 import EventsStack from '@/components/stack/EventsStack'
 import Head from 'next/head'
+import dayjs from 'dayjs'
+import { useEffect, useState } from 'react'
+import { useEventsStore } from '@/store/eventsStore'
+dayjs().format()
 
 export default function EventsPage() {
+  const [startingDate, setStartingDate] = useState(dayjs().format('YYYY-MM-DD'))
+  const [endingDate, setEndingDate] = useState(dayjs().add(1, 'day').format('YYYY-MM-DD'))
+  const [city, setCity] = useState("")
+  const [page, setPage] = useState(0)
+  const { fetchEvents, isLoading } = useEventsStore()
+
+  const handleSearch = async () => {
+    console.log('searching...',
+      city, startingDate, endingDate
+    )
+    await fetchEvents({
+      city: city,
+      startingDate: dayjs(startingDate).toISOString(),
+      endingDate: dayjs(endingDate).toISOString(),
+      page: page,
+    })
+  }
+
+  useEffect(() => {
+    handleSearch()
+  }, [city, startingDate, page])
+
   return (
     <>
       <Head>
@@ -15,9 +41,20 @@ export default function EventsPage() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <DiscoverHeader />
+      <DiscoverHeader
+        startingDate={startingDate}
+        setStartingDate={setStartingDate}
+        city={city}
+        setCity={setCity}
+      />
       <PageLayout>
         <EventsStack />
+        <button
+          disabled={isLoading}
+          onClick={() => setPage(page + 1)}
+          className='py-2 bg-black text-white px-4 rounded w-full hover:bg-pink-500 text-sm'>
+          {isLoading ? 'Loading...' : 'Load More'}
+        </button>
       </PageLayout>
       <Footer />
     </>

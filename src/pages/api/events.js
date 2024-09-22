@@ -4,11 +4,12 @@ const client = createApiClient()
 
 export default async function handler(req, res) {
   const { method, query, params } = req
+  const limit = 50
   console.log('Query:', query);
   const {
     id,
     startingDate,
-    //endingDate, 
+    page = 0,
     city } = req.query
 
   if(method === 'GET') {
@@ -51,14 +52,17 @@ export default async function handler(req, res) {
           .gte('start_date', startingDate)
           //.lte('end_date', endingDate)
           .order('start_date', { ascending: true })
-          .limit(50)
+          .range(page * limit, (page + 1) * limit)
+          .limit(limit)
+
       } else {
         eventQuery = eventQuery
           //.neq('image', 'no_image')
           .gte('start_date', startingDate)
           //.lte('end_date', endingDate)
           .order('start_date', { ascending: true })
-          .limit(50)
+          .range(page * limit, (page + 1) * limit)
+          .limit(limit)
       }
 
       const { data, error } = await eventQuery

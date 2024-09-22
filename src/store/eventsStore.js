@@ -40,7 +40,11 @@ export const useEventsStore = create((set) => ({
         set({ isLoading: false })
       }, 1000);
     } else {
-      set({ events: data })
+      set((state) => ({
+        // Append the new events to the existing events
+        events: [...state.events, ...data],
+        query: body,
+      }));
       setTimeout(() => {
         set({ isLoading: false })
       }, 1000)

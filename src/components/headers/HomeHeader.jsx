@@ -10,37 +10,14 @@ import PageLayout from '../layouts/PageLayout'
 dayjs().format()
 
 
-function HomeHeader(props) {
-  const [startingDate, setStartingDate] = useState(dayjs().format('YYYY-MM-DD'));
-  const [endingDate, setEndingDate] = useState(dayjs().add(1, 'day').format('YYYY-MM-DD'));
-  const [city, setCity] = useState("");
-  const { fetchEvents } = useEventsStore();
+function HomeHeader({
+  startingDate,
+  setStartingDate,
+  city,
+  setCity,
 
-  const validateDates = () => {
-    if(dayjs(endingDate).isBefore(dayjs(startingDate))) {
-      // Adjust the ending date to be the same as the starting date or later
-      setEndingDate(startingDate);
-    }
-  };
+}) {
 
-
-
-  const handleSearch = async () => {
-    // Validate dates before making the search
-    validateDates();
-
-    console.log('searching...', city, startingDate, endingDate);
-    await fetchEvents({
-      city: city,
-      startingDate: dayjs(startingDate).toISOString(),
-      endingDate: dayjs(endingDate).toISOString()
-    });
-  };
-
-
-  useEffect(() => {
-    handleSearch();
-  }, [city, startingDate, endingDate]);
 
 
   const backgrounds = [
