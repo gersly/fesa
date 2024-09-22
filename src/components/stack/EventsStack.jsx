@@ -37,14 +37,11 @@ export default function EventsStack() {
             <div className='py-2 space-y-1'>
               <p className='text-neutral-500 text-xs'>{dayjs(event.date || event.start_date).format('dddd, DD MMMM YYYY')}</p>
               <h3 className='text-sm hover:text-pink-500 font-semibold'>{event.title || event.name}</h3>
+              <p className='text-xs font-semibold'>{event.min_price && event.min_price}</p>
               <div className='h-auto overflow-hidden w-full space-y-1'>
-                {/*<Link href={`/events/city/${event.district || event.city}`}>
-                  <p className='text-sm text-neutral-700'>{event.district || event.city}</p>
-                </Link>*/}
                 <Link href={`/venues/${event?.venues?.internal_id}`}>
                   <p className='text-xs text-neutral-500 hover:text-pink-500'>{event.organisator || event.venue}</p>
                 </Link>
-                <p className='text-xs font-semibold'>{event.min_price && event.min_price}</p>
               </div>
             </div>
           </div>

@@ -50,12 +50,12 @@ export default function VenuesStack() {
                     </span>}
                   </div>
                   <div className='py-2 space-y-1'>
-                    <h3 className='text-md hover:text-orange-500 font-bold'>{venue.name}</h3>
+                    <h3 className='text-md hover:text-pink-500 font-bold'>{venue.name}</h3>
                     <div className='h-auto overflow-hidden w-full space-y-1'>
                       <p className='text-sm text-neutral-700 capitalize'>{venue.city}</p>
                       <p className='text-sm text-neutral-700 capitalize'>{venue.country}</p>
                       {/*<Link href={`/organiser/${venue.internal_id}`}>
-                        <p className='text-sm text-neutral-700 hover:text-orange-500'>See events</p>
+                        <p className='text-sm text-neutral-700 hover:text-pink-500'>See events</p>
                       </Link>*/}
                     </div>
                   </div>
@@ -73,12 +73,12 @@ export default function VenuesStack() {
                     </span>}
                   </div>
                   <div className='py-2 space-y-1'>
-                    <h3 className='text-md hover:text-orange-500 font-bold'>{venue.name}</h3>
+                    <h3 className='text-md hover:text-pink-500 font-bold'>{venue.name}</h3>
                     <div className='h-auto overflow-hidden w-full space-y-1'>
                       <p className='text-sm text-neutral-700 capitalize'>{venue.city}</p>
                       <p className='text-sm text-neutral-700 capitalize'>{venue.country}</p>
                       {/*<Link href={`/organiser/${venue.internal_id}`}>
-                        <p className='text-sm text-neutral-700 hover:text-orange-500'>See events</p>
+                        <p className='text-sm text-neutral-700 hover:text-pink-500'>See events</p>
                       </Link>*/}
                     </div>
                   </div>

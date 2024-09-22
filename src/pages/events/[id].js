@@ -31,7 +31,7 @@ export default function EventDetailPage() {
         <div className='flex items-center justify-start w-full pb-2'>
           <button
             onClick={() => router.back()}
-            className='text-neutral-600 text-md rounded-full p-2 bg-neutral-100'>
+            className='text-neutral-600 text-md rounded-full p-2 bg-white shadow-md border border-neutral-100'>
             <ArrowLeftIcon className='w-5 h-5' />
           </button>
         </div>
