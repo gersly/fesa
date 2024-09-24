@@ -18,7 +18,7 @@ export default function EventsStack() {
       eventComponents.push(
         <Link
           href={`/events/${event.internal_id}`}
-          key={event.internal_id}
+          key={index}
           className="bg-white flex flex-col rounded text-neutral-900 cursor-pointer"
         >
           <div className="rounded md:block hidden">

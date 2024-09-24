@@ -42,6 +42,26 @@ export const useEventsStore = create((set) => ({
     } else {
       set((state) => ({
         // Append the new events to the existing events
+        events: [...data],
+        query: body,
+      }));
+      setTimeout(() => {
+        set({ isLoading: false })
+      }, 1000)
+    }
+  },
+  fetchEventsNewPage: async (body) => {
+    set({ isLoading: true })
+    const { data, error } = await fetchEventsFromApi(body)
+    if(error) {
+      console.error('Error:', error)
+      set({ events: [] })
+      setTimeout(() => {
+        set({ isLoading: false })
+      }, 1000);
+    } else {
+      set((state) => ({
+        // Append the new events to the existing events
         events: [...state.events, ...data],
         query: body,
       }));
@@ -50,4 +70,5 @@ export const useEventsStore = create((set) => ({
       }, 1000)
     }
   }
+
 }))

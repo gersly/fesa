@@ -15,7 +15,7 @@ export default function EventsPage() {
   const [endingDate, setEndingDate] = useState(dayjs().add(1, 'day').format('YYYY-MM-DD'))
   const [city, setCity] = useState("")
   const [page, setPage] = useState(0)
-  const { fetchEvents, isLoading } = useEventsStore()
+  const { fetchEvents, isLoading, fetchEventsNewPage } = useEventsStore()
 
   const handleSearch = async () => {
     console.log('searching...',
@@ -29,9 +29,25 @@ export default function EventsPage() {
     })
   }
 
+  const handleSearchNewPage = async () => {
+    console.log('searching...',
+      city, startingDate, endingDate
+    )
+    await fetchEventsNewPage({
+      city: city,
+      startingDate: dayjs(startingDate).toISOString(),
+      endingDate: dayjs(endingDate).toISOString(),
+      page: page,
+    })
+  }
+
   useEffect(() => {
     handleSearch()
-  }, [city, startingDate, page])
+  }, [city, startingDate])
+
+  useEffect(() => {
+    handleSearchNewPage()
+  }, [page])
 
   return (
     <>

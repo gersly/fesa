@@ -16,7 +16,7 @@ export default function Home() {
   const [endingDate, setEndingDate] = useState(dayjs().add(1, 'day').format('YYYY-MM-DD'));
   const [city, setCity] = useState("");
   const [page, setPage] = useState(0);
-  const { fetchEvents, isLoading } = useEventsStore();
+  const { fetchEvents, isLoading, fetchEventsNewPage } = useEventsStore();
 
   const validateDates = () => {
     if(dayjs(endingDate).isBefore(dayjs(startingDate))) {
@@ -40,10 +40,26 @@ export default function Home() {
     });
   };
 
+  const handleSearchNewPage = async () => {
+    // Validate dates before making the search
+    validateDates();
+
+    console.log('searching...', city, startingDate, endingDate);
+    await fetchEventsNewPage({
+      city: city,
+      startingDate: dayjs(startingDate).toISOString(),
+      endingDate: dayjs(endingDate).toISOString(),
+      page: page,
+    });
+  }
 
   useEffect(() => {
     handleSearch();
-  }, [city, startingDate, endingDate, page]);
+  }, [city, startingDate, endingDate]);
+
+  useEffect(() => {
+    handleSearchNewPage();
+  }, [page]);
 
 
   return (
