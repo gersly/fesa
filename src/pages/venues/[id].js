@@ -5,7 +5,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import dayjs from 'dayjs'
-import { Pin } from '@icon-park/react'
+import { Globe, PhoneCall, Pin, SendEmail } from '@icon-park/react'
 import { useVenuesStore } from '@/store/venueStore'
 import utc from 'dayjs/plugin/utc'
 import timezone from 'dayjs/plugin/timezone'
@@ -56,7 +56,19 @@ export default function EventDetailPage() {
 
             <div className='flex items-center justify-start space-x-1 text-neutral-600 text-md'>
               <Pin className='w-5 h-5' />
-              <p className='capitalize text-md'>{activeVenue?.name}, {activeVenue?.city}, {activeVenue?.country}</p>
+              <p className='text-md'>{activeVenue?.street || 'TBA'}</p>
+            </div>
+            <div className='flex items-center justify-start space-x-1 text-neutral-600 text-md'>
+              <Globe className='w-5 h-5' />
+              <a href={activeVenue?.website} target='_blank' className='lowercase text-md hover:text-pink-500'>{activeVenue?.website || 'TBA'}</a>
+            </div>
+            <div className='flex items-center justify-start space-x-1 text-neutral-600 text-md'>
+              <PhoneCall className='w-5 h-5' />
+              <p className='text-md'>{activeVenue?.phone || 'TBA'}</p>
+            </div>
+            <div className='flex items-center justify-start space-x-1 text-neutral-600 text-md'>
+              <SendEmail className='w-5 h-5' />
+              <p className='text-md'>{activeVenue?.email || 'TBA'}</p>
             </div>
 
           </div>

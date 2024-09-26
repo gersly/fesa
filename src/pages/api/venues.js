@@ -11,7 +11,7 @@ export default async function handler(req, res) {
     if(id) {
       console.log('Getting venue with id:', id)
       const { data, error } = await client.from('venues').select(`
-       name, city, country, street, tags, internal_id, id
+       name, city, country, street, tags, internal_id, id, image, website, email, phone
         `)
         .eq('internal_id', id)
         .maybeSingle()
@@ -36,7 +36,7 @@ export default async function handler(req, res) {
       })
     } else {
       let eventQuery = client.from('venues').select(`
-        name, city, country, street, internal_id
+        name, city, country, street, internal_id, image, website, email, phone
         `)
 
       if(name) {
