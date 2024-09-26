@@ -52,7 +52,7 @@ export default async function handler(req, res) {
           .gte('start_date', startingDate)
           //.lte('end_date', endingDate)
           .order('start_date', { ascending: true })
-          .range(page * limit, (page + 1) * limit)
+          .range((page * limit) + 1, (page + 1) * limit)
           .limit(limit)
 
       } else {
@@ -61,7 +61,7 @@ export default async function handler(req, res) {
           .gte('start_date', startingDate)
           //.lte('end_date', endingDate)
           .order('start_date', { ascending: true })
-          .range(page * limit, (page + 1) * limit)
+          .range((page * limit) + 1, (page + 1) * limit)
           .limit(limit)
       }
 

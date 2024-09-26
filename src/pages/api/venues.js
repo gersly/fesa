@@ -5,7 +5,7 @@ const client = createApiClient()
 export default async function handler(req, res) {
   const { method, query, params } = req
   console.log('Query:', query);
-  const { id, city, start_date } = req.query
+  const { id, name, start_date } = req.query
 
   if(method === 'GET') {
     if(id) {
@@ -39,9 +39,9 @@ export default async function handler(req, res) {
         name, city, country, street, internal_id
         `)
 
-      if(city) {
+      if(name) {
         eventQuery = eventQuery
-          .eq('city', city)
+          .ilike('name', name)
           .limit(100)
       } else {
         eventQuery = eventQuery

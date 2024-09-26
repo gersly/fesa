@@ -6,21 +6,21 @@ import TopNavigation from '../navigation/TopNavigation'
 
 export default function OrganisersHeader() {
 
-  const [city, setCity] = useState("")
+  const [name, setName] = useState("")
   const { fetchVenues } = useVenuesStore()
 
   const handleSearch = async () => {
     console.log('searching venues...',
-      city
+      name
     )
     await fetchVenues({
-      city: city,
+      name: name,
     })
   }
 
   useEffect(() => {
     handleSearch()
-  }, [city])
+  }, [name])
 
   return (
     <>
@@ -37,9 +37,13 @@ export default function OrganisersHeader() {
             Discover venues
           </h1>
           <div className='bg-white border border-neutral-300 h-10 rounded w-6/6 md:max-w-lg w-full flex'>
-            <QueryDropdown
-              city={city}
-              setCity={setCity}
+            <input
+              name="venue-search"
+              className='w-full h-full px-2 border-0 outline-none rounded-r-md'
+              type='text'
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder={'Search for venues'}
             />
           </div>
         </div>
@@ -50,9 +54,13 @@ export default function OrganisersHeader() {
           </h2>
           <div className='bg-white border border-neutral-300 rounded p-0.5 h-10 w-6/6 w-full flex'>
             <div className='w-full flex items-center justify-start max-h-10'>
-              <QueryDropdown
-                city={city}
-                setCity={setCity}
+              <input
+                name="venue-search"
+                className='w-full h-full px-2 border-0 outline-none rounded-r-md'
+                type='text'
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder={'Search for venues'}
               />
             </div>
           </div>

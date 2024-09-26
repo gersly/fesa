@@ -24,8 +24,7 @@ export default function EventsPage() {
     await fetchEvents({
       city: city,
       startingDate: dayjs(startingDate).toISOString(),
-      endingDate: dayjs(endingDate).toISOString(),
-      page: page,
+      endingDate: dayjs(endingDate).toISOString()
     })
   }
 

@@ -1,8 +1,8 @@
 export async function fetchVenuesFromApi({
-  city
+  name
 }) {
   try {
-    const response = await fetch('/api/venues?city=' + city);
+    const response = await fetch('/api/venues?name=' + name);
     const data = await response.json();
 
     if(response.ok) {

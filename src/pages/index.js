@@ -36,7 +36,7 @@ export default function Home() {
       city: city,
       startingDate: dayjs(startingDate).toISOString(),
       endingDate: dayjs(endingDate).toISOString(),
-      page: page,
+      page: page
     });
   };
 

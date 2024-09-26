@@ -18,6 +18,7 @@ export const useVenuesStore = create((set) => ({
     return { data: data }
   },
   fetchVenues: async (body) => {
+    console.log('Body:', body)
     const { data, error } = await fetchVenuesFromApi(body)
     console.log('Data from fetch:', data)
     if(error) {
