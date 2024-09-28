@@ -43,32 +43,34 @@ export default function EventDetailPage() {
           </button>
         </div>
         <div className='flex items-center justify-center flex-col w-full rounded'>
-          {/*<div className='md:h-[420px] md:bg-contain bg-cover md:bg-no-repeat h-[220px] bg-neutral-200 w-full rounded'
-            style={{
-              backgroundImage: `url('${activeVenue?.image || 'https://placekitten.com/500/500'}')`,
-              //backgroundSize: 'cover',
-              backgroundPosition: 'center center'
-            }}
-          />*/}
+          {activeVenue?.image?.length > 10 && (
+            <div className='md:h-[420px] md:bg-contain bg-cover md:bg-no-repeat h-[220px] bg-neutral-200 w-full rounded'
+              style={{
+                backgroundImage: `url('${activeVenue?.image || 'https://placekitten.com/500/500'}')`,
+                //backgroundSize: 'cover',
+                backgroundPosition: 'center center'
+              }}
+            />
+          )}
           <div className='space-y-2 w-full bg-white shadow-md md:p-4 p-2 my-2 rounded'>
             <h1 className='md:text-3xl text-xl font-semibold'>{activeVenue?.name}</h1>
             <p className='md:text-md text-sm'>{activeVenue?.description}</p>
 
             <div className='flex items-center justify-start space-x-1 text-neutral-600 text-md'>
               <Pin className='w-5 h-5' />
-              <p className='text-md'>{activeVenue?.street || 'TBA'}</p>
+              <p className='text-md'>{activeVenue?.street || '-'}</p>
             </div>
             <div className='flex items-center justify-start space-x-1 text-neutral-600 text-md'>
               <Globe className='w-5 h-5' />
-              <a href={activeVenue?.website} target='_blank' className='text-md hover:text-pink-500'>{activeVenue?.website || 'TBA'}</a>
+              <a href={activeVenue?.website} target='_blank' className='text-md hover:text-pink-500'>{activeVenue?.website || '-'}</a>
             </div>
             <div className='flex items-center justify-start space-x-1 text-neutral-600 text-md'>
               <PhoneCall className='w-5 h-5' />
-              <p className='text-md'>{activeVenue?.phone || 'TBA'}</p>
+              <p className='text-md'>{activeVenue?.phone || '-'}</p>
             </div>
             <div className='flex items-center justify-start space-x-1 text-neutral-600 text-md'>
               <SendEmail className='w-5 h-5' />
-              <p className='text-md'>{activeVenue?.email || 'TBA'}</p>
+              <p className='text-md lowercase'>{activeVenue?.email || '-'}</p>
             </div>
 
           </div>
