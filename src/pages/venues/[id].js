@@ -62,7 +62,7 @@ export default function EventDetailPage() {
             </div>
             <div className='flex items-center justify-start space-x-1 text-neutral-600 text-md'>
               <Globe className='w-5 h-5' />
-              <a href={activeVenue?.website} target='_blank' className='text-md hover:text-pink-500'>{activeVenue?.website || '-'}</a>
+              <a href={activeVenue?.website} target='_blank' rel='noreferrer' className='text-md hover:text-pink-500'>{activeVenue?.website || '-'}</a>
             </div>
             <div className='flex items-center justify-start space-x-1 text-neutral-600 text-md'>
               <PhoneCall className='w-5 h-5' />

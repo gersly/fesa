@@ -40,7 +40,7 @@ export default function VenuesStack() {
                 <div className="rounded md:block hidden">
                   <div className={`h-[180px] w-full px-4 py-5 rounded bg-neutral-100`}
                     style={{
-                      backgroundImage: `url('${venue.image_link || venue.image || 'https://placekitten.com/500/500'}')`,
+                      backgroundImage: `url('${venue.image || 'https://placekitten.com/500/500'}')`,
                       backgroundSize: 'cover',
                       backgroundPosition: 'center center'
                     }}
@@ -51,12 +51,10 @@ export default function VenuesStack() {
                   </div>
                   <div className='py-2 space-y-1'>
                     <h3 className='text-md hover:text-pink-500 font-bold'>{venue.name}</h3>
-                    <div className='h-auto overflow-hidden w-full space-y-1'>
-                      <p className='text-sm text-neutral-700 capitalize'>{venue.city}</p>
-                      <p className='text-sm text-neutral-700 capitalize'>{venue.country}</p>
-                      {/*<Link href={`/organiser/${venue.internal_id}`}>
-                        <p className='text-sm text-neutral-700 hover:text-pink-500'>See events</p>
-                      </Link>*/}
+                    <div className='h-auto overflow-hidden w-full flex items-start justify-between flex-col'>
+                      <p className='text-sm text-neutral-700 capitalize'>{venue.street || venue.city}</p>
+                      {/*<p className='text-sm text-neutral-700 capitalize'>{venue.country}</p>*/}
+
                     </div>
                   </div>
                 </div>
