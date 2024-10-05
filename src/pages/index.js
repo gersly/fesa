@@ -1,3 +1,4 @@
+'use client'
 import HomeHeader from '@/components/headers/HomeHeader'
 import PageLayout from '@/components/layouts/PageLayout'
 import Footer from '@/components/navigation/Footer'
@@ -9,6 +10,8 @@ import dayjs from 'dayjs'
 dayjs().format()
 import { useEffect, useState } from 'react'
 import { useEventsStore } from '@/store/eventsStore'
+import Script from 'next/script'
+import AdWidget from '@/components/ads/AdWidget'
 
 export default function Home() {
 
@@ -86,7 +89,6 @@ export default function Home() {
           {isLoading ? 'Loading...' : 'Load More'}
         </button>
       </PageLayout>
-
       <Footer />
     </>
   )

@@ -8,6 +8,7 @@ import Head from 'next/head'
 import dayjs from 'dayjs'
 import { useEffect, useState } from 'react'
 import { useEventsStore } from '@/store/eventsStore'
+import Script from 'next/script'
 dayjs().format()
 
 export default function EventsPage() {
