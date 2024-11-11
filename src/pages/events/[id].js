@@ -5,7 +5,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import dayjs from 'dayjs'
-import { ArrowLeft, Pin } from '@icon-park/react'
+import { ArrowLeft, PaperMoney, PaperMoneyTwo, Pin } from '@icon-park/react'
 import { useEventsStore } from '@/store/eventsStore'
 import Image from 'next/image'
 import { MapComponent } from '@/components/maps/map'
@@ -53,8 +53,8 @@ export default function EventDetailPage() {
               <p className='md:text-md text-sm'>{dayjs(activeEvent?.start_date).format('dddd, DD MMMM YYYY')}</p>
             </div>
             <div className='flex items-center justify-start space-x-2 text-neutral-600 text-md'>
-              <Pin className='w-5 h-5' />
-              <p className='capitalize md:text-md text-sm'>{activeEvent?.venues?.name}, {activeEvent?.venues?.city}, {activeEvent?.venues?.country}</p>
+              <PaperMoneyTwo className='w-5 h-5' />
+              <p className='capitalize md:text-md text-sm'>{activeEvent?.min_price ? activeEvent.min_price : 'Free'}</p>
             </div>
             <div
               onClick={() => router.push(`/venues/${activeEvent?.venues?.internal_id}`)}
@@ -64,7 +64,7 @@ export default function EventDetailPage() {
               w-14 h-14 bg-neutral-100 rounded-full'>
               </div>*/}
               <div className='md:text-md text-sm capitalize grid sm:grid-cols-6 gap-4 mb-4'>
-                <div className='col-span-1'>
+                {activeEvent?.venues?.image && <div className='col-span-1'>
                   <Image
                     src={activeEvent?.venues?.image}
                     alt={activeEvent?.venues?.name}
@@ -73,19 +73,31 @@ export default function EventDetailPage() {
                     className='rounded-md'
                   />
                 </div>
-                <div className='col-span-5 flex flex-col items-start h-full w-full justify-start'>
+                }
+                {activeEvent?.venues?.image2 && <div className='col-span-1'>
+                  <Image
+                    src={activeEvent?.venues?.image2}
+                    alt={activeEvent?.venues?.name}
+                    width={150}
+                    height={150}
+                    className='rounded-md'
+                  />
+                </div>
+                }
+                <div className='col-span-4 flex flex-col items-start h-full w-full justify-start'>
                   <p className='text-xl font-bold'>{activeEvent?.venue}</p>
                   <p>{activeEvent?.venues?.street}</p>
                   <p>{activeEvent?.venues?.city}</p>
                 </div>
               </div>
-              <MapComponent
-
-                center={{
-                  lat: parseFloat(activeEvent?.venues?.latitude),
-                  lng: parseFloat(activeEvent?.venues?.longitude)
-                }}
-              />
+              {activeEvent?.venues?.latitude &&
+                <MapComponent
+                  center={{
+                    lat: parseFloat(activeEvent?.venues?.latitude),
+                    lng: parseFloat(activeEvent?.venues?.longitude)
+                  }}
+                />
+              }
             </div>
           </div>
         </div>

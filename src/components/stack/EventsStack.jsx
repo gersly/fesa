@@ -53,9 +53,9 @@ export default function EventsStack() {
               <h3 className='text-sm hover:text-pink-500 font-semibold'>{event.title || event.name}</h3>
               <p className='text-xs font-semibold'>{event.min_price && event.min_price}</p>
               <div className='h-auto overflow-hidden w-full space-y-1'>
-                <Link href={`/venues/${event?.venues?.internal_id}`}>
-                  <p className='text-xs text-neutral-500 hover:text-pink-500'>{event.organisator || event.venue}</p>
-                </Link>
+                <div>
+                  <p className='text-xs text-neutral-500'>{event.organisator || event.venue}</p>
+                </div>
               </div>
             </div>
           </div>
@@ -77,9 +77,9 @@ export default function EventsStack() {
 
                 <p className='text-xs font-semibold'>{event.min_price && event.min_price}</p>
               </div>
-              <Link href={`/venues/${event?.venues?.internal_id}`}>
-                <p className='text-xs text-neutral-500 hover:text-pink-500'>{event.organisator || event?.venue}</p>
-              </Link>
+              <div>
+                <p className='text-xs text-neutral-500'>{event.organisator || event?.venue}</p>
+              </div>
             </div>
           </div>
         </Link>
