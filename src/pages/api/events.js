@@ -22,7 +22,7 @@ export default async function handler(req, res) {
         image,
         venue,
         min_price, 
-        venues(name, city, country, street, internal_id)
+        venues(name, city, country, street, internal_id, latitude, longitude, image)
         `)
         .eq('internal_id', id)
         .maybeSingle()
@@ -42,7 +42,7 @@ export default async function handler(req, res) {
         image,
         venue,
         min_price, 
-        venues!inner(name, city, country, street, internal_id)
+        venues!inner(name, city, country, street, internal_id, latitude, longitude, image)
         `)
 
       if(city) {

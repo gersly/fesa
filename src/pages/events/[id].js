@@ -7,6 +7,8 @@ import { useEffect, useState } from 'react'
 import dayjs from 'dayjs'
 import { ArrowLeft, Pin } from '@icon-park/react'
 import { useEventsStore } from '@/store/eventsStore'
+import Image from 'next/image'
+import { MapComponent } from '@/components/maps/map'
 dayjs().format()
 
 export default function EventDetailPage() {
@@ -57,15 +59,33 @@ export default function EventDetailPage() {
             <div
               onClick={() => router.push(`/venues/${activeEvent?.venues?.internal_id}`)}
               className='border rounded hover:bg-neutral-100 cursor-pointer 
-            min-h-16 p-2 flex items-center justify-start space-x-4'>
+            min-h-16 p-2 gap-4'>
               {/*<div className='flex items-center justify-center 
               w-14 h-14 bg-neutral-100 rounded-full'>
               </div>*/}
-              <div className='md:text-md text-sm capitalize'>
-                <p>Name: {activeEvent?.venue}</p>
-                <p>Street: {activeEvent?.venues?.street}</p>
-                <p>City: {activeEvent?.venues?.city}</p>
+              <div className='md:text-md text-sm capitalize grid sm:grid-cols-6 gap-4 mb-4'>
+                <div className='col-span-1'>
+                  <Image
+                    src={activeEvent?.venues?.image}
+                    alt={activeEvent?.venues?.name}
+                    width={150}
+                    height={150}
+                    className='rounded-md'
+                  />
+                </div>
+                <div className='col-span-5 flex flex-col items-start h-full w-full justify-start'>
+                  <p className='text-xl font-bold'>{activeEvent?.venue}</p>
+                  <p>{activeEvent?.venues?.street}</p>
+                  <p>{activeEvent?.venues?.city}</p>
+                </div>
               </div>
+              <MapComponent
+
+                center={{
+                  lat: parseFloat(activeEvent?.venues?.latitude),
+                  lng: parseFloat(activeEvent?.venues?.longitude)
+                }}
+              />
             </div>
           </div>
         </div>

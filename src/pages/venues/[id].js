@@ -11,6 +11,7 @@ import utc from 'dayjs/plugin/utc'
 import timezone from 'dayjs/plugin/timezone'
 import EventsStack from '@/components/stack/EventsStack'
 import Link from 'next/link'
+import { MapComponent } from '@/components/maps/map'
 
 dayjs.extend(utc)
 dayjs.extend(timezone)
@@ -72,13 +73,21 @@ export default function EventDetailPage() {
               <SendEmail className='w-5 h-5' />
               <p className='text-md lowercase'>{activeVenue?.email || '-'}</p>
             </div>
+            <div className='flex items-center justify-start space-x-1 text-neutral-600 text-md'>
+              <MapComponent
+                center={{
+                  lat: parseFloat(activeVenue?.latitude),
+                  lng: parseFloat(activeVenue?.longitude)
+                }}
+              />
+            </div>
 
           </div>
 
           <div className='w-full bg-white shadow-md my-2 rounded'>
             <h2 className='text-lg font-semibold p-4 px-2'>Events at {activeVenue?.name}</h2>
             <div className="grid grid-cols-1 gap-1 md:grid-cols-3 sm:grid-cols-2 
-    lg:my-4 my-2 h-auto p-2">
+          lg:my-4 my-2 h-auto p-2">
               {activeVenue?.events?.length === 0 ? (
                 <div className='p-4 px-2'>
                   <p>No events found at {activeVenue?.name}</p>

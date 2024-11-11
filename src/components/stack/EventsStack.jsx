@@ -9,11 +9,17 @@ export default function EventsStack() {
   const postsBeforeAd = 10; // Set this variable to control how many posts before an ad appears.
 
   const ads = [
+    //{
+    //  id: 1,
+    //  name: 'Get the best prices for rides in all countries',
+    //  image: 'https://www.travelpayouts.com/blog/wp-content/uploads/2020/10/gettransfer_cover-1.png',
+    //  link: 'https://gettransfer.tp.st/1qFmcnaf'
+    //},
     {
-      id: 1,
-      name: 'Get the best prices for rides in all countries',
-      image: 'https://www.travelpayouts.com/blog/wp-content/uploads/2020/10/gettransfer_cover-1.png',
-      link: 'https://gettransfer.tp.st/1qFmcnaf'
+      id: 2,
+      name: 'Instant connectivity for 200+ countries and regions',
+      image: 'https://theartoflivinginturkey.com/wp-content/uploads/2023/07/Screenshot-2023-07-11-at-10.00.43.png',
+      link: 'https://airalo.tp.st/RHtg91ar'
     }
   ]
   useEffect(() => {

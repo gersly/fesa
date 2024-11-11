@@ -11,7 +11,7 @@ export default async function handler(req, res) {
     if(id) {
       console.log('Getting venue with id:', id)
       const { data, error } = await client.from('venues').select(`
-       name, city, country, street, tags, internal_id, id, image, website, email, phone
+       name, city, country, street, tags, internal_id, id, image, website, email, phone, latitude, longitude
         `)
         .eq('internal_id', id)
         .maybeSingle()
