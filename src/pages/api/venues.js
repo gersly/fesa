@@ -35,20 +35,24 @@ export default async function handler(req, res) {
         message: 'venue found'
       })
     } else {
-      let eventQuery = client.from('venues').select(`
+      let venueQuery = client.from('venues').select(`
         name, city, country, street, internal_id, image, website, email, phone
         `)
 
       if(name) {
-        eventQuery = eventQuery
-          .ilike('name', name)
+        venueQuery = venueQuery
+          .textSearch('name', name,
+            {
+              type: 'websearch'
+            }
+          )
           .limit(100)
       } else {
-        eventQuery = eventQuery
+        venueQuery = venueQuery
           .limit(100)
       }
 
-      const { data, error } = await eventQuery
+      const { data, error } = await venueQuery
 
       if(error) return res.status(400).json({ message: 'Error getting venues', data: [], error: error })
       return res.status(200).json({
