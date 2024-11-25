@@ -3,6 +3,7 @@ import { Combobox } from '@headlessui/react'
 const people = [
   'Amsterdam',
   'Rotterdam',
+  'Paramaribo',
   'The Hague',
   'Groningen',
   'Eindhoven',
@@ -14,7 +15,8 @@ const people = [
   'Antwerp',
   'Brugge',
   'Ghent',
-  'Brussels'
+  'Brussels',
+  'Wanica'
 ]
 
 export default function QueryDropdown({ city, setCity, placeholderValue }) {
