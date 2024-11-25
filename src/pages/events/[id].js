@@ -91,12 +91,14 @@ export default function EventDetailPage() {
                 </div>
               </div>
               {activeEvent?.venues?.latitude &&
-                <MapComponent
-                  center={{
-                    lat: parseFloat(activeEvent?.venues?.latitude),
-                    lng: parseFloat(activeEvent?.venues?.longitude)
-                  }}
-                />
+                <span aria-disabled="true">
+                  <MapComponent
+                    center={{
+                      lat: parseFloat(activeEvent?.venues?.latitude),
+                      lng: parseFloat(activeEvent?.venues?.longitude)
+                    }}
+                  />
+                </span>
               }
             </div>
           </div>
