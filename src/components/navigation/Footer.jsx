@@ -20,21 +20,18 @@ const Footer = () => {
         <p className="text-md">&copy; {new Date().getFullYear()} Fesa</p>
         <div className='flex flex-col items-start justify-center gap-1 text-md'>
           <h4 className="font-normal text-md text-neutral-400">Links</h4>
-          <Link href='/about' className='hover:underline underline-offset-2'>About</Link>
           <Link href='/events' className='hover:underline underline-offset-2'>Events</Link>
           <Link href="/venues" className='hover:underline underline-offset-2'>Venues</Link>
-          <Link href='/blog' className='hover:underline underline-offset-2'>Blog</Link>
-          <Link href='/contact' className='hover:underline underline-offset-2'>Contact</Link>
 
         </div>
         <div className='flex flex-col items-start justify-center gap-1 text-md'>
           <h4 className="font-normal text-md text-neutral-400">Parties by city</h4>
-          <Link href='/events?city=amsterdam' className='hover:underline underline-offset-2'>Events in Amsterdam {emojiCircleIcon('nl')}</Link>
-          <Link href='/events?city=rotterdam' className='hover:underline underline-offset-2'>Events in Rotterdam {emojiCircleIcon('nl')}</Link>
-          <Link href='/events?city=antwerpen' className='hover:underline underline-offset-2'>Events in Antwerpen {emojiCircleIcon('be')}</Link>
-          <Link href='/events?city=brussels' className='hover:underline underline-offset-2'>Events in Brussels {emojiCircleIcon('be')}</Link>
-          <Link href='/events?city=london' className='hover:underline underline-offset-2'>Events in London {emojiCircleIcon('uk')}</Link>
-          <Link href='/events?city=manchester' className='hover:underline underline-offset-2'>Events in Manchester {emojiCircleIcon('uk')}</Link>
+          <Link href='/city/amsterdam' className='hover:underline underline-offset-2'>Events in Amsterdam {emojiCircleIcon('nl')}</Link>
+          <Link href='/rotterdam' className='hover:underline underline-offset-2'>Events in Rotterdam {emojiCircleIcon('nl')}</Link>
+          <Link href='/city/antwerpen' className='hover:underline underline-offset-2'>Events in Antwerpen {emojiCircleIcon('be')}</Link>
+          <Link href='/city/brussels' className='hover:underline underline-offset-2'>Events in Brussels {emojiCircleIcon('be')}</Link>
+          <Link href='/city/london' className='hover:underline underline-offset-2'>Events in London {emojiCircleIcon('uk')}</Link>
+          <Link href='/city/manchester' className='hover:underline underline-offset-2'>Events in Manchester {emojiCircleIcon('uk')}</Link>
         </div>
       </div>
     </footer>

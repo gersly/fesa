@@ -118,6 +118,12 @@ export default function EventsCityPage() {
       <PageLayout>
         <h1>{events.length} events</h1>
         <EventsStack />
+        <button
+          disabled={isLoading}
+          onClick={() => setPage(page + 1)}
+          className='py-2 bg-black text-white px-4 rounded w-full hover:bg-pink-500 text-sm'>
+          {isLoading ? 'Loading...' : 'Load More'}
+        </button>
       </PageLayout>
     </div>
   );
