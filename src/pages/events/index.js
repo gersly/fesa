@@ -9,6 +9,7 @@ import dayjs from 'dayjs'
 import { useEffect, useState } from 'react'
 import { useEventsStore } from '@/store/eventsStore'
 import Script from 'next/script'
+import { useRouter } from 'next/navigation'
 dayjs().format()
 
 export default function EventsPage() {
@@ -17,6 +18,7 @@ export default function EventsPage() {
   const [city, setCity] = useState("")
   const [page, setPage] = useState(0)
   const { fetchEvents, isLoading, fetchEventsNewPage } = useEventsStore()
+  const router = useRouter()
 
   const handleSearch = async () => {
     console.log('searching...',
@@ -43,11 +45,19 @@ export default function EventsPage() {
 
   useEffect(() => {
     handleSearch()
-  }, [city, startingDate])
+  }, [startingDate])
 
   useEffect(() => {
     handleSearchNewPage()
   }, [page])
+
+  useEffect(() => {
+    if(city.length > 1) {
+      router.push({
+        pathname: '/city/' + city.toLowerCase()
+      })
+    }
+  }, [city])
 
   return (
     <>

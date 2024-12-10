@@ -74,7 +74,6 @@ export default function EventsStack() {
               <div>
                 <p className='font-semibold hover:text-pink-500 text-sm truncate pb-1'>{event.title || event.name}</p>
                 <p className='text-neutral-500 text-xs pb-1'>{dayjs(event.date || event.start_date).format('dddd, DD MMMM YYYY')}</p>
-
                 <p className='text-xs font-semibold'>{event.min_price && event.min_price}</p>
               </div>
               <div>
