@@ -19,6 +19,7 @@ export default async function handler(req, res) {
         internal_id,
         name,
         start_date,
+        description,
         image,
         venue,
         min_price, 

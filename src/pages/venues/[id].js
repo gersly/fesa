@@ -45,11 +45,14 @@ export default function EventDetailPage() {
         </div>
         <div className='flex items-center justify-center flex-col w-full rounded'>
           {activeVenue?.image?.length > 10 && (
-            <div className='md:h-[420px] md:bg-contain bg-cover md:bg-no-repeat h-[220px] bg-neutral-200 w-full rounded'
+            <div className='md:h-[420px] border md:bg-contain bg-cover md:bg-no-repeat h-[220px] bg-neutral-200 w-full rounded'
               style={{
-                backgroundImage: `url('${activeVenue?.image || 'https://placekitten.com/500/500'}')`,
+                backgroundImage: `url('${activeVenue?.image}')`,
                 //backgroundSize: 'cover',
-                backgroundPosition: 'center center'
+                backgroundPosition: 'center center',
+                backgroundRepeat: 'no-repeat',
+                height: '220px',
+                width: '220px'
               }}
             />
           )}

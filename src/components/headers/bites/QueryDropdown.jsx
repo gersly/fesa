@@ -38,7 +38,7 @@ export default function QueryDropdown({ city, setCity, placeholderValue }) {
 
   return (
     <>
-      <div className='md:w-3/6  md:block hidden relative'>
+      <div className='md:w-3/6  md:block hidden z-20 '>
         <Combobox
           value={selectedPerson}
           onChange={setSelectedPerson}>
@@ -49,7 +49,7 @@ export default function QueryDropdown({ city, setCity, placeholderValue }) {
           />
           <Combobox.Options
             className={`bg-white border border-neutral-300 mt-4 rounded
-               shadow-md max-h-[250px] overflow-y-scroll z-50`}
+               shadow-md max-h-[250px] overflow-y-scroll z-50 relative`}
           >
             {filteredPeople.length > 0 ?
               <>
@@ -69,7 +69,7 @@ export default function QueryDropdown({ city, setCity, placeholderValue }) {
         </Combobox>
       </div>
       {/* Show on mobile */}
-      <div className='w-full md:hidden block relative'>
+      <div className='w-full md:hidden block relative z-20'>
         <Combobox
           value={selectedPerson}
           onChange={setSelectedPerson}>

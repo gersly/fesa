@@ -34,7 +34,7 @@ export default function Tabs(
 
 
   return (
-    <div className="max-w-5xl w-full overflow-hidden sm:py-4 py-2 sticky top-0 z-0 bg-white">
+    <div className="max-w-5xl w-full overflow-hidden sm:py-4 py-2 relative z-10 bg-white">
       <div className="border-0 border-neutral-200">
         <nav className="flex space-x-1 overflow-y-scroll w-full px-0 no-scrollbar items-end" aria-label="Tabs">
           {tabs.map((tab) => (
