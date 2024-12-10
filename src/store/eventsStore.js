@@ -32,7 +32,6 @@ export const useEventsStore = create((set) => ({
   fetchEvents: async (body) => {
     set({ isLoading: true })
     const { data, error } = await fetchEventsFromApi(body)
-    console.log('Data from fetch:', data)
     if(error) {
       console.error('Error:', error)
       set({ events: [] })

@@ -20,7 +20,6 @@ export const useVenuesStore = create((set) => ({
   fetchVenues: async (body) => {
     console.log('Body:', body)
     const { data, error } = await fetchVenuesFromApi(body)
-    console.log('Data from fetch:', data)
     if(error) {
       console.error('Error:', error)
       set({ venues: [] })

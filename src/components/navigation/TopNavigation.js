@@ -6,16 +6,20 @@ import Link from 'next/link'
 
 const navigation = [
   { name: 'Events', href: '/events' },
-  //{ name: 'Discover Parties', href: '/events' },
+  { name: 'Events in Paramaribo', href: '/city/paramaribo' },
+  { name: 'Events in Amsterdam', href: '/city/amsterdam' },
+  { name: 'Events in Rotterdam', href: '/city/rotterdam' },
+  { name: 'Events in Utrecht', href: '/city/utrecht' },
+  { name: 'Events in London', href: '/city/london' },
   { name: 'Venues', href: '/venues' },
-  { name: 'Advertise with us', href: '/sell-tickets' },
+  //{ name: 'Advertise with us', href: '/sell-tickets' },
   {
-    name: 'Add your event', href: '/post-event', current: true
+    //name: 'Add your event', href: '/post-event', current: true
   }
 ]
 
 const authNav = [
-  { name: 'Login', href: '/login', current: true },
+  //{ name: 'Login', href: '/login', current: true },
   //{ name: 'Sign Up', href: '/register', current: false }
 ]
 
@@ -35,12 +39,6 @@ export default function TopNavigation() {
 
                 <div className="flex flex-1 items-center justify-center sm:items-center sm:justify-start">
                   <Link href="/" className="flex w-full items-left">
-                    {/*<p className='text-2xl uppercase font-black -space-x-1 font-heading'>
-                      <span className='text-pink-300 z-30'>F</span>
-                      <span className='text-pink-400 z-20'>E</span>
-                      <span className='text-pink-500 z-10'>S</span>
-                      <span className='text-pink-600 z-0'>A</span>
-                    </p>*/}
                     <p className='text-xl uppercase font-bold text-pink-400 -space-x-1 font-heading'>
                       Fesa
                     </p>
