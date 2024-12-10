@@ -20,9 +20,6 @@ export default function EventsCityPage() {
   const { fetchEvents, isLoading, events, fetchEventsNewPage } = useEventsStore()
 
   const handleSearch = async () => {
-    console.log('searching...',
-      city, startingDate, endingDate
-    )
     await fetchEvents({
       city: city,
       startingDate: dayjs(startingDate).toISOString(),
@@ -31,9 +28,7 @@ export default function EventsCityPage() {
   }
 
   const handleSearchNewPage = async () => {
-    console.log('searching...',
-      city, startingDate, endingDate
-    )
+
     await fetchEventsNewPage({
       city: city,
       startingDate: dayjs(startingDate).toISOString(),
@@ -75,6 +70,7 @@ export default function EventsCityPage() {
               <input
                 className='w-full h-full px-2 border-l rounded-0 p-0.5 outline-none'
                 type='date'
+                placeholder={`${dayjs().format('YYYY-MM-DD')}`}
                 value={startingDate}
                 onChange={(e) => setStartingDate(e.target.value)}
                 defaultValue={dayjs().format('YYYY-MM-DD')}
@@ -108,6 +104,7 @@ export default function EventsCityPage() {
                 className='w-full h-full px-2 border-0 border-neutral-300 outline-none'
                 type='date'
                 value={startingDate}
+                placeholder={`${dayjs().format('YYYY-MM-DD')}`}
                 onChange={(e) => setStartingDate(e.target.value)}
                 defaultValue={dayjs().format('YYYY-MM-DD')}
               />
@@ -116,7 +113,6 @@ export default function EventsCityPage() {
         </div>
       </div>
       <PageLayout>
-        <h1>{events.length} events</h1>
         <EventsStack />
         <button
           disabled={isLoading}
