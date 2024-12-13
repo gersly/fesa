@@ -69,7 +69,7 @@ export default function Home() {
     <>
       <Head>
         <title>Fesa.app | Find Unique Events in The Netherlands, Belgium, and the UK.</title>
-        <meta name="description" content="Discover and book the most unique events in Netherlands, Belgium, and the UK with Fesa.app. Your go-to platform for unforgettable experiences." />
+        <meta name="description" content="Discover and book the most unique events in Paramaribo, Amsterdam, Rotterdam and London with Fesa.app. Your go-to platform for unforgettable experiences." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
