@@ -52,7 +52,6 @@ export default function EventsStack() {
               </div>
             </div>
             <div className='py-2 space-y-1'>
-              <p className='text-neutral-500 text-xs'>{dayjs(event.date || event.start_date).format('dddd, DD MMMM YYYY')}</p>
               <h3 className='text-sm hover:text-pink-500 font-semibold'>{event.title || event.name}</h3>
               <p className='text-xs font-semibold'>{event.min_price && event.min_price}</p>
               <div className='h-auto overflow-hidden w-full space-y-1'>
@@ -72,7 +71,6 @@ export default function EventsStack() {
               }}
             >
 
-              <span className='absolute top-2 right-2 bg-pink-500 text-white text-xs px-1 rounded'>{dayjs(event?.start_date).format('dd mm yyyy')}</span>
               {event.image_link === 'no_image' || event.image === 'no_image' && <p className='font-heading text-pink-200 text-sm uppercase'>Fesa</p>}
             </div>
             <div className='h-full w-full flex flex-col justify-between gap-4 col-span-4'>
