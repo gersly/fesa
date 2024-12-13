@@ -9,11 +9,11 @@ const navigation = [
   { name: 'Events in Paramaribo', href: '/city/paramaribo' },
   { name: 'Events in Amsterdam', href: '/city/amsterdam' },
   { name: 'Events in Rotterdam', href: '/city/rotterdam' },
-  { name: 'Events in London', href: '/city/london' },
+  //{ name: 'Events in London', href: '/city/london' },
   { name: 'Venues', href: '/venues' },
   //{ name: 'Advertise with us', href: '/sell-tickets' },
   {
-    //name: 'Add your event', href: '/post-event', current: true
+    name: 'Add your event', href: '/add-event', current: true
   }
 ]
 
