@@ -53,6 +53,8 @@ export default function EventsStack() {
             </div>
             <div className='py-2 space-y-1'>
               <h3 className='text-sm hover:text-pink-500 font-semibold'>{event.title || event.name}</h3>
+              <p className='text-neutral-500 text-xs pb-1'>{dayjs(event.date || event.start_date).format('dddd, DD MMMM YYYY')}</p>
+
               <p className='text-xs font-semibold'>{event.min_price && event.min_price}</p>
               <div className='h-auto overflow-hidden w-full space-y-1'>
                 <div>
