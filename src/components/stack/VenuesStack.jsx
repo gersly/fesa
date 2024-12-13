@@ -8,7 +8,6 @@ export default function VenuesStack() {
   const { venues, isLoading } = useVenuesStore();
 
   useEffect(() => {
-    console.log('Venues:', venues.length)
   }, [venues])
 
   return (

@@ -7,7 +7,7 @@ const AdWidget = (src) => {
 
   useEffect(() => {
     if(adRef.current) {
-      console.log('adRef.current', adRef.current)
+      //console.log('adRef.current', adRef.current)
       const script = document.createElement('script')
       script.src = `${src}`
       script.async = true

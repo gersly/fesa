@@ -34,7 +34,6 @@ export default function Home() {
     // Validate dates before making the search
     validateDates();
 
-    console.log('searching...', city, startingDate, endingDate);
     await fetchEvents({
       city: city,
       startingDate: dayjs(startingDate).toISOString(),
@@ -47,7 +46,6 @@ export default function Home() {
     // Validate dates before making the search
     validateDates();
 
-    console.log('searching...', city, startingDate, endingDate);
     await fetchEventsNewPage({
       city: city,
       startingDate: dayjs(startingDate).toISOString(),
