@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime'
 import Link from 'next/link';
 import { useEventsStore } from '@/store/eventsStore';
+
+dayjs.extend(relativeTime);
 
 export default function EventsStack() {
   const { events, isLoading } = useEventsStore();
@@ -36,7 +39,7 @@ export default function EventsStack() {
           className="bg-white flex flex-col rounded text-neutral-900 cursor-pointer"
         >
           <div className="rounded md:block hidden">
-            <div className={`h-[160px] w-full px-4 py-5 rounded bg-pink-50 border border-pink-200`}
+            <div className={`h-[160px] w-full px-2 py-1 rounded bg-pink-50  border border-pink-200`}
               style={{
                 backgroundImage: event.image !== 'no_image' && `url('${event.image_link || event.image}')`,
                 backgroundSize: 'cover',
@@ -61,19 +64,22 @@ export default function EventsStack() {
           </div>
           {/* Show on mobile */}
           <div className='grid grid-cols-7 gap-2 md:hidden'>
-            <div className={`h-[94px] px-1 rounded bg-pink-50 border border-pink-200 col-span-3 flex items-center justify-center`}
+            <div className={`h-[94px] px-1 rounded bg-pink-50 border border-pink-200 col-span-3 flex items-start justify-start`}
               style={{
                 backgroundImage: event.image !== 'no_image' && `url('${event.image_link || event.image}')`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center top'
               }}
             >
+
+              <span className='absolute top-2 right-2 bg-pink-500 text-white text-xs px-1 rounded'>{dayjs(event?.start_date).format('dd mm yyyy')}</span>
               {event.image_link === 'no_image' || event.image === 'no_image' && <p className='font-heading text-pink-200 text-sm uppercase'>Fesa</p>}
             </div>
             <div className='h-full w-full flex flex-col justify-between gap-4 col-span-4'>
               <div>
                 <p className='font-semibold hover:text-pink-500 text-sm truncate pb-1'>{event.title || event.name}</p>
                 <p className='text-neutral-500 text-xs pb-1'>{dayjs(event.date || event.start_date).format('dddd, DD MMMM YYYY')}</p>
+
                 <p className='text-xs font-semibold'>{event.min_price && event.min_price}</p>
               </div>
               <div>

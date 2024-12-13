@@ -34,7 +34,7 @@ export default function App(
       <Head>
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <title>Fesa</title>
-        <meta name="description" content="Discover events near you" />
+        <meta name="description" content="Discover events in Paramaribo, Amsterdam & Rotterdam" />
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="mask-icon" href="/icons/mask-icon.svg" color="#111111" />
         <meta name="theme-color" content="#111111" />
@@ -56,16 +56,14 @@ export default function App(
         />
         <link rel="manifest" href="/manifest.json" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:url" content="https://fesa.vercel.app" />
-        <meta name="twitter:title" content="Fesa - Discover events near you" />
-        <meta name="twitter:description" content="Discover events near you" />
-        <meta name="twitter:image" content="/twitter.png" />
-        <meta name="twitter:creator" content="@gxrsly" />
+        <meta name="twitter:url" content="https://fesa.app" />
+        <meta name="twitter:title" content="Fesa" />
+        <meta name="twitter:description" content="Discover events in Paramaribo, Amsterdam & Rotterdam" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Fesa" />
-        <meta property="og:description" content="Discover the best events near you" />
-        <meta property="og:site_name" content="Fesa - Discover events near you" />
-        <meta property="og:url" content="https://fesa.vercel.app" />
+        <meta property="og:description" content="Discover events in Paramaribo, Amsterdam & Rotterdam" />
+        <meta property="og:site_name" content="Fesa" />
+        <meta property="og:url" content="https://fesa.app" />
         <meta property="og:image" content="/og.png" />
         {/* add the following only if you want to add a startup image for Apple devices. */}
         <link
