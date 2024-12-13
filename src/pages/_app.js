@@ -4,6 +4,7 @@ import posthog from "posthog-js"
 import { PostHogProvider } from 'posthog-js/react'
 import { Analytics } from "@vercel/analytics/react"
 import { MapProvider } from '@/components/maps/map-providers'
+import Script from 'next/script'
 
 if(typeof window !== 'undefined') { // checks that we are client-side
   posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
@@ -32,6 +33,34 @@ export default function App(
   return (
     <>
       <Head>
+        {/*<Script>
+          !function(f,b,e,v,n,t,s)
+          {if(f.fbq)return;n=f.fbq=function(){n.callMethod ?
+            n.callMethod.apply(n, arguments) : n.queue.push(arguments)};
+          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+          n.queue=[];t=b.createElement(e);t.async=!0;
+          t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+          'https://connect.facebook.net/en_US/fbevents.js');
+          fbq('init', '255779914831607');
+          fbq('track', 'PageView');
+        </Script>*/}
+        <Script
+          dangerouslySetInnerHTML={{
+            __html: ` !function(f,b,e,v,n,t,s)
+          {if(f.fbq)return;n=f.fbq=function(){n.callMethod ?
+            n.callMethod.apply(n, arguments) : n.queue.push(arguments)};
+          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+          n.queue=[];t=b.createElement(e);t.async=!0;
+          t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+          'https://connect.facebook.net/en_US/fbevents.js');
+          fbq('init', '255779914831607');
+          fbq('track', 'PageView');`
+          }} />
+        <noscript><img height="1" width="1" style="display:none"
+          src="https://www.facebook.com/tr?id=255779914831607&ev=PageView&noscript=1"
+        /></noscript>
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <title>Fesa</title>
         <meta name="description" content="Discover events in Paramaribo, Amsterdam & Rotterdam" />
@@ -65,6 +94,7 @@ export default function App(
         <meta property="og:site_name" content="Fesa" />
         <meta property="og:url" content="https://fesa.app" />
         <meta property="og:image" content="/og.png" />
+
         {/* add the following only if you want to add a startup image for Apple devices. */}
         <link
           rel="apple-touch-startup-image"
@@ -107,6 +137,7 @@ export default function App(
           <Component {...pageProps} />
         </MapProvider>
         <Analytics />
+
       </PostHogProvider>
     </>
   )
