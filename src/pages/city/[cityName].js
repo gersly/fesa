@@ -55,7 +55,7 @@ export default function EventsCityPage() {
       </Head>
       <div className='flex lg:pb-10 bg-black md:pb-8 flex-col grayscale-0 items-center justify-center '
         style={{
-          background: `url("/banner.png")`,
+          //background: `url("/banner.png")`,
           backgroundPosition: 'center center',
           backgroundSize: 'cover',
         }}

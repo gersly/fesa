@@ -5,8 +5,6 @@ import QueryDropdown from './bites/QueryDropdown'
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 import { useEventsStore } from '@/store/eventsStore'
 import TopNavigation from '../navigation/TopNavigation'
-import Tabs from '../navigation/Tabs'
-import PageLayout from '../layouts/PageLayout'
 dayjs().format()
 
 
@@ -34,7 +32,7 @@ function HomeHeader({
 
       <div className='flex lg:pb-10 bg-black md:pb-8 flex-col grayscale-0 items-center justify-center '
         style={{
-          background: `url("${backgrounds[0]}")`,
+          //background: `url("${backgrounds[0]}")`,
           backgroundPosition: 'center bottom',
           backgroundSize: 'cover',
         }}
@@ -98,12 +96,6 @@ function HomeHeader({
           </div>
         </div>
       </div>
-      <PageLayout>
-        <Tabs
-          startingDate={startingDate}
-          setStartingDate={setStartingDate}
-        />
-      </PageLayout>
     </>
   )
 }

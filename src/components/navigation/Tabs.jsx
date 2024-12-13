@@ -33,27 +33,29 @@ export default function Tabs(
   }
 
 
-  return (
-    <div className="max-w-5xl w-full overflow-hidden sm:py-4 py-2 relative z-10 bg-white">
-      <div className="border-0 border-neutral-200">
-        <nav className="flex space-x-1 overflow-y-scroll w-full px-0 no-scrollbar items-end" aria-label="Tabs">
-          {tabs.map((tab) => (
-            <p
-              onClick={() => handleTabChange(tab)}
-              key={tab.name}
-              href={tab.href}
-              className={classNames(
-                tab.slug === activeTab
-                  ? 'border-pink-400 text-pink-400 font-semibold text-sm'
-                  : 'border-transparent text-neutral-500 hover:text-pink-500 hover:border-pink-500 text-sm font-base',
-                'whitespace-nowrap cursor-pointer bg-white rounded-full min-w-20 py-0.5 px-2 border-2'
-              )}
-              aria-current={tab.current ? 'page' : undefined}>
-              {tab.name}
-            </p>
-          ))}
-        </nav>
-      </div>
-    </div>
-  )
+  //return (
+  //  <div className="max-w-5xl w-full overflow-hidden sm:py-4 py-2 relative z-10 bg-white">
+  //    <div className="border-0 border-neutral-200">
+  //      <nav className="flex space-x-1 overflow-y-scroll w-full px-0 no-scrollbar items-end" aria-label="Tabs">
+  //        {tabs.map((tab) => (
+  //          <p
+  //            onClick={() => handleTabChange(tab)}
+  //            key={tab.name}
+  //            href={tab.href}
+  //            className={classNames(
+  //              tab.slug === activeTab
+  //                ? 'border-pink-400 text-pink-400 font-semibold text-sm'
+  //                : 'border-transparent text-neutral-500 hover:text-pink-500 hover:border-pink-500 text-sm font-base',
+  //              'whitespace-nowrap cursor-pointer bg-white rounded-full min-w-20 py-0.5 px-2 border-2'
+  //            )}
+  //            aria-current={tab.current ? 'page' : undefined}>
+  //            {tab.name}
+  //          </p>
+  //        ))}
+  //      </nav>
+  //    </div>
+  //  </div>
+  //)
+
+  return null
 }

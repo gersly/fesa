@@ -20,7 +20,7 @@ export default function DiscoverHeader({
     <>
       <div className='flex lg:pb-10 bg-black md:pb-8 flex-col grayscale-0 items-center justify-center '
         style={{
-          background: `url("/banner.png")`,
+          //background: `url("/banner.png")`,
           backgroundPosition: 'center center',
           backgroundSize: 'cover',
         }}
@@ -83,12 +83,6 @@ export default function DiscoverHeader({
           </div>
         </div>
       </div>
-      <PageLayout>
-        <Tabs
-          startingDate={startingDate}
-          setStartingDate={setStartingDate}
-        />
-      </PageLayout>
     </>
   )
 }
