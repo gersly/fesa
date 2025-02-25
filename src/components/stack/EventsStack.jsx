@@ -191,7 +191,7 @@ export default function EventsStack() {
               <div className='grid grid-cols-7 gap-2 md:hidden'>
                 <div className={`h-[94px] px-1 rounded bg-pink-50 border border-pink-200 col-span-3 flex items-center justify-center`}
                   style={{
-                    backgroundImage: `url('${ad?.image}')`,
+                    backgroundImage: `url('${ad?.image_link}')`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center top'
                   }}
