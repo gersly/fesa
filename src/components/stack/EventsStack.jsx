@@ -12,17 +12,23 @@ export default function EventsStack() {
   const postsBeforeAd = 10; // Set this variable to control how many posts before an ad appears.
 
   const ads = [
-    //{
-    //  id: 1,
-    //  name: 'Get the best prices for rides in all countries',
-    //  image: 'https://www.travelpayouts.com/blog/wp-content/uploads/2020/10/gettransfer_cover-1.png',
-    //  link: 'https://gettransfer.tp.st/1qFmcnaf'
-    //},
+    {
+      id: 1,
+      name: 'Get the best prices for rides in all countries',
+      image: 'https://www.travelpayouts.com/blog/wp-content/uploads/2020/10/gettransfer_cover-1.png',
+      link: 'https://gettransfer.tp.st/1qFmcnaf'
+    },
     {
       id: 2,
       name: 'Instant connectivity for 200+ countries and regions',
       image: 'https://theartoflivinginturkey.com/wp-content/uploads/2023/07/Screenshot-2023-07-11-at-10.00.43.png',
       link: 'https://airalo.tp.st/RHtg91ar'
+    },
+    {
+      id: 3,
+      name: 'Get Travel Insurance for your next trip',
+      image: 'https://media.licdn.com/dms/image/v2/D4D22AQF9BfyfaPtISA/feedshare-shrink_800/B4DZRBe7GcGUAg-/0/1736265414495?e=2147483647&v=beta&t=SZTu2VZlT4B_zte7waFE0Nql9d8e9g70VaUYA0jP4m0',
+      link: 'https://tp.media/r?marker=569680&trs=351614&p=5869&u=https%3A%2F%2Fektatraveling.com&campaign_id=225'
     }
   ]
   useEffect(() => {
@@ -93,48 +99,96 @@ export default function EventsStack() {
       );
 
       // Add sponsored post after every 'postsBeforeAd' posts
+      //if((index + 1) % postsBeforeAd === 0) {
+      //  ads.forEach((ad, index) => {
+      //    eventComponents.push(
+      //      <Link
+      //        href={ad.link}
+      //        key={`sponsored-${index}`}
+      //        className="bg-white flex flex-col rounded text-neutral-900 cursor-pointer"
+      //      >
+      //        <div className="rounded md:block hidden">
+      //          <div className={`h-[160px] w-full px-4 py-5 rounded bg-pink-50 border border-pink-200`}
+      //            style={{
+      //              backgroundImage: `url('${ad.image}')`,
+      //              backgroundSize: 'cover',
+      //              backgroundPosition: 'center center'
+      //            }}
+      //          />
+      //          <div className='py-2 space-y-1'>
+      //            <p className='text-xs text-neutral-500'>Sponsored</p>
+      //            <h3 className='text-sm hover:text-pink-500 font-semibold'>{ad.name}</h3>
+      //          </div>
+      //        </div>
+      //        {/* Show on mobile */}
+      //        <div className='grid grid-cols-7 gap-2 md:hidden'>
+      //          <div className={`h-[94px] px-1 rounded bg-pink-50 border border-pink-200 col-span-3 flex items-center justify-center`}
+      //            style={{
+      //              backgroundImage: `url('${ad.image}')`,
+      //              backgroundSize: 'cover',
+      //              backgroundPosition: 'center top'
+      //            }}
+      //          >
+      //          </div>
+      //          <div className='h-full w-full flex flex-col justify-between gap-4 col-span-4'>
+      //            <div>
+      //              <p className='font-semibold hover:text-pink-500 text-sm pb-1'>{ad.name}</p>
+      //              <p className='text-neutral-500 text-xs pb-1'>Sponsored</p>
+      //            </div>
+      //          </div>
+      //        </div>
+      //      </Link>
+      //    );
+      //  });
+      //}
+
+      // Add sponsored post after every 'postsBeforeAd' posts
       if((index + 1) % postsBeforeAd === 0) {
-        ads.forEach((ad, index) => {
+        const adIndex = Math.floor((index / postsBeforeAd) % ads.length); // Ensure a valid index
+        const ad = ads[adIndex];
+
+        if(ad) {
           eventComponents.push(
             <Link
-              href={ad.link}
+              href={ad?.link}
               key={`sponsored-${index}`}
+              target='_blank'
               className="bg-white flex flex-col rounded text-neutral-900 cursor-pointer"
             >
               <div className="rounded md:block hidden">
                 <div className={`h-[160px] w-full px-4 py-5 rounded bg-pink-50 border border-pink-200`}
                   style={{
-                    backgroundImage: `url('${ad.image}')`,
+                    backgroundImage: `url('${ad?.image}')`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center center'
                   }}
                 />
                 <div className='py-2 space-y-1'>
                   <p className='text-xs text-neutral-500'>Sponsored</p>
-                  <h3 className='text-sm hover:text-pink-500 font-semibold'>{ad.name}</h3>
+                  <h3 className='text-sm hover:text-pink-500 font-semibold'>{ad?.name}</h3>
                 </div>
               </div>
               {/* Show on mobile */}
               <div className='grid grid-cols-7 gap-2 md:hidden'>
                 <div className={`h-[94px] px-1 rounded bg-pink-50 border border-pink-200 col-span-3 flex items-center justify-center`}
                   style={{
-                    backgroundImage: `url('${ad.image}')`,
+                    backgroundImage: `url('${ad?.image}')`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center top'
                   }}
-                >
-                </div>
+                />
                 <div className='h-full w-full flex flex-col justify-between gap-4 col-span-4'>
                   <div>
-                    <p className='font-semibold hover:text-pink-500 text-sm pb-1'>{ad.name}</p>
+                    <p className='font-semibold hover:text-pink-500 text-sm pb-1'>{ad?.name}</p>
                     <p className='text-neutral-500 text-xs pb-1'>Sponsored</p>
                   </div>
                 </div>
               </div>
             </Link>
           );
-        });
+        }
       }
+
     });
     return eventComponents;
   }
