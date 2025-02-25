@@ -60,7 +60,7 @@ export default function EventDetailPage() {
               </div>
               {activeEvent?.ticket_link && (
                 <Link href={activeEvent?.ticket_link} target='_blank'>
-                  <button>
+                  <button className='text-sm bg-pink-500 hover:bg-pink-400 text-white rounded px-2 py-1'>
                     Get Tickets
                   </button>
                 </Link>
