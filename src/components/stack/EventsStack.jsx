@@ -56,11 +56,10 @@ export default function EventsStack() {
               <p className='text-neutral-500 text-xs pb-1'>{dayjs(event.date || event.start_date).format('dddd, DD MMMM YYYY')}</p>
 
               <p className='text-xs font-semibold'>{event.min_price && event.min_price}</p>
-              <div className='h-auto overflow-hidden w-full space-y-1'>
-                <div>
-                  <p className='text-xs text-neutral-500'>{event.organisator || event.venue}</p>
-                </div>
-              </div>
+              {event.ticket_link && (
+                <span className='bg-pink-50 text-pink-500 text-xs p-1 rounded'>Tickets available</span>
+              )}
+              <p className='text-xs text-neutral-500'>{event.organisator || event.venue}</p>
             </div>
           </div>
           {/* Show on mobile */}
@@ -80,9 +79,12 @@ export default function EventsStack() {
                 <p className='font-semibold hover:text-pink-500 text-sm truncate pb-1'>{event.title || event.name}</p>
                 <p className='text-neutral-500 text-xs pb-1'>{dayjs(event.date || event.start_date).format('dddd, DD MMMM YYYY')}</p>
 
-                <p className='text-xs font-semibold'>{event.min_price && event.min_price}</p>
-              </div>
-              <div>
+                <div className='flex items-center justify-start space-x-2 text-neutral-600 text-md'>
+                  <p className='text-xs font-semibold'>{event.min_price && event.min_price}</p>
+                  {event.ticket_link && (
+                    <span className='bg-pink-50 text-pink-500 text-xs p-1 rounded'>Tickets available</span>
+                  )}
+                </div>
                 <p className='text-xs text-neutral-500'>{event.organisator || event?.venue}</p>
               </div>
             </div>

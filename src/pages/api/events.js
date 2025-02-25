@@ -23,6 +23,7 @@ export default async function handler(req, res) {
         image,
         venue,
         min_price, 
+        ticket_link,
         venues(name, city, country, street, internal_id, latitude, longitude, image)
         `)
         .eq('internal_id', id)
@@ -43,6 +44,7 @@ export default async function handler(req, res) {
         image,
         venue,
         min_price, 
+        ticket_link,
         venues!inner(name, city, country, street, internal_id, latitude, longitude, image)
         `)
 

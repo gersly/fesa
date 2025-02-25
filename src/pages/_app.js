@@ -35,7 +35,7 @@ export default function App(
       <Head>
 
 
-        <noscript><img height="1" width="1" style="display:none"
+        <noscript><img height="1" width="1"
           src="https://www.facebook.com/tr?id=255779914831607&ev=PageView&noscript=1"
         /></noscript>
         <meta name="viewport" content="width=device-width,initial-scale=1" />

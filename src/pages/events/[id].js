@@ -9,6 +9,7 @@ import { ArrowLeft, PaperMoney, PaperMoneyTwo, Pin } from '@icon-park/react'
 import { useEventsStore } from '@/store/eventsStore'
 import Image from 'next/image'
 import { MapComponent } from '@/components/maps/map'
+import Link from 'next/link'
 dayjs().format()
 
 export default function EventDetailPage() {
@@ -53,8 +54,17 @@ export default function EventDetailPage() {
               <p className='md:text-md text-sm'>{dayjs(activeEvent?.start_date).format('dddd, DD MMMM YYYY')}</p>
             </div>
             <div className='flex items-center justify-start space-x-2 text-neutral-600 text-md'>
-              <PaperMoneyTwo className='w-5 h-5' />
-              <p className='capitalize md:text-md text-sm'>{activeEvent?.min_price ? activeEvent.min_price : 'Free'}</p>
+              <div className='flex items-center justify-start space-x-2 text-neutral-600 text-md'>
+                <PaperMoneyTwo className='w-5 h-5' />
+                <p className='capitalize md:text-md text-sm'>{activeEvent?.min_price ? activeEvent.min_price : 'Free'}</p>
+              </div>
+              {activeEvent?.ticket_link && (
+                <Link href={activeEvent?.ticket_link} target='_blank'>
+                  <button>
+                    Get Tickets
+                  </button>
+                </Link>
+              )}
             </div>
             <div
               onClick={() => router.push(`/venues/${activeEvent?.venues?.internal_id}`)}
