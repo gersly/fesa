@@ -13,7 +13,7 @@ import { useRouter } from 'next/navigation'
 dayjs().format()
 
 export default function EventsPage() {
-  const [startingDate, setStartingDate] = useState(dayjs().format('YYYY-MM-DD'))
+  const [startingDate, setStartingDate] = useState(dayjs().subtract(1, 'day').format('YYYY-MM-DD'))
   const [endingDate, setEndingDate] = useState(dayjs().add(1, 'day').format('YYYY-MM-DD'))
   const [city, setCity] = useState("")
   const [page, setPage] = useState(0)
